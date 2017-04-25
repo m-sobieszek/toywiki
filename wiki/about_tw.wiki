@@ -41,11 +41,11 @@ For example, I do not attempt to formalise mathematics completely or automate th
 (7) Since the notes are informal and haven't been peer-reviewed yet, I expect there to be mistakes and typos on accuracy or attributions. 
 If you find something fishy or outright wrong, open an issue or submit a pull request on Github. 
 You are also welcome to open an issue if you have a question about any of the notes. 
-You can also reach me by email if you have any comments about the project itself.
+You can also reach me by email (&#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;) if you have any comments about the project itself.
 
 (8) I hope you find something useful here. 
 
-(9) Contents of toywiki by Yuchen Pei are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]]. 
+(9) Contents of toywiki are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]] (check out [[tw_people|the people involved in this project]]).
 However, the attribution rule does *not* apply if you want to use any content in a formal academic setting: e.g. in a research paper. 
 In this case please send me an email if you are thinking of attributing me, so that I can check the accuracy and attributions.
 

@@ -28,11 +28,11 @@
 <div class="footer">
     <hr/>
     <div class="footerleft">
-        <a href="about_tw.html">About</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. Contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+        <a href="about_tw.html">about</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. <a href="tw_people.html">people</a>. contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
     </div>
     <div class="footerright">
         Last updated on %date%. <!--views-->
-        toywiki by Yuchen Pei is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
+        Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
     </div>
 </div>
 
