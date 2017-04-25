@@ -1,0 +1,50 @@
+:toywiki:
+
+%title Welcome to toywiki
+
+by Yuchen Pei
+
+(1) toywiki hosts a collection of research notes on mathematics.
+
+(2) I wrote these notes to help myself solidify my mathematical knowledge and share my research.
+
+(3) toywiki is also an experimental open-source project. 
+It is synchronised with [[https://github.com/ycpei/toywiki|a Github repository]].
+You are welcome to do open-sourcy things with it too: fork, submit an issue, submit a pull request etc.
+Collaborations, whether original research or not, should be preferably [[https://opensource.guide/how-to-contribute/|open-source contributions]].
+For example, all communication should be as public as possible, unless it involves sensitive information or that you are unfamiliar with Github.
+
+(4) Style-wise, toywiki notes are meant to give a modular and intuitive presentation.
+
+(5) I believe mathematical knowledge is highly modular and incremental,
+and that mathematical writing is not much dissimilar to computer programming.
+For example here is a table of some analogues between mathematical writing and programming.
+
+| Mathematical writing                         | Computer programming                         |
+|----------------------------------------------|----------------------------------------------|
+| Theorems, lemmas, propositions, corollaries  | Functions and procedures                     |
+| Lemmas                                       | Helper functions                             |
+| Invoking a theorem                           | Calling a function                           |
+| Examples                                     | Test cases                                   |
+| Papers, notes, books                         | Libraries and modules                        |
+| Citing a paper, book etc.                    | Importing a library                          |
+| Declaring a variable                         | Declaring a variable                         |
+| Variables have scopes (e.g. dummy variables) | Variables have scopes (e.g. local variables) |
+
+On toywiki, I try to abide by the modularity to write as few repeated statements as possible and improve the clarity and simplicity of the demonstration.
+
+It is really like a programming project, except the computer can not help debug and find errors (see (7)).
+
+(6) Despite the inspiration from computer programming, on toywiki formality is secondary to clarity, simplicity or efficiency.
+For example, I do not attempt to formalise mathematics completely or automate theorem proving.
+
+(7) Since the notes are informal and haven't been peer-reviewed yet, I expect there to be mistakes and typos on accuracy or attributions. 
+If you find something fishy or outright wrong, open an issue or submit a pull request on Github. 
+You are also welcome to open an issue if you have a question about any of the notes. 
+You can also reach me by email if you have any comments about the project itself.
+
+(8) I hope you find something useful here. 
+
+(9) Contents of toywiki by Yuchen Pei are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]].
+
+(10) Oh, and why is it called toywiki? Because I think toy examples are the best tool to study mathematics :)

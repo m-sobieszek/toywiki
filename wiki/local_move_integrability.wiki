@@ -1,0 +1,44 @@
+:local_moves:
+
+%title Local move integrability
+
+(So far local moves are only seen in RSK, gRSK and $q$RSK, but let us try to generalise it. 
+In generality "local move integrability" may not be a good name because $\rho$ does not have to decompose into mpas that are local, but let us keep it until we find some non-local type.)
+
+(We do not know the local move integrability for either dual-spec algorithms or Warren-type processes so we don't generalise it above the usual-spec RSK-type algorithms.)
+
+The local move integrability is a symmetric treatment to the usual-RSK-type integrabilities, and generalises the usual-RSK-type algorithms from taking matrix input, to taking tableaux input.
+
+In the case of RSK algorithm it is related to the ocotahedron recurrence [{hopkins14}].
+
+* Let $(s_{ij})_{i, j \ge 1} \in K^{\pint_{>0} \times \pint_{>0}}$ be an infinite array on $K$ (think of $K$ as real or integers).
+* Let $\rho_{n, k}$ be a map on $s$ such that $\rho_{n, k}$ only alters the diagonal terms $(s_{n - i, k - i})_{i = 0 : n \wedge k - 1}$.
+* Let $(w_{n, k})_{n, k \ge 1}$ be independent random variables with probability mass function $(p_{n, k})$, and we informally write $\prob(w_{n, k}) = p_{n, k}(w_{n, k})$.
+
+For a partition $\Lambda$ with a growth sequence
+{{$
+  \emptyset \nearrow \Lambda(1) \nearrow \Lambda(2) \dots \nearrow \Lambda(N - 1) \nearrow \Lambda
+}}$
+
+We define $T_\Lambda$ by
+{{$
+  T_\Lambda = \rho_{\Lambda / \Lambda(N - 1)} \circ \dots \circ \rho_{\Lambda(2) / \Lambda(1)} \circ \rho_{\Lambda(1) / \emptyset}.
+}}$
+
+We assume this definition does not depend on the growth sequence.
+
+* Let for any partition $\Lambda$ let $\mu_\Lambda(s)$ be a measure on $K^\Lambda$.
+
+*Definition*. The local move integrability is
+{{$
+\sum_{w_{n, k}, s'} \prob(w_{n, k}) \mu_\Lambda(s') \prob(\rho_{\Theta \setminus \Lambda} s' = s) = \mu_\Theta(s). \qquad (1)
+}}$
+
+*Theorem*. Given $A = (w_{n, k})$, the local move integrability implies
+{{$
+\prob(T_\Lambda A(\Lambda) = s) = \mu_\Lambda(s).
+}}$
+
+*Proof*. Just apply (1) recursively. $\square$
+
+Examples of local move integrability include RSK, gRSK, $q$RSK and (hypothetically) Macdonald RSK.

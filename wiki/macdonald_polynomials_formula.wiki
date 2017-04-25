@@ -1,0 +1,56 @@
+:macdonald_polynomials:special_functions:
+
+%title Explicit formula of Macdonald polynomials
+
+We derive the explicit formula of the [[macdonald_polynomials|Macdonald polynomials]] based on Pieri's rule.
+Let
+{{$
+f(u) = {(t u)_\infty \over (q u)_\infty}.
+}}$
+We denote
+{{$%align%
+G(n, k) &:= {(q^n t^{k + 1})_\infty \over (q^{n + 1} t^k)_\infty} = f(q^n t^k) \\
+g(n, k) &:= {(q t^k)_n \over (t^{k + 1})_n}
+}}$
+Then
+{{$
+{g(n_1, k) \over g(n_2, k)} = {G(n_1, k) \over G(n_2, k)} = {f(q^{n_1} t^k) \over f(q^{n_2} t^k)}.
+}}$
+
+Recall the branching rule of the Macdonald polynomials.
+
+We start from
+{{$%align%
+\psi_{\lambda / \mu} &= \prod_{1 \le i \le j \le \ell(\mu)} {f(q^{\mu_i - \mu_j} t^{j - i}) f(q^{\lambda_i - \lambda_{j + 1}} t^{j - i}) \over f(q^{\lambda_i - \mu_j} t^{j - i}) f(q^{\mu_i - \lambda_{j + 1}} t^{j - i})} \\
+&= \prod_{1 \le i \le j \le \ell(\mu)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}.
+}}$
+This first equality can be found on page 342 of [{macdonald98}].
+
+Furthermore, note for $n_1 \ge n_2$
+{{$
+{g(n_1, k) \over g(n_2, k)} = {(q^{n_2 + 1} t^k)_{n_1 - n_2} \over (q^{n_2} t^{k + 1})_{n_1 - n_2}}.
+}}$
+Therefore for a semistandard Young tableaux $T \leftrightarrow (\lambda^k_j)_{1 \le j \le k \le \ell}$,
+{{$
+\psi_T = \prod_{1 \le i \le j \le k - 1 \le \ell - 1} {(q^{\lambda^{k - 1}_i - \lambda^{k - 1}_j} t^{j - i + 1})_{\lambda^k_i - \lambda^{k - 1}_i} (q^{\lambda^{k - 1}_i - \lambda^k_{j + 1} + 1} t^{j - i})_{\lambda^k_i - \lambda^{k - 1}_i} \over (q^{\lambda^{k - 1}_i - \lambda^{k - 1}_j + 1} t^{j - i})_{\lambda^k_i - \lambda^{k - 1}_i} (q^{\lambda^{k - 1}_i - \lambda^k_{j + 1}} t^{j - i + 1})_{\lambda^k_i - \lambda^{k - 1}_i}}.
+}}$
+
+And for $\lambda = \lambda_{1 : \ell}$ the Macdonald polynomial
+{{$
+P_\lambda(x) = \sum_{T:\sh T = \lambda} \psi_T x^T.
+}}$
+
+Similarly one can write down the formula for 
+{{$
+Q_\lambda (x) = \sum_{T: \sh T = \lambda} \phi_T x^T.
+}}$
+
+In this case again on page 342 of [{macdonald98}]:
+{{$%align%
+\phi_{\lambda / \mu} &= \prod_{1 \le i \le j \le \ell(\lambda)} {f(q^{\lambda_i - \lambda_j} t^{j - i}) f(q^{\mu_i - \mu_{j + 1}} t^{j - i}) \over f(q^{\lambda_i - \mu_j} t^{j - i}) f(q^{\mu_i - \lambda_{j + 1}} t^{j - i})} \\
+&= \prod_{1 \le i \le j \le \ell(\lambda)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}.
+}}$
+And thus
+{{$
+\phi_T = \prod_{1 \le i \le j \le k \le \ell} {(q^{\lambda^k_i - \lambda^k_j} t^{j - i + 1})_{\lambda^k_j - \lambda^{k - 1}_j} (q^{\lambda^k_i - \lambda^k_{j + 1} + 1} t^{j - i})_{\lambda^k_{j + 1} - \lambda^{k - 1}_{j + 1}} \over (q^{\lambda^k_i - \lambda^k_j + 1} t^{j - i})_{\lambda^k_j - \lambda^{k - 1}_j} (q^{\lambda^k_i - \lambda^k_{j + 1}} t^{j - i + 1})_{\lambda^k_{j + 1} -\lambda^{k - 1}_{j + 1}}}.
+}}$

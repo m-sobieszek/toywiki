@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>
+
+<title>Cauchy-Littlewood identities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li>Cauchy-Littlewood identities</li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Cauchy-Littlewood identities</h1><hr/>
+
+
+
+<ul>
+<li>
+Recall \(E(t, x)\) and \(H(t, x)\) from <a href="simple_symmetric_functions.html">Simple symmetric functions</a>.
+
+</ul>
+
+<p>
+We follow Chapter 1 of [{macdonald98}].
+</p>
+<div id="Definition"><h2 id="Definition">Definition</h2></div>
+\[
+\sum_\lambda s_\lambda(x) s_\lambda(y) = \prod{1 \over 1 - x_i y_j} =: \Pi(x, y) \qquad (4.3)
+\]
+<p>
+Unless otherwise specified, sums like this are over all partitions.
+This is true for symmetric polynomial case \(x = x_{1 : n}\) and \(y = y_{1 : \ell}\) as well as in the symmetric function case.
+</p>
+
+<p>
+recall the definition
+</p>
+\[
+z_\lambda = \prod_{i \ge 1} i^{m_i} m_i!
+\]
+<p>
+where \(m_i\) is the number of parts of \(\lambda\) equal to \(i\), i.e. \(m_i = \lambda'_i - \lambda'_{i + 1}\).
+</p>
+
+<p>
+Other similar stuff:
+</p>
+\begin{align}
+\sum_\lambda z_\lambda^{-1} p_\lambda(x) p_\lambda(y) &amp;= \Pi(x, y) \qquad(4.1) \\
+\sum_\lambda h_\lambda(x) m_\lambda(y) = \sum_\lambda h_\lambda(y) m_\lambda(x) &amp;= \Pi(x, y) \qquad(4.2)
+\end{align}
+
+<p>
+<span id="Definition-Claim"></span><strong id="Claim">Claim</strong>. \(\omega_x \Pi(x, y) = \omega_y \Pi(x, y) = \prod(1 + x_i y_j) =: \Pi'(x, y)\).
+</p>
+
+<p>
+<span id="Definition-Proof"></span><strong id="Proof">Proof</strong>.
+</p>
+\begin{align}
+\omega_x \Pi(x, y) = \omega_x \prod_j H(y_j, x) = \omega_x \prod_j (\sum_n y_j^n h_n(x)) = \prod_j (\sum_n y_j^n \omega_x h_n(x))\\
+= \prod_j \sum_n y_j^n e_n(x) = \prod_j E(y_j, x) = RHS.
+\end{align}
+<p>
+\(\square\)
+</p>
+<div id="Orthogonality"><h2 id="Orthogonality">Orthogonality</h2></div>
+<p>
+Define scalar product on \(\Lambda\) by
+</p>
+\[
+\langle h_\lambda, m_\mu \rangle = \delta_{\lambda \mu}
+\]
+
+<p>
+Then
+</p>
+
+<p>
+<span id="Orthogonality-Theorem"></span><strong id="Theorem">Theorem</strong> (4.6). For \(n \ge 0\), let \((u_\lambda)_{\lambda \vdash n}\) and \((v_\lambda)_{\lambda \vdash n}\) be \(\mathbb Q\) bases of \(\Lambda^n_{\mathcal Q}\). Then the following are equivalent:
+</p>
+<ul>
+<li>
+\(\langle u_\lambda, v_\mu \rangle = \delta_{\lambda \mu}, \forall \lambda, \mu\)
+
+<li>
+\(\sum_\lambda u_\lambda(x) v_\lambda(y) = \Pi(x, y)\)
+
+</ul>
+
+<p>
+Hence
+</p>
+\[
+\langle p_\lambda, p_\mu \rangle = \delta_{\lambda \mu} z_{\lambda}, \qquad \langle s_\lambda, s_\mu \rangle = \delta_{\lambda \mu}.
+\]
+
+<p>
+(4.9) the bilinear form is symmetric and positive definite.
+</p>
+
+<p>
+Since \(\omega(p_\lambda) = \pm p_\lambda\),
+</p>
+
+<p>
+(4.10) The involution \(\omega\) is an isometry, i.e. \(\langle \omega u, \omega v \rangle = \langle u, v \rangle\).
+</p>
+
+<p>
+Therefore by the Claim we have three dual Cauchy-Littlewood identities:
+</p>
+\begin{align}
+\sum_\lambda \epsilon_\lambda z_\lambda^{-1} p_\lambda(x) p_\lambda(y) &amp;= \Pi'(x, y) \\
+\sum_\lambda m_\lambda(x) e_\lambda(y) = \sum_\lambda m_\lambda(y) e_\lambda(x) &amp;= \Pi'(x, y) \\
+\sum_\lambda s_\lambda(x) s_{\lambda'}(y) &amp;= \Pi'(x, y).
+\end{align}
+
+
+<h2>References</h2><ul>
+<li>
+[macdonald98] <span class="title">Symmetric Functions and Hall Polynomials</span>, <span class="author">I. MacDonald</span>, <span class="year"> 1998</span>.</li>
+</ul>
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">About</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. Contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 25 Apr 2017. <!--views-->
+        toywiki by Yuchen Pei is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

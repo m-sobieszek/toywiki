@@ -1,0 +1,43 @@
+:markov_function_theorem:doob_transform:
+%title Markov-Doob integrability
+
+The [[markov_function_theorem|Markov function theorem]] and [[doob_transform|Doob's transform]] can be combined to show certain "intergrability".
+
+Let $f: S \to T$ be a function.
+Let $w: S \to [0, \infty)$ be a weight function, and $h: T \to (0, \infty)$ its "generating function":
+{{$
+h(y) = \sum_{x \in f^{-1} (y)} w(x) \qquad (-1)
+}}$
+
+Define stochastic kernel $K: T \times S \to [0, 1]$ by
+{{$
+K(y, x) = {w(x) \over h(y)} 1_{y = f(x)}. \qquad (-1)
+}}$
+
+These notations will play the same role as they appear in the Markov function theorem.
+We show that an equation implies both Doob transform and the intertwining relation in the Markov function theorem.
+
+*Lemma*. Let $X$ be Markov with state space $S$ and transition kernel $P$, and let $Y_n := f(X_n)$. Then if there exists kernel $A: T \times T \to [0, \infty)$ such that
+{{$
+A(y, f(x')) w(x') = \sum_{x \in f^{-1}(y)} w(x) P(x, x') \qquad (0)
+}}$
+for all $x' \in S$ and $y \in T$, then 
+# $h$ is $A$-harmonic. 
+{{$
+\sum_{y'} A(y, y') h(y') = h(y).
+}}$
+# $Y|_{X_0 \sim K(f(X_0), \cdot)}$ is a Markov process with transition kernel
+{{$
+Q(y, y') = h(y)^{-1} A(y, y') h(y'),
+}}$
+    which is the Doob $h$-transform of $A$.
+# $\prob(X_n = x | Y_n = f(x), Y_{1 : n - 1}) = {w(x) \over h(f(x))}.$
+
+*Proof*. By plugging in $K$ and $Q$ and using (0), it is straightforward to verify the intertwining relation
+{{$
+K P = Q K \qquad (1)
+}}$
+Therefore we can apply the Markov function theorem to show Items 2 and 3.
+For item 1, simply sum both sides over $x'$ and use (-1) and the fact that $P$ is a transition kernel. $\square$
+
+The Markov-Doob integrability can be carried over to continuous-time case involving generators as well.

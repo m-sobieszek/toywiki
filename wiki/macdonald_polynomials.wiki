@@ -1,0 +1,247 @@
+:macdonald_polynomials:
+
+%title Macdonald polynomials
+
+* Recall $z_\lambda$, $\Pi'(x, y)$ from [[cauchy_littlewood_identity|Cauchy-Littlewood identities]].
+
+We follow Chapter 6 of Macdonald's book [{macdonald98}].
+== Derivation ==
+Let
+{{$
+z_\lambda(q, t) := z_\lambda \prod_{i = 1 : l(\lambda)} {1 - q^{\lambda_i} \over 1 - t^{\lambda_i}}
+}}$
+and define inner product
+{{$
+\langle p_\lambda, p_\mu \rangle = \langle p_\lambda, p_\mu \rangle_{q, t} = \delta_{\lambda \mu} z_\lambda(q, t).
+}}$
+Then the $\braket{\cdot, \cdot}_{q, q}$ is the same as the one defined in [[cauchy_littlewood_identity]].
+Let $\Lambda_F = \Lambda \otimes F$ where $F = \rtnl(q, t)$
+Also define
+{{$
+\Pi(x, y; q, t) = \prod_{i j} {(t x_i y_j; q)_\infty \over (x_i y_j; q)_\infty}
+}}$
+then
+{{$
+\Pi(x, y; q, t) = \sum_\lambda z_\lambda(q, t)^{-1} p_\lambda(x) p_\lambda(y) \qquad (2.6)
+}}$
+and that
+{{$
+\braket{u_\lambda, u_\mu} = \delta_{\lambda \mu} \Leftrightarrow \sum_\lambda u_\lambda(x) u_\lambda(y) = \Pi(x, y; q, t). \qquad (2.7)
+}}$
+Define $g_n$ by
+{{$
+\prod_i {(t x_i y; q)_\infty \over (x_i y; q)_\infty} = \sum_n g_n(x; q, t) y^n. \qquad (2.8)
+}}$
+Then since $p_\lambda(y_1) = y_1^n$
+{{$
+\sum_n g_n(x; q, t) y_1^n = \Pi (x, (y_1, 0, 0, ... ); q, t) = \sum_\lambda z_\lambda(q, t)^{-1} p_\lambda(x) y_1^{|\lambda|}
+}}$
+so
+{{$
+g_n(x; q, t) = \sum_{\lambda \vdash n} z_\lambda(q, t)^{- 1} p_\lambda (x)
+}}$
+Also by (2.8),
+{{$
+\Pi(x, y; q, t) = \prod_j \sum_n g_n(x; q, t) y_j^n = \sum_\lambda g_\lambda(x; q, t) m_\lambda(y)
+}}$
+hence $g_\lambda$ and $m_\lambda$ are basis dual to each other.
+For $u, v \in F$, let $\omega_{u, v} : \Lambda_F \to \Lambda_F$ be defined by
+{{$
+\omega_{u, v} (p_r) = (-1)^{r - 1} {1 - u^r \over 1 - v^r} p_r
+}}$
+hence
+# $\omega_{q, t} p_\lambda = \epsilon_\lambda p_\lambda \prod_i {1 - q^{\lambda_i} \over 1 - t^{\lambda_i}} p_\lambda = \epsilon_\lambda z_\lambda^{-1} z_\lambda(q, t) p_\lambda$.
+# $\omega_{u, v} = \omega_{v, u}^{-1}$ and $\omega_{u, u} = \omega$.
+# $\omega_{u, v}$ is self-adjoint: $\braket{\omega_{u, v} f, g} = \braket{f, \omega_{u, v} g}$, as this can be verified when $f = p_\lambda$ and $g = p_\mu$.
+# $\braket{\omega_{t, q} f, g}_{q, t} = \braket{\omega f, g}_{q, q}$, which can also be verified when $f = p_\lambda$ and $g = p_\mu$:
+{{$
+\braket{\omega_{q, t}^{-1} p_\lambda, p_\mu}_{q, t} = \epsilon_\lambda z_\lambda z_{\lambda}(q, t)^{-1} \braket{p_\lambda, p_\mu}_{q, t} = \epsilon_\lambda z_\lambda \delta_{\lambda \mu} = \braket{\omega p_\lambda, p_\mu}_{q, q}.
+}}$
+Hence by (2.9), and (2.14') in Ch 1 of [{macdonald98}] 
+%%(need to add to this wiki)
+{{$
+\omega_{q, t} g_n = \sum_{\lambda \vdash n} \omega_{q, t} z_\lambda(q, t)^{-1} p_\lambda = \sum_{\lambda \vdash n} \epsilon_\lambda z_\lambda^{-1} p_\lambda = e_n
+}}$
+Moreover
+{{$%align%
+\omega_{q, t, x} \Pi(x, y; q, t) &= \omega_{q, t, y} \Pi(x, y; q, t) = \sum_\lambda z_\lambda(q, t)^{-1} \omega_{q, t} p_\lambda(x) p_\lambda(y) \\
+&= \sum_\lambda z_\lambda^{-1} \epsilon_\lambda p_\lambda(x) p_\lambda(y) = \Pi'(x, y)
+}}$
+== Definition of the Macdonald polynomials ==
+Def. $P_\lambda$ is defined as the unique symmetric function $P_\lambda \in \Lambda_F$ such that
+# $P_\lambda = \sum_{\mu \le \lambda} u_{\lambda \mu} m_\mu$ where for some $u$ such that $u_{\lambda \lambda} = 1$.
+# $\braket{P_\lambda, P_\mu} = 0$ if $\lambda \neq \mu$.
+In particular
+{{$%align%
+P_{1^r} = e_r \qquad (4.8) \\
+P_{(r)} = {(q; q)_r \over (t; q)_r} g_r. (4.9)\\
+Q_{(n)} = g_n \qquad (5.5)
+}}$
+Now let
+{{$%align%
+b_\lambda = \braket{P_\lambda, P_\lambda}^{-1},\qquad (4.11) \\
+Q_\lambda = b_\lambda P_\lambda \qquad (4.12)
+}}$
+So that $P$ and $Q$ are duals of each other. Hence by (2.7)
+{{$
+\sum_\lambda P_\lambda(x) Q_\lambda(y) = \Pi(x, y) \qquad (4.13)
+}}$
+
+== Special cases ==
+# $q = t$: $P$ and $Q$ are [[schur_function|Schur functions]]
+# $q = 0$: $P$ and $Q$ are Hall-Littlewood polynomials
+# $q = t^\alpha$ and $t \to 1$: Jack polynomials
+# $t = 0$: [[q_whittaker_functions|q-Whittaker functions]]
+# $t = 1$: $P_\lambda = m_\lambda$
+# $q = 1$: $P_\lambda = e_{\lambda'}$.
+
+== Duality ==
+{{$%align%
+\omega_{q, t} P_\lambda(x; q, t) &= Q_{\lambda'}(x; t, q) \qquad (5.1) \\
+\omega_{q, t} Q_\lambda(x; q, t) &= P_{\lambda'} (x; t, q).
+}}$
+By (4.11), (4.12) and (5.1)
+{{$
+b_\lambda(q, t) b_{\lambda'}(t, q) = 1 \qquad (5.3)
+}}$
+By (5.1) and (4.13)
+{{$
+\sum_\lambda P_\lambda(x; q, t) P_{\lambda'} (y; t, q) = \sum_\lambda Q_\lambda(x; q, t) Q_{\lambda'}(x; t, q) = \Pi'(x, y)
+}}$
+== Pieri Formulas ==
+Define 
+{{$%align%
+T_{q, x_i} f(x_{1 : n}) &= f(x_{1 : i - 1}, q x_i, x_{i + 1 : n}) \\
+A_I (x; t) &= t^{r(r - 1) / 2} \prod_{i \in I, j \notin I} {t x_i - x_j \over x_i - x_j} \\
+D_n^r &= \sum_I A_I(x; t) \prod_{i \in I} T_{q, x_i}
+}}$
+Define a homomorphism $u_\mu$ by $u_\mu(x_i) = q^{\mu_i} t^{n - i}$, then
+{{$
+D_n^r P_\lambda = u_\lambda(e_r) P_\lambda \qquad (6.1)
+}}$
+hence 
+%%(for some reason)
+{{$
+\sum_I A_I(\prod_{i \in I} T_{q, x_i}) P_\lambda = u_\lambda(e_r) P_\lambda \qquad (6.2)
+}}$
+where the first sum is over $r$-element subsets $I$ of $[n]$ and
+{{$
+A_I = a_\delta^{-1} (\prod_{i \in I} T_{t, x_i}) a_\delta = \prod_{1 \le i < j \le n} {x_i t^{\ind_I(i)} - x_j t^{\ind_I(j)} \over x_i - x_j},
+}}$
+
+When $r = 1$, (6.2) becomes
+{{$
+\sum_{k = 1 : n} (\prod_{j \neq k} {x_j - x_k t \over x_j - x_k}) P_\lambda(x_{1 : k - 1}, q x_k, x_{k + 1 : n}) = (\sum_{k = 1 : n} q^{\lambda_k} t^{n - k}) P_\lambda(x)
+}}$
+
+We skip some derivation and show the main points:
+
+Define the armlength and leglenth
+{{$
+a_\lambda(s) = \lambda_i - j, \qquad a_\lambda'(s) = j - 1, \qquad l_\lambda(s) = \lambda'_j- i, \qquad l'_\lambda(s) = i - 1 \qquad (6.14)
+}}$
+and
+{{$
+b_\lambda(s) = s \in \lambda ? {1 - q^{a_\lambda(s)} t^{l_\lambda(s) + 1} \over 1 - q^{a_\lambda(s) + 1} t^{l_\lambda(s)}} : 1 \qquad (6.20)
+}}$
+then
+{{$
+b_\lambda = \prod_{s \in \lambda} b_\lambda(s)
+}}$
+
+Let $C_{\lambda / \mu}$ ($R_{\lambda / \mu}$) be the union of the columns (rows) intersecting $\lambda - \mu$.
+
+*Claim*. (Pieri's rule) Define
+{{$%align%
+\phi_{\lambda / \mu} &= \prod_{s \in C_{\lambda / \mu}} {b_\lambda(s) \over b_\mu(s)}\\
+\psi_{\lambda / \mu} &= \prod_{s \in R_{\lambda / \mu} - C_{\lambda / \mu}} {b_\mu(s) \over b_\lambda(s)}\\
+\phi'_{\lambda / \mu} &= \prod_{s \in R_{\lambda / \mu}} {b_\mu(s) \over b_\lambda(s)}\\
+\psi'_{\lambda / \mu} &= \prod_{s \in C_{\lambda / \mu} - R_{\lambda / \mu}} {b_\lambda(s) \over b_\mu(s)}
+}}$
+then
+{{$%align%
+P_\mu g_r &= \sum_\lambda \phi_{\lambda / \mu} P_\lambda \qquad (i)\\
+Q_\mu g_r &= \sum_\lambda \psi_{\lambda / \mu} Q_\lambda \\
+Q_\mu e_r &= \sum_\lambda \phi'_{\lambda / \mu} Q_\lambda \\
+P_\mu e_r &= \sum_\lambda \psi'_{\lambda / \mu} P_\lambda
+}}$
+where the sum is over horizontal (vertical) $r$-strips in the first and second (third and fourth) identities.
+
+Define $\phi_T$
+{{$
+\phi_T = \prod_{i = 1 : r} \phi_{\sh T^i / \sh T^{i - 1}} 
+}}$
+then by (i) of Pieri rule we have
+{{$
+P_\mu g_nu = \sum_\eta (\sum_{T : \sh T = \eta - \mu, \ty T = \nu} \phi_T) P_\eta. \qquad (i')
+}}$
+== Skew Macdonald polynomials ==
+Let
+{{$
+f^\lambda_{\mu \nu} = \braket{Q_\lambda, P_\mu P_\nu} \qquad (7.1)
+}}$
+so that
+{{$
+P_\mu P_\nu = \sum_\lambda f^\lambda_{\mu \nu} P_\lambda
+}}$
+Applying $\omega_{q, t}$ to both sides and noting the duality (5.1) one has
+{{$
+Q_{\mu'} (t, q) Q_{\nu'} (t, q) = \sum_\lambda f^\lambda_{\mu, \nu}(q, t) Q_{\lambda'} (t, q)
+}}$
+i.e.
+{{$
+Q_\mu Q_\nu = \sum_\lambda f^{\lambda'}_{\mu' \nu'}(t, q) Q_\lambda
+}}$
+Define
+{{$%align%
+&Q_{\lambda / \mu} = \sum_\nu f^\lambda_{\mu \nu} Q_\nu \\
+&\Leftrightarrow \braket{Q_{\lambda / \mu}, P_\nu} = \braket{Q_\lambda, P_\mu P_\nu} \\
+&\Leftrightarrow \braket{Q_{\lambda / \mu}, f} = \braket{Q_\lambda, P_\mu f}
+}}$
+Define $P_{\lambda / \mu}$ by
+{{$%align%
+&\braket{P_{\lambda / \mu}, Q_\nu} = \braket{P_\lambda, Q_\mu Q_\nu}\\
+&\Leftrightarrow \braket{P_{\lambda / \mu}, f} = \braket{P_\lambda, Q_\mu f} = \braket{b_\lambda^{-1} Q_\lambda, b_\mu P_\mu f} = b_\lambda^{-1} b_\mu \braket{Q_{\lambda / \mu}, f}
+}}$
+so
+{{$
+P_{\lambda / \mu} = b_\mu b_\lambda^{-1} Q_{\lambda / \mu}
+}}$
+*Claim*.
+# $Q_\lambda(x, z) = \sum_\mu Q_{\lambda / \mu} (x) Q_\mu (z)$  (7.9)
+# $P_\lambda(x, z) = \sum_\mu P_{\lambda / \mu}(x) P_\mu(z)$.
+
+*Proof*.
+{{$
+\sum_\lambda Q_{\lambda / \mu} (x) P_\lambda(y) = \sum_{\lambda, \nu} f^\lambda_{\mu \nu} Q_\nu(x) P_\lambda(y) = \sum_\nu P_\mu(y) P_\nu(y) Q_\nu(x) = P_\mu(y) \Pi(x, y)
+}}$
+so
+{{$
+\sum_{\lambda, \mu} Q_{\lambda / \mu}(x) P_\lambda(y) Q_\mu(z) = \sum_\mu P_\mu(y) \Pi(x, y) Q_\mu(z) = \Pi((x, z), y) = \sum_\lambda Q_\lambda(x, z) P_\lambda(y)
+}}$
+And the proof the $P$ is similar.  
+$\square$
+
+Now we can obtain the branching identity for the Macdonald polynomials:
+
+*Claim*.
+# $Q_{\lambda / \mu} (x) = \sum_{T : \sh T = \lambda - \mu} \phi_T(q, t) x^T$ (7.13)
+# $P_{\lambda / \mu} (x) = \sum_{T : \sh T = \lambda - \mu} \psi_T(q, t) x^T$
+*Proof*. Since $g$ and $m$ are dual to each other, by (i') of the Pieri rule 
+{{$%align%
+Q_{\lambda / \mu} = \sum_\nu \braket{Q_{\lambda / \mu}, g_\nu} m_\nu  = \sum_\nu \braket{Q_\lambda, P_\mu g_\nu} m_\nu \\
+= \sum_\nu \braket{Q_\lambda, \sum_\eta (\sum_{T: \sh T = \eta - \mu, \ty T = \nu} \phi_T) P_\eta} m_\nu\\
+= \sum_\nu (\sum_{T : \sh T = \lambda - \mu, \ty T = \nu} \phi_T) m_\nu = \sum_{T: \sh T = \lambda - \mu} \phi_T x^T
+}}$
+Similar method for $P$. $\square$
+
+%%== see also ==
+%%* [[simple_symmetric_functions]]
+%%* [[cauchy_littlewood_identity]]
+%%
+%%TODO:
+%%* What is the motivation of the Macdonald polynomials?
+%%* What are the difference operators related to the Macdonald polynomials? Are they not integral operators?
+%%* How are the Macdonald polynomials related to the q-deformed quantum Toda lattice?
+%%* There are $(q,t)$-analogues of Catalan numbers, binomial coefficients etc. see e.g. http://garsia.math.yorku.ca/MPWP/ - how are they related to the Macdonald polynomials?
+%%* Can one prove non-existence of determinantal formula for Macdonald polynomials?

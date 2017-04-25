@@ -1,0 +1,35 @@
+:macdonald_polynomials:macdonald_processes:
+
+%title Macdonald-RSK local move integrability
+
+Given an usual-RSK-type algorithm, let us write down the [[local_move_integrability|Local move integrability]] equation for the [[macdonald_processes_measures|Macdonald processes]].
+
+Let (c.f. [[macdonald_polynomials_formula|Explicit formula of Macdonald polynomials]])
+{{$
+g(n, k) = {(q t^k)_n \over (t^{k + 1})_n}.
+}}$
+
+Also given $\Lambda$, let $\alpha$ and $\beta$ be the "weight / type / content" of the array $s(\Lambda)$:
+{{$%align%
+\alpha_1 &= t_{\Lambda'_1, 1} \\
+\alpha_j &= \sum_{k = 1 : (j \wedge \Lambda'_j)} t_{\Lambda'_j - k + 1, j - k + 1} - \sum_{k = 1 : ((j - 1) \wedge \Lambda'_j)} t_{\Lambda'_j - k + 1, j - k}, \qquad j = 2 : \Lambda_1 \\
+\beta_1 &= t_{1, \Lambda_1} \\
+\beta_i &= \sum_{k = 1 : (i \wedge \Lambda_i)} t_{i - k + 1, \Lambda_i - k + 1} - \sum_{k = 1 : ((i - 1) \wedge \Lambda_i)} t_{i - k, \Lambda_i - k + 1} \qquad i = 2 : \Lambda'_1
+}}$
+
+In this setting, we have
+* $\mu_\Lambda(s) := M_\Lambda(s) \prod_{ij} {(a_i b_j)_\infty \over (a_i b_j t)_\infty} a^\alpha b^\beta$,
+    * where $M_\Lambda(s) := \prod_i g(s_{ii}, i - 1)^{-1} {\prod_{ijk} g(s_{ij} - s_{i - k, j - k}, k - 1) g(s_{ij} - s_{i - k, j - k}, k) \over \prod_{ij\ell} g(s_{ij} - s_{i - \ell, j - \ell + 1}, \ell - 1) \prod_{ij\ell}g(s_{ij} - s_{i - \ell + 1, j - \ell + 1}, \ell - 1)}$.
+    * When $\Lambda = (n^k)$ is a rectangular Young diagram, summing over non-diagonal terms $\{s_{i, j}: n - i \neq k - i\}$ results in the Macdonald measure for the diagonal terms $\lambda = (s_{n, k}, s_{n - 1, k - 1}, ..., s_{(n - k)^+ + 1, (k - n)^+ + 1})$:
+    {{$
+        \sum_{s_{i, j}: n - i \neq k - i} \mu_\Lambda(s) = P_\lambda(a) Q_\lambda(b) \prod_{ij} {(a_j b_i)_\infty \over (a_j b_i t)_\infty}.
+    }}$
+* $w_{n, k} \sim qt\text{Geom}(a_n b_k)$, the $qt$-deformed geometric distribution.
+* $\rho_{n, k}$ are unknown / to be found.
+
+*Theorem*. The local move integrability equation for Macdonald-RSK is thus
+{{$
+    \sum_{s'} {(t)_{s'_{n k}} \over (q)_{s'_{n k}}} {M_\Theta(s') \over M_\Lambda(s)} \prob(\rho_{n, k} s' = s) = 1. \qquad (1)
+}}$
+
+*Proof*. Plugging (1) in [[local_move_integrability|Local move integrability]] and simplify. $\square$

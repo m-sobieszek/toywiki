@@ -1,0 +1,38 @@
+:geometric_distribution:q_deformation:
+
+%title Geometric distributions
+
+*Definition*. $X \sim Geom(p)$ if
+{{$
+f_X(k) = p (1 - p)^k, \qquad k \ge 0
+}}$
+
+Then
+{{$
+\prob(X \ge n) = p \sum_{k \ge n} (1 - p)^k = (1 - p)^n
+}}$
+
+*Claim*. For $\theta > 0$, if $X_n \sim Geom(\theta / n)$ then $X_n / n \to Exp(\theta)$ the [[exponential_distribution|exponential distribution]] with parameter $\theta$. Write this as $Geom(\theta / n) / n \to Exp(\theta)$.
+
+*Proof*.
+{{$
+\prob(X_n / n \ge t) = (1 - \theta / n)^{n t} = e^{- \theta t}.
+}}$
+$\square$
+
+== $q$-deformation ==
+Let $q, \alpha \in [0, 1]$. With parameter $\alpha$, the $q$-geometric distribution $q$Geom$(\alpha)$ has pmf (see e.g. [{matveev-petrov15}])
+{{$
+f(k) = {\alpha^k \over (q)_k} (\alpha)_\infty
+}}$
+when $q = 0$ it turns into $Geom(1 - \alpha)$.
+
+== $qt$-deformation ==
+Let $q, t, \alpha \in [0, 1]$. The $qt$-geometric distribution $qt$Geom$(\alpha)$ has pmf
+{{$
+f(k) = \alpha^k {(t)_k \over (q)_k} {(\alpha)_\infty \over (\alpha t)_\infty}
+}}$
+It is a probability distribution due to Cauchy's $q$-binomial series formula, (3) in [[q_pochhammers]].
+
+* When $t = 0$, $qt$Geom = $q$Geom.
+* When $t = q$, $qt$Geom$(\alpha) = $Geom$(1 - \alpha)$.

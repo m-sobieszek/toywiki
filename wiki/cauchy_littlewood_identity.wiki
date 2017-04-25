@@ -1,0 +1,61 @@
+%title Cauchy-Littlewood identities
+
+* Recall $E(t, x)$ and $H(t, x)$ from [[simple_symmetric_functions|Simple symmetric functions]].
+
+We follow Chapter 1 of [{macdonald98}].
+== Definition ==
+{{$
+\sum_\lambda s_\lambda(x) s_\lambda(y) = \prod{1 \over 1 - x_i y_j} =: \Pi(x, y) \qquad (4.3)
+}}$
+Unless otherwise specified, sums like this are over all partitions.
+This is true for symmetric polynomial case $x = x_{1 : n}$ and $y = y_{1 : \ell}$ as well as in the symmetric function case.
+
+recall the definition
+{{$
+z_\lambda = \prod_{i \ge 1} i^{m_i} m_i!
+}}$
+where $m_i$ is the number of parts of $\lambda$ equal to $i$, i.e. $m_i = \lambda'_i - \lambda'_{i + 1}$.
+
+Other similar stuff:
+{{$%align%
+\sum_\lambda z_\lambda^{-1} p_\lambda(x) p_\lambda(y) &= \Pi(x, y) \qquad(4.1) \\
+\sum_\lambda h_\lambda(x) m_\lambda(y) = \sum_\lambda h_\lambda(y) m_\lambda(x) &= \Pi(x, y) \qquad(4.2)
+}}$
+
+*Claim*. $\omega_x \Pi(x, y) = \omega_y \Pi(x, y) = \prod(1 + x_i y_j) =: \Pi'(x, y)$.
+
+*Proof*.
+{{$%align%
+\omega_x \Pi(x, y) = \omega_x \prod_j H(y_j, x) = \omega_x \prod_j (\sum_n y_j^n h_n(x)) = \prod_j (\sum_n y_j^n \omega_x h_n(x))\\
+= \prod_j \sum_n y_j^n e_n(x) = \prod_j E(y_j, x) = RHS.
+}}$
+$\square$
+== Orthogonality ==
+Define scalar product on $\Lambda$ by
+{{$
+\langle h_\lambda, m_\mu \rangle = \delta_{\lambda \mu}
+}}$
+
+Then
+
+*Theorem* (4.6). For $n \ge 0$, let $(u_\lambda)_{\lambda \vdash n}$ and $(v_\lambda)_{\lambda \vdash n}$ be $\mathbb Q$ bases of $\Lambda^n_{\mathcal Q}$. Then the following are equivalent:
+* $\langle u_\lambda, v_\mu \rangle = \delta_{\lambda \mu}, \forall \lambda, \mu$
+* $\sum_\lambda u_\lambda(x) v_\lambda(y) = \Pi(x, y)$
+
+Hence
+{{$
+\langle p_\lambda, p_\mu \rangle = \delta_{\lambda \mu} z_{\lambda}, \qquad \langle s_\lambda, s_\mu \rangle = \delta_{\lambda \mu}.
+}}$
+
+(4.9) the bilinear form is symmetric and positive definite.
+
+Since $\omega(p_\lambda) = \pm p_\lambda$,
+
+(4.10) The involution $\omega$ is an isometry, i.e. $\langle \omega u, \omega v \rangle = \langle u, v \rangle$.
+
+Therefore by the Claim we have three dual Cauchy-Littlewood identities:
+{{$%align%
+\sum_\lambda \epsilon_\lambda z_\lambda^{-1} p_\lambda(x) p_\lambda(y) &= \Pi'(x, y) \\
+\sum_\lambda m_\lambda(x) e_\lambda(y) = \sum_\lambda m_\lambda(y) e_\lambda(x) &= \Pi'(x, y) \\
+\sum_\lambda s_\lambda(x) s_{\lambda'}(y) &= \Pi'(x, y).
+}}$

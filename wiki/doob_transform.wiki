@@ -1,0 +1,307 @@
+%% girsanov: write down a general statement of girsanov for transforming the drifts of multidimensional diffusion from a dt to b dt
+%% brownian bridge etc
+%% for brownian bridge: work out the harmonic function, and the space-time transform, also use this example to find out how to obtain the generator of a process from the generator of its space-time generator (c.f. example 3)
+%% further reading: martin boundary, see hints inside this wiki, question: are all rs cases covered by martin boundary?
+%% Sat 12 Dec 14:38:22 EST 2015
+:doob_transform:
+
+%title Doob's $h$-transform
+
+== Loosely speaking ==
+Let $A$ be a non-negative kernel on $S$ and $h$ that is $A$-harmonic positive function, then we call the transition kernel
+{{$
+Q_h(x, y) = {h(y) \over h(x)} A(x, y),
+}}$
+the Doob $h$-transform of $A$.
+
+*Examples*:
+
+| process                 | $h$                     |
+|-------------------------|-------------------------|
+| Schur processes         | Schur functions         |
+| Whittaker processes     | Whittaker functions     |
+| $q$-Whittaker processes | $q$-Whittaker functions |
+| Macdonald processes     | Macdonald polynomials   |
+
+In [[markov_doob_integrability|Markov doob integrability]] and the notes that depend on it we use this "loosely speaking" version of Doob's $h$-transform.
+
+In the following we mostly follow exposition in Bloemendal's draft notes "Doob's $h$-transform: theory and examples".
+== Derivation ==
+Consider a (continuous or discrete time) Markov process $X_t$ on state $S$ with kernel $P_t$.
+We associate with it a path space $\Omega$ with probability measures $(P_x)_{x \in S}$, and let $\mcf_t$ be the natural filtration of $(X_t)$.
+
+Let 
+{{$
+\mci := \{A: \theta_t^{-1} A = A \forall t\ge 0\},
+}}$
+then any $\mci$-measurable function is shift-invariant: $H \circ \theta_t = H \forall t \ge 0$, since
+{{$
+(H \circ \theta_t)^{-1} B = \theta_t^{-1} H^{-1} (B).
+}}$
+
+*Claim 1*. There is a one-one correspondence between bounded $\mci$-measurable functions and bounded $P_t$-harmonic functions.
+
+*Proof*. For any $H \in \mci$, let
+{{$
+h(x) = \expe_x H
+}}$
+Then by the Markov property
+{{$
+h(X_t) = \expe_{X_t} H = \expe_x (H \circ \theta_t | \mcf_t) = \expe_x (H | \mcf_t)
+}}$
+is a 
+%%(uniformly integrable?) 
+martingale, hence by Corollary 4 in [[infinitesimal_generator]] $h$ is $P_t$-harmonic.
+
+Conversely, given $P_t$-harmonic $h$, by [[martingale_convergence_theorem|martingale convergence theorem]]
+{{$
+H = \lim_{t \to \infty} h(X_t)
+}}$
+exists. And obviously $H \in \mci$. $\square$
+
+$L^\infty \mci$ is called the Poisson boundary.
+
+For $H = \ind_A$ for some $A \in \mci$, we define the conditional probability $Q_x = P_x(\cdot | A)$ (see Claim 1 in [[radon_nikodym_derivative]])
+{{$
+{d Q_x \over d P_x} = {\ind_A \over h(x)}.
+}}$
+
+By *Claim 2* in [[radon_nikodym_derivative]] and Pf of Claim 1
+{{$
+{d Q_x \over d P_x}|_{\mcf_t} = {h(X_t) \over h(x)}
+}}$
+
+Let $\tilde S = \{x \in S: h(x) > 0\}$ be accessible states. 
+
+*Claim*. $Q_x$ is a probability measure on paths in $\tilde S$ 
+
+*Proof*. $\forall t$, $Q_x (h(X_t) > 0) = \expe_x \ind_{h (X_t) > 0} {h (X_t) \over h(x)} = \expe_x {h(X_t) \over h(x)} = 1$, thus $\forall t X_t \in \tilde S, P_x$-a.s. 
+%%($forall t$, $Q_x(h(X_t) > 0) = 1$ or $Q_x(h(X_t) > 0, \forall t) = 1$?) 
+$\square$
+
+Define kernel $Q_t$
+{{$
+Q_t(x, d y) = {h(y) \over h(x)} P_t(x, dy) \qquad (1)
+}}$
+
+*Claim*. $Q_t$ is a stochastic semigroup.
+
+*Proof*.
+* $Q_t$ is stochastic because $h$ is $P_t$-harmonic.
+* $Q_t$ is a semigroup because it is a conjugate of $P_t$
+$\square$
+
+*Theorem 1*. Under $Q_x$ with $x \in \tilde S$, $X_t$ is Markov on $\tilde S$ with kernel $Q_t$
+
+*Proof*. Formally using Bayes theorem
+{{$
+P_x(X_{t + s} \in dy | A, \mcf_t) = {P_x(A | X_{t + s} = y, \mcf_t) P_x(X_{t + s} \in dy | \mcf_t) \over P_x(A | \mcf_t)} = {\expe_y(\ind_A \circ \theta_{t + s}) P_{X_t}(X_{t + s} \in dy) \over \expe_x (\ind_A | \mcf_t)} = {h(y) P_s(X_t, dy) \over h(X_t)}.
+}}$
+More precisely we want to show
+{{$
+\expe^Q_x (f(X_{t + s}) | \mcf_t) = h(X_t)^{-1} \expe_{X_t} f(X_s) h(X_s) \qquad Q_x \text{-a.s.}
+}}$
+We start from the RHS. For $B \in \mcf_t$,
+{{$%align%
+\expe_x^Q &h(X_t)^{-1} \expe_{X_t} f(X_s) h(X_s) \ind_B \\
+&= \expe^Q_x h(X_t)^{-1} \expe_x(f(X_{t + s}) h(X_{t + s}) | \mcf_t) \ind_B\\
+&= \expe_x {h(X_t) \over h(x)} h(X_t)^{-1} \expe_x(f(X_{t + s}) h(X_{t + s}) | \mcf_t) \ind_B\\
+&= \expe_x h(x)^{-1} f(X_{t + s}) h(X_{t + s}) \ind_B\\
+&= \expe^Q_x f(X_{t + s}) \ind_B
+}}$
+$\square$.
+
+== Continuous-time ==
+Taking generator on both sides of (1) we have
+{{$
+L^Q = m_{1 / h} L^P m_h \qquad (1.5)
+}}$
+
+*Claim*. Specifically if $X$ is a diffusion under $P$ with SDE and generator
+{{$%align%
+d X_t &= \sigma(X_t) d B_t + b(X_t) dt\\
+L^P &= {1 \over 2} \sigma \sigma^T : \nabla \nabla^T + b \cdot \nabla = {1 \over 2} \sum a_{i j} \partial_{x_i x_j} + \sum b_i \partial_{x_i} (1.7)
+}}$
+then
+{{$
+L^Q = L^P + a \nabla \log h \cdot \qquad (2)
+}}$
+
+*Proof*. plug $L^P$ in (1.7) into (1.5), and noting $L h = 0$. $\square$
+
+*Remark*. (2) can also be written as
+{{$
+L^Q f = L^P f + {1 \over h} \sigma^T \nabla h \cdot \sigma^T \nabla f
+}}$
+
+We also have that under $Q$,
+{{$
+d X_t = \sigma(X_t) d B_t + (b(X_t) + a \nabla h(X_t)) dt
+}}$
+namely a drift in the direction of increasing $h$ is added.
+
+== Conditioning on a null event ==
+When $P_x(A) = 0 \forall x$, one has to resort to the theory of Martin boundary (see perhaps e.g. [{sawyer97}]).
+
+Heuristically, one may use a sequence $A_n \in \mci$ (with harmonic function $h_n$) such that $\bigcup A_n = A$, and a sequence $c_n \in \real$ such that $\lim_n c_n h_n = h$ exists, is finite and positive.
+
+== Absorbing boundary ==
+A special case is when we consider an absorbing boundary $\partial S \subset S$ such that
+{{$
+P_t(x, dy) = \delta_x(dy), \forall x \in \partial S \forall t \ge 0
+}}$
+is the delta measure.
+
+Let $T = \tau_{\partial S}$, the previous formula means $X_t = X_{t \wedge T}$.
+
+We also consider $Z \subset \partial S$, and $H = \{X_T \in Z\}$.
+
+Then the condition is "the Markov process hits $Z$ when exitting $S \setminus \partial S$", i.e. $\{X_T \in Z\}$.
+
+The harmonic function $h$ is then a solution to the Dirichlet problem:
+{{$
+\begin{cases}
+L h(x) = 0, \qquad x \in S \setminus \partial S\\
+h(x) = \ind_Z, \qquad x \in \partial S
+\end{cases}
+}}$
+
+The solution 
+{{$
+$h(x) = P_x(X_T \in Z) = \expe_x h(X_T)
+}}$
+is a special case of potential theory in probability:
+{{$
+\begin{cases}
+L h(x) = 0, \qquad x \in S \setminus \partial S\\
+h(x) = f(x), \qquad x \in \partial S.
+\end{cases}
+}}$
+has solution
+{{$
+u(x) = \expe_x f(X_T)
+}}$
+since $u(X_t)$ is a martingale since
+{{$
+u(X_t) = \expe_{X_t} f(X_T) = \expe(f(X_{T + t}) | \mcf_t) = \expe(f(X_T) | \mcf_t)
+}}$
+due to the absorbing boundary.
+== Examples ==
+=== Simple random walk on $0 : N$ hitting $N$ before $0$. ===
+$S = 0 : N$, $\partial S = \{0, N\}$, $Z = \{N\}$.
+
+If $X_t$ is symmetric then the equation $P h = h$ is
+{{$
+h(i) = {1 \over 2} (h(i + 1) + h(i - 1)), \qquad i = 1 : N - 1 \qquad (3)
+}}$
+
+combined with boundary condition it is a Dirichlet problem for Laplace equation:
+{{$
+\begin{cases}
+\Delta h(i) = 0, \qquad i = 1 : N - 1\\
+h(0) = 0\\
+h(N) = 1
+\end{cases}
+}}$
+where $\Delta$ is the [[discrete_calculus|discrete Laplacian]].
+
+Solving this equation gives
+{{$
+h(i) = i / N
+}}$
+and the kernel $Q$ of the conditioned process by (1) is
+{{$
+Q(i, i + 1) = {i + 1 \over 2 i},\qquad Q(i, i - 1) = {i - 1 \over 2 i}, \qquad Q(i, \text{other j}) = 0 \qquad (4)
+}}$
+
+If $X_t$ is asymmetric, with probability $p$ of jumping from $i$ to $i + 1$, then the equation (3) is now
+{{$
+h(x) = p h(x + 1) + (1 - p) h(x - 1)
+}}$
+with the same boundary condition.
+Solving it gives
+{{$
+h(i) = {1 - r^i \over 1 - r^N}
+}}$
+where $r = {1 - p \over p}$.
+
+=== Brownian motion on $[0, M]$ hitting $M$ before $0$ ===
+Same as in the RW example, but continuous time.
+
+$S = [0, M]$, $\partial S = \{0, M\}$, $Z = \{M\}$.
+
+The equation $L h = 0$ with boundary condition is a Dirichlet problem
+{{$
+\begin{cases}
+{1 \over 2} h_{xx} (x) = 0 \qquad x \in (0, M)\\
+h(0) = 0\\
+h(M) = 1
+\end{cases}
+}}$
+solving which gives
+{{$
+h(x) = x / M.
+}}$
+
+Hence by (2) we have
+{{$
+L^Q = {1 \over 2} \partial_{xx} + {1 \over x} \partial_x.
+}}$
+
+=== Brownian motion on $[0, \pi]$ conditioned to remain in $(0, \pi)$ up to time $t_1$ ===
+We use the [[space_time_trick_stochastic_analysis|space-time trick]].
+$S = [0, t_1] \times [0, \pi]$, $\partial S = [0, t) \times \{0, \pi\} \cup \{t_1\} \times [0, \pi]$, $Z = \{t_1\} \times [0, \pi]$.
+
+Since the generator of $(t, X_t)$ is $\hat L = \partial_t + L$, combining this with boundary condition we obtain the backward heat equation:
+{{$
+\begin{cases}
+ \partial_t \hat h + {1 \over 2} \partial_{xx} \hat h = 0, \qquad (x, t) \in [0, t_1) \times (0, \pi) \\
+ h(t, 0) = h(t, \pi) = 0\qquad t \in [0, t_1)\\
+ h(t_1, x) = 1 \qquad x \in [0, \pi]
+\end{cases}
+}}$
+
+Solving this equation we have
+{{$
+\hat h(t, x) = \sum_{k \ge 1} c_k e^{- k^2 (t_1 - t)} \sin(k x)
+}}$
+where $c_k = {4 \over k \pi} \ind_{2 \nmid k}$.
+
+So the new generator is
+{{$
+\hat L^Q = \partial_t + L + {\partial_{t, x} \hat h(x, t) \over \hat h(x, t)} \cdot \nabla_{t, x} = \partial_t + L + {\sum c_k k e^{-k^2(t_1 - t)} \cos(k x) \over \sum c_k e^{- k^2 (t_1 - t)} \sin(k x)} \partial_x + {\sum c_k e^{- k^2 (t_1 - t)} (- k^2) \sin k x \over \sum c_k e^{- k^2 (t_1 - t)} \sin k x} \partial_t.
+}}$
+
+%%The question is: how do I recover the time-homogeneous $L^Q$ from $\hat L^Q$?
+
+Other examples include [[bessel_processes|Bessel processes]], [[dyson_brownian_motion]], [[brownian_bridge]], [[brownian_excursion]], and various [[solvable_models_gt_pattern|RS(K)-related models]].
+== Discrete case (possibly Martin boundary) ==
+This section follows exposition in [{oconnell03a}], let $P$ be a substochastic transition matrix on a countably infinite state sapce $S$,
+%%(how about finite?)
+and $G$ to be the associated Green's function:
+{{$
+G(x, y) = \sum_{n \ge 0} P^n (x, y).
+}}$
+Assuming 
+%%(why?) 
+$\exists x^* \in S$ s.t. $0 < G(x^*, y) < \infty \forall y \in S$.
+Suppose $h$ is a positive harmonic function w.r.t. $P$, then the Doob $h$-transform of $P$ is the stochastic kernel $P_h$ defined by
+{{$
+P_h(x, y) = {h(y) \over h(x)} P(x, y).
+}}$
+
+*Theorem* (Doob). If $\exists f$ s.t.
+{{$
+\lim_{n \to \infty} {G(x, X(n)) \over G(x^*, X(n))} = f(x) \qquad a.s.
+}}$
+then $h = C f$ for some $C$.
+
+When conditioning on an event $B$ with positive probability, we take
+{{$
+h(x) = P_x(B).
+}}$
+
+*Remark*. The continuous case should be defined similarly.
+
+*Remark*. Conditioning on a null event is more tricky. I know some examples, but don't know how the $h$'s are chosen.
+

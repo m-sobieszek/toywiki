@@ -1,0 +1,85 @@
+:markov_function_theorem:intertwining_relation:
+
+%title Markov function theorem
+
+== Definitions and proof ==
+*Theorem*([[stochastic_processes|discrete time discrete space version]] of Markov function theorem). Let $X$ be a Markov process with transition kernel $P$ on state space $S$, $f : S \to T$ for some space $T$, and $Y$ a process on space $T$ defined by $Y_t = f(X_t)$ for some $f$. 
+If there is a kernel $K: T \times S \to [0, 1]$ such that 
+
+# $K(y, x) = 0 \forall x \notin f^{-1}(y)$
+# $\sum_{x \in S} K(y, x) = 1 \forall y \in T$. 
+
+Then if stochastic matrix $Q: T \times T \to [0,1]$ satisfies the intertwining relation
+{{$
+ Q K = K P \qquad (1)
+}}$
+then if $X_0 \sim K(Y_0, \cdot)$ then 
+* $Y$ evolves as a Markov chain with kernel $Q$.
+* $\prob(X_n = x|Y_n = y, Y_{n - 1}, ..., Y_0) = K(y, x)$.
+
+*Remark*. Condition 1 means $(K(y, \cdot))_y$ has disjoint supports $f^{-1}(y)$. Therefore the LHS of of (1) has only one term and (1) becomes
+{{$
+Q(y, f(x')) K(f(x'), x') = \sum_{x \in f^{-1}(y)} K(y, x) P(x, x').
+}}$
+The intertwining relation (1) is the most important part of the theorem.
+Once it is verified, the results of the theorem should follow.
+
+*Proof*. Let $y_{0: n} \subset T$. Denote $A_k := f^{- 1} (y_k)$.
+{{$%align%
+ \mathbb P_{Y_0 = y_0} (Y_{0: n} = y_{0: n}) &= \mathbb P_{X_0 \sim K(y_0, \cdot)} (X_0 \in A_0, X_1 \in A_1, ..., X_n \in A_n) \\
+&= \sum_{x_{0: n} \in A_{0: n}} K(y_0, x_0) P(x_0, x_1) P(x_1, x_2) ... P(x_{n - 1}, x_n)\\
+&= \sum_{y_1' \in T, x_{1: n} \in A_{1: n}} Q(y_0, y_1') K(y_1', x_1) P(x_1, x_2) ... P(x_{n - 1}, x_n) \\
+&\overset{\dagger}{=} \sum_{x_{1: n} \in A_{1: n}} Q(y_0, y_1) K(y_1, x_1) P(x_1, x_2) ... P(x_{n - 1}, x_n)\\
+&= ... = \sum_{x_n \in A_n} Q(y_0, y_1) Q(y_1, y_2) ... Q(y_{n - 1}, y_n) K(y_n, x_n) \\
+&\overset{\dagger\dagger}{=} Q(y_0, y_1) Q(y_1, y_2) ... Q(y_{n - 1}, y_n).
+}}$
+where $\dagger$ and $\dagger\dagger$ we use the first and second conditions respectively.
+Therefore $Y$ is a Markov process with transition kernel $Q$. The proof for the continuous case should be the same.  $\square$
+
+Both assumptions that $X$ and $Y$ are probabilistic, as well as the positivity of $K$ can be relaxed, if we only focus on the algebraic structure.
+
+%%* [ ]  What is the algebraic structure anyway?
+
+For continuous-time Markov processes / chains besides the transition kernel there are also generators, and we have a corresponding version of the Markov function theorem as well.
+
+*Theorem*(continuous-time version of the Markov function theorem). Let $X$ be a Markov process with generator $L^X$ on space $S$, and $Y$ a process on $T$ where $Y_t = f(X_t)$ for some $f$. If there is a kernel $K: T \times S \to [0, 1]$ such that 
+# $K(y, x) = 0 \forall x \notin f^{-1}(y)$ 
+# $\int K(y, x) dx = 1$ for all $y \in T$ 
+Then if Markov generator $L^Y$ satisfies the intertwining relation
+{{$
+ K L^X = L^Y K
+}}$
+then $Y$ is Markov with generator $L^Y$.
+
+== Relation between the continuous and discrete Markov chain versions ==
+This bit is not verified by many examples. But just the RSK.
+
+Suppose we have [[markov|continuous-time Markov chains]] $\hat X$ and $\hat Y$ with generator $\hat P$ and $\hat Q$, and their embedded discrete-time chains $X$ and $Y$ with transition matrices $P$ and $Q$, such that
+{{$
+ P(x, x') = \begin{cases}
+- {\hat P(x, x') \over \hat P(x, x)}, & x \neq x' \\
+0, &x = x'
+\end{cases};\qquad
+Q(x, x') = \begin{cases}
+- {\hat Q(x, x') \over \hat Q(x, x)}, & x \neq x' \\
+0, &x = x'
+\end{cases}
+}}$
+
+In one case we can say that $P$ and $Q$ intertwines with $K$ iff $\hat P$ and $\hat Q$ with the same kernel.
+
+*Claim*. Assuming the following is satisfied:
+# $\hat P(x, x) = \hat Q(y, y) = c \forall x, y$
+# $\hat P(x, x') = 0$ whenever $f(x) = f(x')$ and $x \neq x'$,
+then
+{{$
+ \hat Q K = K \hat P \Leftrightarrow Q K = K P.
+}}$
+
+*Proof*. Quite straightforward. Consider the cases $y = y'$ and $y \neq y'$ separately. $\square$
+
+This Claim allows us to verify the intertwining relations of the embedded chains. One example are the RS models, where the continuous-time version has an input of $\ell$ Poisson processes, and $X, Y$ are two levels of shapes $(\lambda^{\ell - 1}, \lambda^\ell), \lambda^\ell$. 
+The two conditions correspond to
+# The total rate of change of $X$ and $Y$ are the sum of rates of the input Poisson processes
+# Whenever $\lambda^{\ell - 1}$ changes the next level changes as well
+

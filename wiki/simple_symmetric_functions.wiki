@@ -1,0 +1,74 @@
+%title Simple symmetric functions
+
+Sym = symmetrisation
+== Monomial ==
+* $m_\lambda(x) = Sym(x_1^{\lambda_1} ... x_\ell^{\lambda_\ell})$
+
+
+== Elementary ==
+* $e_\lambda = \prod_{i = 1 : \ell} e_{\lambda_i}$
+where
+* $e_n(x) = Sym(x_1...x_n)$
+
+Generating function:
+{{$
+E(t, x) = \prod_{1 \ge 1} (1 + t x_i)
+}}$
+
+== Complete homogenous ==
+* $h_\lambda = \prod_{i = 1 : \ell} h_{\lambda_i}$
+where
+* $h_n(x) = \sum_{n_1 + ... + n_k = n} x^n$
+
+generating function:
+{{$
+H(t, x) = \sum_{n \ge 0} t^n h_n(x) = \prod_{i \ge 1}{1 \over 1 - t x_i}.
+}}$
+
+== Relation between $e$ and $h$ ==
+* $H(t) E(-t) = 1$
+* so $\sum_{r = 0 : n} (-1)^r h_{n - r} e_r = 0$, i.e. $e_n = h_1 e_{n - 1} - h_2 e_{n - 2} + ...$.
+* The above relation shows that homomorphism $\omega$ defined by $\omega (e_n) = h_n$ is an involution.
+* $s_{(n)} = h_n$ and $s_{(n)'} = e_n$.
+
+== Forgotten ==
+Define $f_\lambda := \omega(m_\lambda)$, called the forgotten symmetric functions.
+
+[{macdonald98}]: no simple direct description.
+
+%%* [ ] Macdonald: no simple direct description. So what are some simple cases like $f_n$?
+
+== Power sum ==
+* $p_\lambda = \prod_{i = 1 : \ell} p_{\lambda_i}$
+where
+* $p_n(x) = Sym(x_1^n)$
+
+Dirichlet generating function ([{sagan00}]):
+{{$
+\sum_{n \ge 1} p_n(x) {t^n \over n} = \log \prod_{i \ge 1} {1 \over 1 - x_i t} = \log H(t, x).
+}}$
+
+Generating function ([{macdonald98}]):
+{{$%align%
+P(t) = \sum_{r \ge 1} p_r t^{r - 1} = H'(t) / H(t).
+P(-t) = E'(t) / E(t)
+}}$
+
+so
+{{$%align%
+n h_n = \sum_{r = 1 : n} p_r h_{n - r}\\
+n e_n = \sum_{r = 1 : n} (-1)^{r - 1} p_r e_{n - r}
+}}$
+The second one above is Newton's formula.
+
+So
+{{$
+\omega(p_n) = (-1)^{n - 1} p_n, \qquad \omega(p_\lambda) = (-1)^{|\lambda| - l(\lambda)} p_\lambda =: \epsilon_\lambda p_\lambda.
+}}$
+%%
+%%Define for $\lambda$ a partition
+%%{{$
+%%z_\lambda = \prod_{i \ge 1} i^{m_i} m_i!
+%%}}$
+%%where $m_i$ is the number of parts of $\lambda$ equal to $i$, i.e. $m_i = \lambda'_i - \lambda'_{i + 1}$.
+%%This definition is on page 24 of [{macdonald98}].

@@ -1,0 +1,33 @@
+:macdonald_polynomials:markov_function_theorem:doob_transform:macdonald_processes:macdonald_measures:
+
+%title Usual-spec Markov-Doob integrability for Macdonald processes
+
+We write down [[markov_doob_integrability_triangular_array|usual-spec Markov-Doob integrability equation]] for [[macdonald_processes_measures|Macdonald processes]].
+
+In this setting, we have
+* $h(\lambda) = P_\lambda$ are the Macdonald $P$-polynomials
+* $B(\lambda, \mu) = \psi_{\mu / \lambda} a_k^{|\mu| - |\lambda|}$
+* $A_u(\lambda, \mu) = \phi_{\mu / \lambda} u^{|\mu| - |\lambda|} \prod_i {(a_i u)_\infty \over (t a_i u)_\infty}$
+* $w_{nk} \sim qt\text{Geom}(a_k b_n)$, the [[geometric_distribution|qt-geometric distribution]].
+
+*Theorem*. The Markov-Doob integrability equation is
+{{$%align%
+    \sum_{\lambda^{n - 1, k - 1}} L( (\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}), \lambda^{n, k}) {\psi_{\lambda^{n - 1, k} / \lambda^{n - 1, k - 1}} \phi_{\lambda^{n, k - 1} / \lambda^{n - 1, k - 1}} \over \psi_{\lambda^{n, k} / \lambda^{n, k - 1}} \phi_{\lambda^{n, k} / \lambda^{n - 1, k}}} \notag \\
+    \times b_n^{|\lambda^{n - 1, k}| + |\lambda^{n, k - 1}| - |\lambda^{n - 1, k - 1}| - |\lambda^{n, k}|} {(t a_k b_n)_\infty \over (a_k b_n)_\infty} = 1. \qquad (1)
+}}$
+
+*Proof*. Plugging $A = A_{b_n}$, $B$ and $L$ into (1) in [[markov_doob_integrability_triangular_array|Markov-Doob integrability on triangular arrays]] and simplify. $\square$
+
+Combining this with the Corollary in [[markov_doob_integrability_triangular_array|Markov-Doob integrability on triangular arrays]] and the Claim in [[macdonald_processes_measures|Macdonald processes and measures]] we have
+
+*Corollary*. If (1) is satisfied then
+# $\lambda^k|_{\lambda^{0, 1 : k} \sim K(\lambda^{0, k}, \cdot)}$ is the [[macdonald_processes_measures|Macdonald process]], with transition kernel
+{{$
+Q(\lambda, \mu) = P_\lambda(a_{1 : k})^{-1} A_{b_n}(\lambda, \mu) P_\mu(a_{1 : k}),
+}}$
+    which is the [[doob_transform|Doob h-transform]] of $A$.
+# $\prob(\lambda^{n, 1 : k} = \mu^{1 : k} | \lambda^{n, k} = \mu^k, \lambda^{1 : n - 1, k}) = {\psi_{\mu^{1 : k}} a^{\mu^{1 : k}} \over P_{\mu^k}(a_{1 : k})}.$
+# The marginal law of $\lambda^{n, k}$ is the Macdonald measure
+{{$
+\prob(\lambda^{n, k} = \mu) = P_\mu(a_{1 : k}) Q_\mu(b_{1 : n}) \prod_{i j} {(b_i a_j)_\infty \over (b_i a_j t)_\infty}.
+}}$

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>
+
+<title>Geometric distributions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li>Geometric distributions</li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Geometric distributions</h1><hr/>
+
+
+<p>
+<span id="-geometric_distribution"></span><span class="tag" id="geometric_distribution">geometric_distribution</span> <span id="-q_deformation"></span><span class="tag" id="q_deformation">q_deformation</span>
+</p>
+
+
+<p>
+<span id="-Definition"></span><strong id="Definition">Definition</strong>. \(X \sim Geom(p)\) if
+</p>
+\[
+f_X(k) = p (1 - p)^k, \qquad k \ge 0
+\]
+
+<p>
+Then
+</p>
+\[
+\prob(X \ge n) = p \sum_{k \ge n} (1 - p)^k = (1 - p)^n
+\]
+
+<p>
+<span id="-Claim"></span><strong id="Claim">Claim</strong>. For \(\theta &gt; 0\), if \(X_n \sim Geom(\theta / n)\) then \(X_n / n \to Exp(\theta)\) the exponential distribution with parameter \(\theta\). Write this as \(Geom(\theta / n) / n \to Exp(\theta)\).
+</p>
+
+<p>
+<span id="-Proof"></span><strong id="Proof">Proof</strong>.
+</p>
+\[
+\prob(X_n / n \ge t) = (1 - \theta / n)^{n t} = e^{- \theta t}.
+\]
+<p>
+\(\square\)
+</p>
+
+<div id="$q$-deformation"><h2 id="$q$-deformation">\(q\)-deformation</h2></div>
+<p>
+Let \(q, \alpha \in [0, 1]\). With parameter \(\alpha\), the \(q\)-geometric distribution \(q\)Geom\((\alpha)\) has pmf (see e.g. [{matveev-petrov15}])
+</p>
+\[
+f(k) = {\alpha^k \over (q)_k} (\alpha)_\infty
+\]
+<p>
+when \(q = 0\) it turns into \(Geom(1 - \alpha)\).
+</p>
+
+<div id="$qt$-deformation"><h2 id="$qt$-deformation">\(qt\)-deformation</h2></div>
+<p>
+Let \(q, t, \alpha \in [0, 1]\). The \(qt\)-geometric distribution \(qt\)Geom\((\alpha)\) has pmf
+</p>
+\[
+f(k) = \alpha^k {(t)_k \over (q)_k} {(\alpha)_\infty \over (\alpha t)_\infty}
+\]
+<p>
+It is a probability distribution due to Cauchy's \(q\)-binomial series formula, (3) in <a href="q_pochhammers.html">q_pochhammers</a>.
+</p>
+
+<ul>
+<li>
+When \(t = 0\), \(qt\)Geom = \(q\)Geom.
+
+<li>
+When \(t = q\), \(qt\)Geom\((\alpha) = \)Geom\((1 - \alpha)\).
+
+</ul>
+
+
+<h2>References</h2><ul>
+<li>
+[matveev-petrov15] <span class="title">q-randomized Robinson-Schensted-Knuth correspondences and random polymers</span>, <span class="author">Konstantin Matveev, Leonid Petrov</span>, <span class="year"> 2016</span>.</li>
+</ul>
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">About</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. Contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 25 Apr 2017. <!--views-->
+        toywiki by Yuchen Pei is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

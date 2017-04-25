@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>
+
+<title>Markov-Doob integrability on triangular arrays</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li>Markov-Doob integrability on triangular arrays</li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Markov-Doob integrability on triangular arrays</h1><hr/>
+
+
+<p>
+<span id="-markov_function_theorem"></span><span class="tag" id="markov_function_theorem">markov_function_theorem</span> <span id="-doob_transform"></span><span class="tag" id="doob_transform">doob_transform</span> <span id="-intertwining_relation"></span><span class="tag" id="intertwining_relation">intertwining_relation</span>
+</p>
+
+<p>
+We use the notation in <a href="markov_doob_integrability.html">markov_doob_integrability</a>.
+When \(S^\ell\) is a triangular array \((\lambda^k_j)_{1 \le j \le k \le \ell}\) and \(T^\ell\) the space of the bottom row of the arrays \((\lambda^\ell_j)_{1 \le j \le \ell}\), equation (0) in <a href="markov_doob_integrability.html">markov_doob_integrability</a> can be further reduced to an equation between neighbouring rows.
+</p>
+
+<p>
+In the following we write superscript to indicate the level of the triangular array.
+For example \(P^k\) is the transition kernel of \(\lambda^{1 : k}\).
+</p>
+
+<div id="Pieri rule"><h2 id="Pieri rule">Pieri rule</h2></div>
+<p>
+One key assumption is Pieri rule for \(h\)
+</p>
+\[
+h^k(\lambda^k) = \sum_{\lambda^{k - 1}} B(\lambda^{k - 1}, \lambda^k) h^{k - 1} (\lambda^{k - 1})
+\]
+<p>
+which is equivalent to
+</p>
+\[
+w^k(\lambda^{1 : k}) = w^{k - 1} (\lambda^{1 : k - 1}) B(\lambda^{k - 1}, \lambda^k). \qquad (-1)
+\]
+
+<p>
+There are three types of results, the usual-spec, the exp-spec and the dual-spec, corresponding to the usual, exponential and dual specialisations of the symmetric functions.
+In terms of the RS(K) algorithms, they correspond to the usual RSK algorithm, the RS algorithm and the dual RSK algorithm.
+</p>
+
+<div id="usual-spec"><h2 id="usual-spec">usual-spec</h2></div>
+<p>
+One way to look at RSK dynamics is to look at its effect on two adjacent levels on the GT pattern, namely to see how it changes \(\lambda^j(n - 1)\) to \(\lambda^j(n)\) given \(\lambda^{j - 1}(n - 1)\) and \(\lambda^{j - 1}(n)\) and matrix element \(w_{n, j}\).
+</p>
+
+<p>
+To write everything in a more symmetric manner, we write \(\lambda^{n, k} := \lambda^k(n)\).
+</p>
+
+<p>
+In general in the usual specialisation (with discrete space), we have
+</p>
+<ul>
+<li>
+A matrix \(W = (w_{n, k})\), where \(w_{n, k} \sim p_{n, k}\) are independent random variables with some law \(p_{n, k}\).
+
+<li>
+A dynamics with stochastic kernel \(R_{v}((\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}), \lambda^{n, k})\), which is the law of obtaining \(\lambda^{n, k}\) after inserting \(v\) to \(\lambda^{n - 1, k}\) given \(\lambda^{n - 1, k - 1}\) and \(\lambda^{n, k - 1}\).
+
+</ul>
+
+<p>
+We write 
+</p>
+\[
+L(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k}) = \sum_{w} \prob(w_{n, k} = w) R_{w_{n, k}}((\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}), \lambda^{n, k})
+\]
+<p>
+to be the kernel of coupling of random variable \(w_{n, k}\) with the usual-spec dynamics.
+</p>
+
+<p>
+Then we have
+</p>
+\[
+  P^k(\lambda^{n - 1, 1 : k}, \lambda^{n, 1 : k}) = P^{k - 1} (\lambda^{n - 1, 1 : k - 1}, \lambda^{n, 1 : k - 1}) L(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k}). \qquad (0)
+\]
+
+<p>
+<span id="usual-spec-Proposition"></span><strong id="Proposition">Proposition</strong>. The equation
+</p>
+\begin{align}
+  A(\lambda^{n - 1, k}, \lambda^{n, k}) B(\lambda^{n, k - 1}, \lambda^{n, k}) = \sum_{\lambda^{n - 1, k - 1}} A(\lambda^{n - 1, k - 1}, \lambda^{n, k - 1}) B(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}) \notag \\
+  \times L( \lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k}). \qquad (1)
+\end{align}
+<p>
+implies (0) in <a href="markov_doob_integrability.html">markov_doob_integrability</a>.
+</p>
+
+<p>
+<span id="usual-spec-Proof"></span><strong id="Proof">Proof</strong>. Using induction.
+</p>
+\begin{align}
+    \sum_{\lambda^{n - 1, 1 : k - 1}} &amp;w^k (\lambda^{n - 1, 1 : k}) P^k(\lambda^{n - 1, 1 : k}, \lambda^{n, 1 : k})\\
+    &amp;= \sum_{\lambda^{n - 1, k - 1}} \sum_{\lambda^{n - 1, 1 : k - 2}} w^{k - 1} (\lambda^{n - 1, 1 : k - 1}) B(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}) P^{k - 1} (\lambda^{n - 1, 1 : k - 1}, \lambda^{n, 1 : k - 1}) \\
+    &amp;\qquad\qquad\qquad\qquad\qquad\times L(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k})\\
+    &amp;= \sum_{\lambda^{k - 1}} A(\lambda^{n - 1, k - 1}, \lambda^{n, k - 1}) w^{k - 1}(\lambda^{n, 1 : k - 1}) B(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}) \\
+    &amp;\qquad\qquad\qquad\qquad\qquad\times L(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k})\\
+    &amp;= w^{k - 1}(\lambda^{n, 1 : k - 1}) A(\lambda^{n - 1, k}, \lambda^{n, k}) B(\lambda^{n, k - 1}, \lambda^{n, k})\\
+    &amp;= A(\lambda^{n - 1, k}, \lambda^{n, k}) w^k(\lambda^{n, 1 : k}).
+\end{align}
+<p>
+  where in the first step we use (-1)(0), in the second step we use the induction assumption, in the third step we use (1), and in the last step we use (-1) again.
+  \(\square\)
+</p>
+  
+<p>
+Using the Lemma in <a href="markov_doob_integrability.html">Markov-Doob integrability</a> we have:
+</p>
+
+<p>
+<span id="usual-spec-Corollary"></span><strong id="Corollary">Corollary</strong>. Recall \(K\) defined in (-1) of <a href="markov_doob_integrability.html">Markov-Doob integrability</a>, which in our case is
+</p>
+\[
+K(\lambda^{1 : k}, \mu) = {w^k (\lambda^{1 : k}) \over h(\mu)} 1_{\lambda^k = \mu}.
+\]
+<p>
+Given \(p_{n, k}\) and \(R\) satisfying (1). Recall the \(n\) in \(\lambda^{n, k}\) is the time parameter and we can view \(\lambda^k\) as a stochastic process whose value at time \(n\) is \(\lambda^{n, k}\). We have
+</p>
+<ol>
+<li>
+\((\lambda^k|_{\lambda^{0, 1 : k} \sim K(\lambda^{0, k}, \cdot)}\) is a Markov process with transition kernel
+\[
+Q(\lambda, \mu) = h(\lambda)^{-1} A(\lambda, \mu) h(\mu),
+\]
+    which is the Doob \(h\)-transform of \(A\).
+
+<li>
+\(\prob(\lambda^{n, 1 : k} = \mu^{1 : k} | \lambda^{n, k} = \mu^k, \lambda^{1 : n - 1, k}) = {w^k(\mu^{1 : k}) \over h(\mu^k)}.\)
+
+</ol>
+
+<div id="exp-spec"><h2 id="exp-spec">exp-spec</h2></div>
+<p>
+For exp-spec algorithms, the inputs are words (discrete space) or paths (continuous space) instead of matrices.
+Consider the discrete space case.
+The integrability is similar, except that (0) is replaced by
+</p>
+\[
+  P^k(\lambda^{n - 1, 1 : k}, \lambda^{n, 1 : k}) = (I + P^{k - 1}) (\lambda^{n - 1, 1 : k - 1}, \lambda^{n, 1 : k - 1}) L(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k}). 
+\]
+<p>
+where \(I\) is the identity matrix.
+</p>
+
+
+
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">About</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. Contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 25 Apr 2017. <!--views-->
+        toywiki by Yuchen Pei is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

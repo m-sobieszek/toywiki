@@ -1,0 +1,216 @@
+:q_analogs:q_pochhammers:q_binomial_coefficients:q_vandermonde_chu_identity:
+
+%title $q$-Pochhammers
+%%q-binomial coefficients
+%%q-deformed distributions
+%%q-CCR
+%%q-Catalan
+%%formula 2
+%%formula binomial inversion q
+== $q$-Pochhammers ==
+By [{gasper-rahman04}],
+for $n \in \mathbb Z$ define
+{{$
+(a)_n := (a; q)_n :=
+\begin{cases}
+(1 - a) (1 - a q) ... (1 - a q^{n - 1}) & n > 0 \\
+1 & n = 0 \\
+{1 \over (1 - a q^{-1}) (1 - a q^{-2}) ... (1 - a q^{-n})} & n < 0
+\end{cases}
+}}$
+
+Thus for $n < 0$
+{{$
+(q)_n = \infty \qquad (1)
+}}$ 
+
+$\phi(q) := (q)_\infty$ is called Euler's function.
+
+== $q$-binomial coefficients ==
+For $n \ge 0$ define the $q$-binomial coefficients ${n \choose k}_q$ by
+{{$
+{n \choose k}_q = {(n)_q \over (k)_q (n - k)_q} \qquad (2)
+}}$
+Thus by (1) when $k < 0$ or $k > n$, ${n \choose k}_q = 0$.
+
+*Claim 1*. $\sum_{\lambda \subset n^k} q^{|\lambda|} = {n + k \choose k}_q$
+
+*Proof*. Denote the LHS by $F(n, k)$, then 
+{{$
+F(n, k) = F(n - 1, k) + q^n F(n, k - 1)
+}}$
+with $F(0, k) = F(n, 0) = 1$.
+This recursive relation with the boundary conditions agree with those of the binomial coefficients.
+$\square$
+
+*Remark*. The Young diagrams confined in the $k \times n$ rectangle correspond to walks from $(0, 0)$ with $n$ ups and $k$ downs. Setting $q = 1$ in (2) this degenerates to the binomial coefficients as enumerations of such walks.
+
+== Properties ==
+# $(x; q^{-1})_n = (- 1)^n x^n q^{-{n \choose 2}} (x^{-1}; q)_n$
+# $(q^{-n}; q)_k = {(n)_q \over (n - k)_q} (-1)^k q^{{k \choose 2} - n k}$
+# ${n \choose k}_{q^{-1}} = q^{- n (n - k)} {n \choose k}_q$
+# $(a)_{n - k} = {(a)_n \over (a^{-1} q^{1 - n})_k} (- q a^{-1})^k q^{{k \choose 2} - n k}$
+# $(a^{-1} q^{1 - n})_n = (a)_n (-a)^{- n} q^{- {n \choose 2}}$
+
+== Cauchy's $q$-binomial series ==
+
+*Theorem*.
+{{$
+{}_1\phi_0(a;;q;z) = \sum_{k \ge 0} {(a)_k \over (q)_k} z^k = {(a z)_\infty \over (z)_\infty}. \qquad |q| < 1, |z| < 1. \qquad (3)
+}}$
+
+*Proof*.
+{{$%align%
+F(a, z) - F(a, q z) &= (1 - a) z F(a q, z)\\
+F(a, z) - F(a q, z) &= - a z F(a q, z)
+}}$
+Eliminating $F(a q, z)$ we have
+{{$
+F(a, z) = {1 - a z \over 1 - z} F(a, q z).
+}}$
+Applying this recursively we have
+{{$
+F(a, z) = {(a z)_n \over (z)_n} F(a, q^n z).
+}}$
+Let $n \to \infty$ we have
+{{$
+F(a, z) = {(a z)_\infty \over (z)_\infty} F(a, 0) = {(a z)_\infty \over (z)_\infty}.
+}}$
+$\square$
+
+== $q$-deformations of binomial theorem ==
+=== Version 1 ===
+Let $x, y$ be the generators of a $q$-Grassmann algebra, namely they satisfy
+{{$
+y x = q x y
+}}$
+*Theorem*. ${n \choose k}_q$ satisfies
+{{$
+(x + y)^n = \sum_k {n \choose k}_q x^k y^{n - k}
+}}$
+This is also called $q$-binomial theorem.
+
+*Claim*. 
+{{$
+{n \choose k}_q = \sum_{S \in {[n] \choose k}} q^{\sum_{a_i \in S} (a_i - i)} = \sum_{S \in {[n] \choose k}} q^{(\sum_{a_i \in S} a_i) - {k + 1 \choose 2}}
+}}$
+Pf. We know by the previous thm ${n \choose k}_q$ gathers the products with $k$ $x$'s and $n - k$ $y$'s, and each of such product corresponds to $S = \{a_1 \le a_2 ... \le a_k\} \in {[n] \choose k}$ in a obvious way, e.g. when $n = 8$ and $k = 2$, $yyxyxyyy \leftrightarrow \{3, 5\}$. Shifting all the $x$'s to the left corresponds $\sum_i (a_i - i)$ shifts. $\square$
+
+=== Version 2 ===
+Another $q$-binomial theorem (a.k.a. Gauss binomial theorem) is
+{{$
+\sum_k q^{{k \choose 2}} \alpha^k {n \choose k}_q = (- \alpha; q)_n. \qquad (4)
+}}$
+
+*Proof 1*. Set $a := q^{- n}$ and $z = - \alpha q^n$ in (3) and simplify. $\square$
+
+*Proof 2*. The RHS is
+{{$
+(1 + \alpha) (1 + \alpha q) ... (1 + \alpha q^{n - 1})
+}}$
+The coefficient of $\alpha^k$ enumerates the partitions of $k$ distinct parts (with the possibility that the last part is $0$) and first part $\le n - 1$, and that by removing $0$ from the last part, $1$ from the second last part, ... $k - 1$ from the first part, we have partitions with length $\le k$ and first part $\le n - k$. Finally applying Claim 1 we arrive at the conclusion:
+{{$%align%
+(1 + \alpha) &(1 + \alpha q) ... (1 + \alpha q^{n - 1}) \\
+&= \sum_k \sum_{\lambda: \ell(\lambda) = k, \lambda_1 \le n - 1, \lambda_1 > \lambda_2 > ... > \lambda_k \ge 0} \alpha^k q^{|\lambda|}\\
+&= \sum_k \alpha^k q^{{k \choose 2}} \sum_{\mu: \ell(\mu) \le k, \mu_1 \le n - k} \\
+&= \sum_k \alpha^k q^{{k \choose 2}} {n \choose k}_q.
+}}$
+$\square$
+
+=== Version 3 ===
+Yet a third $q$-deformation of the binomial theorem is as follows:
+{{$
+\sum_k b^k (a; q)_k (b; q)_{n - k} {n \choose k}_q = (a b; q)_n \qquad (5)
+}}$
+which when $q \to 1$ reads
+{{$
+\sum_k (b - a b)^k (1 - b)^{n - k} {n \choose k} = (1 - a b)^n.
+}}$
+see Exercise 1.3 on pp25 of [{gasper-rahman04}].
+
+*Proof*. By (3)
+{{$
+\hg{1}{\phi}{0} (a; ; q, z) \hg{1}{\phi}{0} (b; ; q, a z)  = \hg{1}{\phi}{0} (a b; ; q, z).
+}}$
+Expanding both sides and compare coefficients of $z^n$ we are done.
+$\square$
+
+This is also called a $q$-Vandermonde-Chu identiy. It is used to define the $\phi_{q, \xi, \eta}$ distribution in [[q_hahn_process]]. As in the derivation of (4) using (3), (5) becomes (6) with certain parameters, see [[binomial_distribution]].
+
+*Remark*. Using Item 4 in Properties the LHS of (5) can be written as
+{{$
+(b)_n \hg{2}{\phi}{1} (a, q^{- n}; b^{-1} q^{1 - n}; q, q)
+}}$
+and (5) can be derived using
+{{$
+\hg{2}{\phi}{1}(q^{- n}, b; c; q, q) = {(c / b)_n \over (c)_n} b^n. (5.5)
+}}$
+and Item 5 in Properties.
+
+%%TODO: Add multinomial analogue of (5)
+
+%%TODO: Check the relation between (5.5) and Heine's summation formula.
+=== Version 4 ===
+{{$
+\sum_{k = 0}^n \alpha^k (\alpha; q)_{n - k} {n \choose k}_q = 1
+}}$
+When $q \to 1$ it reduces to the usual binomial theorem
+{{$
+\alpha^k (1 - \alpha)^{n - k} {n \choose k} = 1
+}}$
+
+%%TODO: Can this be extended to a $q$-analogue of $\sum_k a^k b^{n - k} {n \choose k} = (a + b)^n$?
+
+== $q$-Vandermonde-Chu identity ==
+See also [[binomial_distribution]].
+
+{{$
+\sum_s q^{(m_1 - s) (k - s)} {m_1 \choose s}_q {m_2 \choose k - s}_q = {m_1 + m_2 \choose k}_q. \qquad (6)
+}}$
+
+*Proof 1*.
+{{$
+(- x)_{m_1 + m_2} = (- x)_{m_1} (- x q^{m_1})_{m_2}.
+}}$
+Applying (4) to both sides of the above formula and gather the coefficients of $x^k$ we are done.
+$\square$
+
+*Proof 2*. Applying (5.5) with $n = m_1, b = q^{- k}, c = q^{m_2 - k + 1}$. $\square$
+
+== Classical limits of $q$-Pochhammers ==
+In the following let $q = e^{- \epsilon}$.
+=== quantum dilogarithm ===
+For $t > 0$
+{{$
+(q^t; q)_\infty = \Gamma(t)^{-1} \exp(A(\epsilon) + (1 - t) \log \epsilon + O(\epsilon)) 
+}}$
+where $A(\epsilon)$ is defined as
+{{$
+A(\epsilon) = - {\pi^2 \over 6 \epsilon} - {1 \over 2} \log {\epsilon \over 2\pi}
+}}$
+
+Specifically, when $t = 0$ we have asymptotics for Euler's function:
+{{$
+\phi(q) = \exp(A(\epsilon) + O(\epsilon))
+}}$
+
+This can be derived for example from Thm3.2 of [{banerjee-wilkerson16}].
+
+Hence
+{{$
+(n)_q = \Gamma(n + 1)^{-1} \epsilon^{- n} \exp(O(\epsilon))
+}}$
+
+=== Another classical limit ===
+in Lemma 3.1 in [{gerasimov-lebedev-oblezin12}]:
+
+*Lemma 3.1*. For $\alpha \ge 1$, 
+{{$
+(\alpha \epsilon^{-1} \log \epsilon^{-1} + \epsilon^{-1} y)_q = 
+\begin{cases}
+e^{A(\epsilon) + e^{- y} + O(\epsilon)} & \alpha = 1 \\
+e^{A(\epsilon) + O(\epsilon)} & \alpha > 1
+\end{cases}
+}}$
+
+%%TODO: relation to dilogarithm function.

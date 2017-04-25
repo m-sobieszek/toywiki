@@ -1,0 +1,26 @@
+:robinson_schensted_knuth:
+
+%title RSK-type dynamics
+
+Recall [[young_tableaux_gt_pattern|One-one correspondence between Young tableaux and Gelfand-Tsetlin patterns]].
+
+The RSK-type dynamics is a kind of weight-preserving dynamics on the space of (semi-standard) Young tableau / Gelfand-Tsetlin patterns.
+
+Like the usual RSK, the basic building block is the insertion of a row to a Young tableau.
+
+Unlike the usual RSK, it is generalised to having random output, namely it maps a deterministic tableau to a random tableau.
+
+*Definition*. An RSK-type dynamics is a random map $R$: $(r_{1 : \ell}, (\lambda^k_j)_{1 \le j \le k \ell}) \mapsto (\tilde\lambda^k_j)_{1 \le j \le k \ell}$ satisfying
+{{$
+| \lambda^k | - | \lambda^{k - 1} | + r_k = | \tilde\lambda^k | - | \tilde\lambda^{k - 1} | \qquad (1)
+}}$
+
+Basically it says the following:
+    For any integer $k$, the number of $k$s in the old tableau plus the number of inserted $k$s equals the number of $k$s in the new tableau.
+
+If we introduce time index $n$, namely suppose at time $n$, $r = w_{n, 1 : \ell}$ is inserted to $\lambda^{n - 1, 1 : \ell}$ to produce $\lambda^{n, 1 : \ell}$, the weight-preserving property (1) can be written in a more symmetric manner
+{{$
+|\lambda^{n - 1, k - 1}| + |\lambda^{n, k}| - |\lambda^{n - 1, k}| - |\lambda^{n, k - 1}| = w_{n, k}. \qquad \text{a.s.}
+}}$
+
+*Example*. [[robinson_schensted_knuth|RSK]], [[q_robinson_schensted_knuth|qRSK]] and [[geometric_robinson_schensted_knuth|gRSK]].

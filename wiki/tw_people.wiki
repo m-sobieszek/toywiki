@@ -1,0 +1,6 @@
+%title toywiki people
+
+[[http://ypei.me|Yuchen Pei]] is the author of toywiki.
+If we view toywiki as an [[https://opensource.guide/how-to-contribute/#orienting-yourself-to-a-new-project|open source project]], he is also the only owner, maintainer and contributor...until you make a contribution.
+
+His research is supported by Center of Mathematical Sciences and Applications (CMSA) at Harvard University.

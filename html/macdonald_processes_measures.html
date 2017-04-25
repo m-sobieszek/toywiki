@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>
+
+<title>Macdonald processes and measures</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li>Macdonald processes and measures</li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Macdonald processes and measures</h1><hr/>
+
+
+<p>
+<span id="-macdonald_processes"></span><span class="tag" id="macdonald_processes">macdonald_processes</span> <span id="-macdonald_measures"></span><span class="tag" id="macdonald_measures">macdonald_measures</span> <span id="-macdonald_polynomials"></span><span class="tag" id="macdonald_polynomials">macdonald_polynomials</span>
+</p>
+
+
+<div id="Macdonald measures"><h2 id="Macdonald measures">Macdonald measures</h2></div>
+<p>
+Let \(m, n\) be positive integers, \(a \in [0, 1]^m\), \(b \in [0, 1]^n\) and \(0 \le q, t \le 1\). 
+Let \(P_\lambda\) and \(Q_\lambda\) be the <a href="macdonald_polynomials.html">Macdonald polynomials</a>, we define the Macdonald measure by
+</p>
+\[
+\mu_{\text{Mac}} (\lambda) = P_\lambda(a) Q_\lambda(b) \prod_{ij} {(a_j b_i)_\infty \over (a_j b_i t)_\infty}.
+\]
+<p>
+It is a probability measure due to 
+</p>
+<ol>
+<li>
+the Cauchy-Littlewood identity (4.13) in <a href="macdonald_polynomials.html">macdonald_polynomials</a>.
+
+<li>
+and the fact that \(P_\lambda(a), Q_\lambda(b) \ge 0\) if we plug in the explicit formulas of the Macdonald polynomials.
+
+</ol>
+
+<p>
+This is our default Macdonald measure, which we also call the usual Macdonald measure since it involves the usual specialisation of the Macdonald polynomials.
+</p>
+
+<p>
+By contrast, here is the dual Macdonald measure, involving the dual specialisation of the Macdonald polynomials.
+</p>
+\[
+\mu_{\text{dMac}}(\lambda) = P_\lambda(a; q, t) P_{\lambda'} (b; t, q) \prod_{ij}{1 \over 1 + a_j b_i}.
+\]
+
+<p>
+<span class="todo">TODO:</span> Exponential specialisation case.
+</p>
+
+<p>
+For now we only care about the usual case \(\mu_{\text{Mac}}\).
+</p>
+
+<div id="Macdonald processes"><h2 id="Macdonald processes">Macdonald processes</h2></div>
+<p>
+Let \(\phi\) be the quantity defined in the Pieri rule of <a href="macdonald_polynomials.html">Macdonald polynomials</a>. For \(u \in [0, 1]\), define kernel \(A_u\) by
+</p>
+\[
+A_u(\lambda, \mu) = \phi_{\mu / \lambda} u^{|\mu| - |\lambda|} \prod_i {(a_i u)_\infty \over (t a_i u)_\infty}
+\]
+
+<p>
+<span id="Macdonald processes-Claim"></span><strong id="Claim">Claim</strong>.  For any \(u\), the Macdonald polynomial \(P_\lambda(b)\) is \(A_u\)-harmonic.
+</p>
+
+<p>
+<span id="Macdonald processes-Proof"></span><strong id="Proof">Proof</strong>.
+  Recall by (2.8)(5.5) of <a href="macdonald_polynomials.html">macdonald_polynomials</a>,
+</p>
+\[
+  \sum_n Q_{(n)} (a) u^n = \prod_i {(t a_i u)_\infty \over (a_i u)_\infty}
+\]
+<p>
+  and the Pieri rule \((i)\) of <a href="macdonald_polynomials.html">macdonald_polynomials</a>
+</p>
+\[
+  P_\lambda(a) Q_{(r)}(a) = \sum_{\mu: \lambda \prec \mu, |\mu| - |\lambda| = r} \phi_{\mu / \lambda} P_\mu(a).
+\]
+<p>
+  Combining these two we have
+</p>
+\[
+  P_\lambda(a) \prod_i {(t a_i u)_\infty \over (a_i u)_\infty} = \sum_{r \ge 0} P_\lambda(a) Q_{(r)}(a) u^r = \sum_{\mu: \lambda \prec \mu} \phi_{\mu / \lambda} P_\mu(a) u^{|\mu| - |\lambda|}
+\]
+<p>
+  and we are done. \(\square\)
+</p>
+
+<p>
+<span id="Macdonald processes-Definition"></span><strong id="Definition">Definition</strong>. Let \(h(\lambda) = P_\lambda(a)\). The Macdonald process is a Markov process \(X\) with transition kernel \(R\) that is the [[doob_transform|Doob-\(h\) transform]] of kernel \(A_{b_n}\) at time \(n\):
+</p>
+\[
+\prob(X_n = \mu | X_{n - 1} = \lambda, X_{0 : n - 2}) = A_{b_n}(\lambda, \mu) {P_\mu(a) \over P_\lambda(a)}.
+\]
+
+<p>
+The Macdonald process induces the Macdonald measure:
+</p>
+
+<p>
+<span id="Macdonald processes-Claim"></span><strong id="Claim">Claim</strong>. Let \(X\) be a Macdonald process with empty initial condition: \(X_0 \equiv \emptyset\) is an empty partition.
+Then for any fixed \(n\), \(X_n\) distributes according to the Macdonald measure.
+</p>
+
+<p>
+<span id="Macdonald processes-Proof"></span><strong id="Proof">Proof</strong>. Use the branching formula (7.13) of <a href="macdonald_polynomials.html">macdonald_polynomials</a>, we have
+</p>
+\[
+\prob(X_n = \lambda) = \sum_{\emptyset = \lambda^0 \prec \lambda^1 \prec ... \prec \lambda^n} \left(\prod_i \phi_{\lambda^i / \lambda^{i - 1}} b_i^{|\lambda^i| - |\lambda^{i - 1}|} \right) P_\lambda(a) \prod_{i j} {(b_i a_j)_\infty \over (b_i a_j t)_\infty} = P_\lambda(a) Q_\lambda(b)\prod_{i j} {(b_i a_j)_\infty \over (b_i a_j t)_\infty}.
+\]
+<p>
+\(\square\)
+</p>
+
+
+
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">About</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. Contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 25 Apr 2017. <!--views-->
+        toywiki by Yuchen Pei is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

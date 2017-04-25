@@ -1,0 +1,63 @@
+:macdonald_processes:macdonald_measures:macdonald_polynomials:
+
+%title Macdonald processes and measures
+
+== Macdonald measures ==
+Let $m, n$ be positive integers, $a \in [0, 1]^m$, $b \in [0, 1]^n$ and $0 \le q, t \le 1$. 
+Let $P_\lambda$ and $Q_\lambda$ be the [[macdonald_polynomials|Macdonald polynomials]], we define the Macdonald measure by
+{{$
+\mu_{\text{Mac}} (\lambda) = P_\lambda(a) Q_\lambda(b) \prod_{ij} {(a_j b_i)_\infty \over (a_j b_i t)_\infty}.
+}}$
+It is a probability measure due to 
+# the Cauchy-Littlewood identity (4.13) in [[macdonald_polynomials]].
+# and the fact that $P_\lambda(a), Q_\lambda(b) \ge 0$ if we plug in the explicit formulas of the Macdonald polynomials.
+
+This is our default Macdonald measure, which we also call the usual Macdonald measure since it involves the usual specialisation of the Macdonald polynomials.
+
+By contrast, here is the dual Macdonald measure, involving the dual specialisation of the Macdonald polynomials.
+{{$
+\mu_{\text{dMac}}(\lambda) = P_\lambda(a; q, t) P_{\lambda'} (b; t, q) \prod_{ij}{1 \over 1 + a_j b_i}.
+}}$
+
+TODO: Exponential specialisation case.
+
+For now we only care about the usual case $\mu_{\text{Mac}}$.
+
+== Macdonald processes ==
+Let $\phi$ be the quantity defined in the Pieri rule of [[macdonald_polynomials|Macdonald polynomials]]. For $u \in [0, 1]$, define kernel $A_u$ by
+{{$
+A_u(\lambda, \mu) = \phi_{\mu / \lambda} u^{|\mu| - |\lambda|} \prod_i {(a_i u)_\infty \over (t a_i u)_\infty}
+}}$
+
+*Claim*.  For any $u$, the Macdonald polynomial $P_\lambda(b)$ is $A_u$-harmonic.
+
+*Proof*.
+  Recall by (2.8)(5.5) of [[macdonald_polynomials]],
+  {{$
+    \sum_n Q_{(n)} (a) u^n = \prod_i {(t a_i u)_\infty \over (a_i u)_\infty}
+  }}$
+  and the Pieri rule $(i)$ of [[macdonald_polynomials]]
+  {{$
+    P_\lambda(a) Q_{(r)}(a) = \sum_{\mu: \lambda \prec \mu, |\mu| - |\lambda| = r} \phi_{\mu / \lambda} P_\mu(a).
+  }}$
+  Combining these two we have
+  {{$
+    P_\lambda(a) \prod_i {(t a_i u)_\infty \over (a_i u)_\infty} = \sum_{r \ge 0} P_\lambda(a) Q_{(r)}(a) u^r = \sum_{\mu: \lambda \prec \mu} \phi_{\mu / \lambda} P_\mu(a) u^{|\mu| - |\lambda|}
+  }}$
+  and we are done. $\square$
+
+*Definition*. Let $h(\lambda) = P_\lambda(a)$. The Macdonald process is a Markov process $X$ with transition kernel $R$ that is the [[doob_transform|Doob-$h$ transform]] of kernel $A_{b_n}$ at time $n$:
+{{$
+\prob(X_n = \mu | X_{n - 1} = \lambda, X_{0 : n - 2}) = A_{b_n}(\lambda, \mu) {P_\mu(a) \over P_\lambda(a)}.
+}}$
+
+The Macdonald process induces the Macdonald measure:
+
+*Claim*. Let $X$ be a Macdonald process with empty initial condition: $X_0 \equiv \emptyset$ is an empty partition.
+Then for any fixed $n$, $X_n$ distributes according to the Macdonald measure.
+
+*Proof*. Use the branching formula (7.13) of [[macdonald_polynomials]], we have
+{{$
+\prob(X_n = \lambda) = \sum_{\emptyset = \lambda^0 \prec \lambda^1 \prec ... \prec \lambda^n} \left(\prod_i \phi_{\lambda^i / \lambda^{i - 1}} b_i^{|\lambda^i| - |\lambda^{i - 1}|} \right) P_\lambda(a) \prod_{i j} {(b_i a_j)_\infty \over (b_i a_j t)_\infty} = P_\lambda(a) Q_\lambda(b)\prod_{i j} {(b_i a_j)_\infty \over (b_i a_j t)_\infty}.
+}}$
+$\square$

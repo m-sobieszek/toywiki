@@ -1,0 +1,54 @@
+:local_move:markov_doob_integrability:robinson_schensted_knuth:
+
+%title Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics
+
+* recall (1) in [[macdonald_usual_markov_doob_integrability|Usual-spec Markov-Doob integrability for Macdonald processes]], which we refer as (0)
+* recall (1) in [[macdonald_rsk_local_move_integrability|Macdonald-RSK local move integrability]], which we refer as (-1)
+* recall notation $R$ in [[markov_doob_integrability_triangular_array|Markov-Doob integrability on triangular arrays]]
+
+*Theorem*. A [[markov_doob_integrability_triangular_array|usual-spec]] [[rsk_type_dynamics|RSK-type]] dynamics satisfies [[macdonald_usual_markov_doob_integrability|Markov-Doob integrability]] if and only if it satisfies the [[macdonald_rsk_local_move_integrability|local move integrability]].
+
+*Proof*. Due to the [[rsk_type_dynamics|weight-preserving property of RSK-type dynamics]], the Markov-Doob integrability equation (0) can be written as follows
+{{$
+    \sum_{\lambda^{n - 1, k - 1}, w_{n, k}} R_{w_{n, k}}(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k}) {(t)_{w_{n, k}} \over (q)_{w_{n, k}}} {\psi_{\lambda^{n - 1, k} / \lambda^{n - 1, k - 1}} \phi_{\lambda^{n, k - 1} / \lambda^{n - 1, k - 1}} \over \psi_{\lambda^{n, k} / \lambda^{n, k - 1}} \phi_{\lambda^{n, k} / \lambda^{n - 1, k}}} = 1
+}}$
+
+On the other hand the local move integrability (-1) is
+{{$
+    \sum_{s'} {(t)_{s'_{n k}} \over (q)_{s'_{n k}}} {M_\Theta(s') \over M_\Lambda(s)} \prob(\rho_{n, k} s' = s) = 1.\label{eq:local2}
+}}$
+
+Since $R_{w_{n, k}}(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k}) = \prob(\rho_{n, k} s' = s)$, it suffices to show
+{{$
+    {\psi_{\lambda^{n - 1, k} / \lambda^{n - 1, k - 1}} \phi_{\lambda^{n, k - 1} / \lambda^{n - 1, k - 1}} \over \psi_{\lambda^{n, k} / \lambda^{n, k - 1}} \phi_{\lambda^{n, k} / \lambda^{n - 1, k}}} = {M_\Theta (s') \over M_\Lambda(s)}. (1)
+}}$
+
+When $n > k$, denote $a, b, c, d$ by
+{{$%align%
+    \lambda^{n - 1, k - 1} &= (s'_{n - 1, k - 1}, s'_{n - 2, k - 2}, \dots, s'_{n - k + 1, 1}) =: (d_1, d_2, \dots, d_{k - 1}) \\
+    \lambda^{n - 1, k} &= (s'_{n - 1, k}, s'_{n - 2, k - 1}, \dots, s'_{n - k, 1}) = (s_{n - 1, k}, s_{n - 2, k - 1}, \dots, s_{n - k, 1}) =: (b_1, b_2, \dots, b_k)\\
+    \lambda^{n, k - 1} &= (s'_{n, k - 1}, s'_{n - 1, k - 2}, \dots, s'_{n - k + 2, 1}) = (s_{n, k - 1}, s_{n - 1, k - 2}, \dots, s_{n - k + 2, 1}) =: (c_1, c_2, \dots, c_{k - 1}) \\
+    \lambda^{n, k} &= (s_{n, k}, s_{n - 1, k - 1}, \dots, s_{n - k + 1, 1}) =: (a_1, a_2, \dots, a_k).
+}}$
+
+Both sides of (1) are equal to
+{{$%align%
+    &{\prod_{1 \le i < j \le k - 1} g(d_i - d_j, j - i - 1) g(d_i - d_j, j - i) \over \prod_{1 \le i < j \le k} g(a_i - a_j, j - i - 1) g(a_i - a_j, j - i)}\\
+    &\times{\prod_{1 \le i \le j \le k - 1}g(b_i - a_{j + 1}, j - i - 1) g(a_i - c_j, j - i) g(c_j - a_{i + 1}, j - i) \prod_{1 \le i \le j \le k} g(a_i - b_j, j - i) \over \prod_{1 \le i \le j \le k - 2} g(d_i - c_{j + 1}, j - i) \prod_{1 \le i \le j \le k - 1} g(c_i - d_j, j - i) g(b_i - d_j, j - i) g(d_i - b_{j + 1}, j - i)}.
+}}$
+
+When $n = k$, denote $a, b, c, d$ by
+{{$%align%
+    \lambda^{n - 1, k - 1} &= (s'_{n - 1, k - 1}, s'_{n - 2, k - 2}, \dots, s'_{1, 1}) =: (d_1, d_2, \dots, d_{k - 1}) \\
+    \lambda^{n - 1, k} &= (s'_{n - 1, k}, s'_{n - 2, k - 1}, \dots, s'_{1, 2}) = (s_{n - 1, k}, s_{n - 2, k - 1}, \dots, s_{n - k + 1, 2}) =: (b_1, b_2, \dots, b_{k - 1})\\
+    \lambda^{n, k - 1} &= (s'_{n, k - 1}, s'_{n - 1, k - 2}, \dots, s'_{2, 1}) = (s_{n, k - 1}, s_{n - 1, k - 2}, \dots, s_{2, 1}) =: (c_1, c_2, \dots, c_{k - 1}) \\
+    \lambda^{n, k} &= (s_{n, k}, s_{n - 1, k - 1}, \dots, s_{1, 1}) =: (a_1, a_2, \dots, a_k).
+}}$
+
+Both sides of (1) are equal to
+{{$%align%
+    &{\prod_{1 \le i < j \le k - 1} g(d_i - d_j, j - i - 1) g(d_i - d_j, j - i) \over \prod_{1 \le i < j \le k} g(a_i - a_j, j - i - 1) g(a_i - a_j, j - i)} {\prod_{1 \le i \le k} g(a_i, k - i) \over \prod_{1 \le i \le k - 1} g(d_i, k - 1 - i)}\\
+    &\times{\prod_{1 \le i \le j \le k - 1}g(b_i - a_{j + 1}, j - i - 1) g(a_i - c_j, j - i) g(c_j - a_{i + 1}, j - i) g(a_i - b_j, j - i) \over \prod_{1 \le i \le j \le k - 2} g(d_i - c_{j + 1}, j - i) g(d_i - b_{j + 1}, j - i) \prod_{1 \le i \le j \le k - 1} g(c_i - d_j, j - i) g(b_i - d_j, j - i) }.
+}}$
+
+The case when $n < k$ is similar to $n > k$ case but symmetric. $\square$
