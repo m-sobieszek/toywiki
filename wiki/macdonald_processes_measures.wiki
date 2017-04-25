@@ -2,6 +2,8 @@
 
 %title Macdonald processes and measures
 
+Macdonald measures can be found in [{forrester-rains02}].
+
 == Macdonald measures ==
 Let $m, n$ be positive integers, $a \in [0, 1]^m$, $b \in [0, 1]^n$ and $0 \le q, t \le 1$. 
 Let $P_\lambda$ and $Q_\lambda$ be the [[macdonald_polynomials|Macdonald polynomials]], we define the Macdonald measure by
