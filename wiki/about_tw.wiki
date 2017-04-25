@@ -43,8 +43,10 @@ If you find something fishy or outright wrong, open an issue or submit a pull re
 You are also welcome to open an issue if you have a question about any of the notes. 
 You can also reach me by email if you have any comments about the project itself.
 
-(8) I hope you find something useful here. If you want to use any content in a formal academic setting: e.g. in a research paper, please send me an email so that I can check accuracy and attributions.
+(8) I hope you find something useful here. 
 
-(9) Contents of toywiki by Yuchen Pei are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]].
+(9) Contents of toywiki by Yuchen Pei are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]]. 
+However, the attribution rule does *not* apply if you want to use any content in a formal academic setting: e.g. in a research paper. 
+In this case please send me an email if you are thinking of attributing me, so that I can check the accuracy and attributions.
 
 (10) Oh, and why is it called toywiki? Because I think toy examples are the best tool to study mathematics :)
