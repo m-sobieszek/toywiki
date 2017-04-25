@@ -41,7 +41,7 @@ For example, I do not attempt to formalise mathematics completely or automate th
 (7) Since the notes are informal and haven't been peer-reviewed yet, I expect there to be mistakes and typos on accuracy or attributions. 
 If you find something fishy or outright wrong, open an issue or submit a pull request on Github. 
 You are also welcome to open an issue if you have a question about any of the notes. 
-You can also reach me by email (&#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;) if you have any comments about the project itself.
+You can also reach me by email (see the footer of this page) if you have any comments about the project itself.
 
 (8) I hope you find something useful here. 
 
