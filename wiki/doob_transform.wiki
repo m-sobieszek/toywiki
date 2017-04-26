@@ -300,8 +300,8 @@ When conditioning on an event $B$ with positive probability, we take
 {{$
 h(x) = P_x(B).
 }}$
-
-*Remark*. The continuous case should be defined similarly.
-
-*Remark*. Conditioning on a null event is more tricky. I know some examples, but don't know how the $h$'s are chosen.
+%%
+%%*Remark*. The continuous case should be defined similarly.
+%%
+%%*Remark*. Conditioning on a null event is more tricky. I know some examples, but don't know how the $h$'s are chosen.
 
