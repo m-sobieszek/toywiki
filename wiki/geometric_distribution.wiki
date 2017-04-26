@@ -32,7 +32,7 @@ Let $q, t, \alpha \in [0, 1]$. The $qt$-geometric distribution $qt$Geom$(\alpha)
 {{$
 f(k) = \alpha^k {(t)_k \over (q)_k} {(\alpha)_\infty \over (\alpha t)_\infty}
 }}$
-It is a probability distribution due to Cauchy's $q$-binomial series formula, (3) in [[q_pochhammers]].
+It is a probability distribution due to Cauchy's $q$-binomial series formula, (3) in [[q_pochhammers|q-Pochhammers]].
 
 * When $t = 0$, $qt$Geom = $q$Geom.
 * When $t = q$, $qt$Geom$(\alpha) = $Geom$(1 - \alpha)$.

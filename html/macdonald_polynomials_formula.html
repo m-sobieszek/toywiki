@@ -14,7 +14,7 @@
 <div class="container">
 
 <div class="left">
-<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li>Explicit formula of Macdonald polynomials</li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand Tsetlin patterns</a></li></ul>
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li>Explicit formula of Macdonald polynomials</li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand-Tsetlin patterns</a></li></ul>
 </div>
 
 <div class="main">
@@ -56,7 +56,7 @@ We start from
 </p>
 \begin{align}
 \psi_{\lambda / \mu} &amp;= \prod_{1 \le i \le j \le \ell(\mu)} {f(q^{\mu_i - \mu_j} t^{j - i}) f(q^{\lambda_i - \lambda_{j + 1}} t^{j - i}) \over f(q^{\lambda_i - \mu_j} t^{j - i}) f(q^{\mu_i - \lambda_{j + 1}} t^{j - i})} \\
-&amp;= \prod_{1 \le i \le j \le \ell(\mu)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}.
+&amp;= \prod_{1 \le i \le j \le \ell(\mu)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}. \qquad (1)
 \end{align}
 <p>
 This first equality can be found on page 342 of [{macdonald98}].
@@ -69,7 +69,7 @@ Furthermore, note for \(n_1 \ge n_2\)
 {g(n_1, k) \over g(n_2, k)} = {(q^{n_2 + 1} t^k)_{n_1 - n_2} \over (q^{n_2} t^{k + 1})_{n_1 - n_2}}.
 \]
 <p>
-Therefore for a semistandard Young tableaux \(T \leftrightarrow (\lambda^k_j)_{1 \le j \le k \le \ell}\),
+Therefore for a semistandard Young tableaux \(T \leftrightarrow (\lambda^k_j)_{1 \le j \le k \le \ell}\) (recall <a href="young_tableaux_gt_pattern.html">correspondence between Young tableaux and Gelfand-Tsetlin patterns</a>),
 </p>
 \[
 \psi_T = \prod_{1 \le i \le j \le k - 1 \le \ell - 1} {(q^{\lambda^{k - 1}_i - \lambda^{k - 1}_j} t^{j - i + 1})_{\lambda^k_i - \lambda^{k - 1}_i} (q^{\lambda^{k - 1}_i - \lambda^k_{j + 1} + 1} t^{j - i})_{\lambda^k_i - \lambda^{k - 1}_i} \over (q^{\lambda^{k - 1}_i - \lambda^{k - 1}_j + 1} t^{j - i})_{\lambda^k_i - \lambda^{k - 1}_i} (q^{\lambda^{k - 1}_i - \lambda^k_{j + 1}} t^{j - i + 1})_{\lambda^k_i - \lambda^{k - 1}_i}}.
@@ -94,7 +94,7 @@ In this case again on page 342 of [{macdonald98}]:
 </p>
 \begin{align}
 \phi_{\lambda / \mu} &amp;= \prod_{1 \le i \le j \le \ell(\lambda)} {f(q^{\lambda_i - \lambda_j} t^{j - i}) f(q^{\mu_i - \mu_{j + 1}} t^{j - i}) \over f(q^{\lambda_i - \mu_j} t^{j - i}) f(q^{\mu_i - \lambda_{j + 1}} t^{j - i})} \\
-&amp;= \prod_{1 \le i \le j \le \ell(\lambda)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}.
+&amp;= \prod_{1 \le i \le j \le \ell(\lambda)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}. \qquad (2)
 \end{align}
 <p>
 And thus

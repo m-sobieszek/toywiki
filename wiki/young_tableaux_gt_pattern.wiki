@@ -1,6 +1,6 @@
 :young_tableaux:gelfand_tsetlin_patterns:
 
-%title Young tableaux and Gelfand Tsetlin patterns
+%title Young tableaux and Gelfand-Tsetlin patterns
 
 One can convert a (semi-standard) Young tableau $T$ to a Gelfand-Tsetlin pattern $(\lambda^k_j)_{1 \le j \le k}$ in the following way:
 {{$

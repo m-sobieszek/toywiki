@@ -2,6 +2,8 @@
 
 %title Markov function theorem
 
+The Markov function theorem can be found in [{rogers-pitman81}].
+
 == Definitions and proof ==
 *Theorem*([[stochastic_processes|discrete time discrete space version]] of Markov function theorem). Let $X$ be a Markov process with transition kernel $P$ on state space $S$, $f : S \to T$ for some space $T$, and $Y$ a process on space $T$ defined by $Y_t = f(X_t)$ for some $f$. 
 If there is a kernel $K: T \times S \to [0, 1]$ such that 

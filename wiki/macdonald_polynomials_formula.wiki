@@ -22,7 +22,7 @@ Recall the branching rule of the Macdonald polynomials.
 We start from
 {{$%align%
 \psi_{\lambda / \mu} &= \prod_{1 \le i \le j \le \ell(\mu)} {f(q^{\mu_i - \mu_j} t^{j - i}) f(q^{\lambda_i - \lambda_{j + 1}} t^{j - i}) \over f(q^{\lambda_i - \mu_j} t^{j - i}) f(q^{\mu_i - \lambda_{j + 1}} t^{j - i})} \\
-&= \prod_{1 \le i \le j \le \ell(\mu)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}.
+&= \prod_{1 \le i \le j \le \ell(\mu)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}. \qquad (1)
 }}$
 This first equality can be found on page 342 of [{macdonald98}].
 
@@ -30,7 +30,7 @@ Furthermore, note for $n_1 \ge n_2$
 {{$
 {g(n_1, k) \over g(n_2, k)} = {(q^{n_2 + 1} t^k)_{n_1 - n_2} \over (q^{n_2} t^{k + 1})_{n_1 - n_2}}.
 }}$
-Therefore for a semistandard Young tableaux $T \leftrightarrow (\lambda^k_j)_{1 \le j \le k \le \ell}$,
+Therefore for a semistandard Young tableaux $T \leftrightarrow (\lambda^k_j)_{1 \le j \le k \le \ell}$ (recall [[young_tableaux_gt_pattern|correspondence between Young tableaux and Gelfand-Tsetlin patterns]]),
 {{$
 \psi_T = \prod_{1 \le i \le j \le k - 1 \le \ell - 1} {(q^{\lambda^{k - 1}_i - \lambda^{k - 1}_j} t^{j - i + 1})_{\lambda^k_i - \lambda^{k - 1}_i} (q^{\lambda^{k - 1}_i - \lambda^k_{j + 1} + 1} t^{j - i})_{\lambda^k_i - \lambda^{k - 1}_i} \over (q^{\lambda^{k - 1}_i - \lambda^{k - 1}_j + 1} t^{j - i})_{\lambda^k_i - \lambda^{k - 1}_i} (q^{\lambda^{k - 1}_i - \lambda^k_{j + 1}} t^{j - i + 1})_{\lambda^k_i - \lambda^{k - 1}_i}}.
 }}$
@@ -48,7 +48,7 @@ Q_\lambda (x) = \sum_{T: \sh T = \lambda} \phi_T x^T.
 In this case again on page 342 of [{macdonald98}]:
 {{$%align%
 \phi_{\lambda / \mu} &= \prod_{1 \le i \le j \le \ell(\lambda)} {f(q^{\lambda_i - \lambda_j} t^{j - i}) f(q^{\mu_i - \mu_{j + 1}} t^{j - i}) \over f(q^{\lambda_i - \mu_j} t^{j - i}) f(q^{\mu_i - \lambda_{j + 1}} t^{j - i})} \\
-&= \prod_{1 \le i \le j \le \ell(\lambda)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}.
+&= \prod_{1 \le i \le j \le \ell(\lambda)} {g(\lambda_i - \lambda_j, j - i) g(\mu_i - \mu_{j + 1}, j - i) \over g(\lambda_i - \mu_j, j - i) g(\mu_i - \lambda_{j + 1}, j - i)}. \qquad (2)
 }}$
 And thus
 {{$

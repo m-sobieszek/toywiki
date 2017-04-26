@@ -6,7 +6,7 @@ The [[markov_function_theorem|Markov function theorem]] and [[doob_transform|Doo
 Let $f: S \to T$ be a function.
 Let $w: S \to [0, \infty)$ be a weight function, and $h: T \to (0, \infty)$ its "generating function":
 {{$
-h(y) = \sum_{x \in f^{-1} (y)} w(x) \qquad (-1)
+h(y) = \sum_{x \in f^{-1} (y)} w(x) \qquad (-2)
 }}$
 
 Define stochastic kernel $K: T \times S \to [0, 1]$ by

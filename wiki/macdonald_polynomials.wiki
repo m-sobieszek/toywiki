@@ -14,7 +14,7 @@ and define inner product
 {{$
 \langle p_\lambda, p_\mu \rangle = \langle p_\lambda, p_\mu \rangle_{q, t} = \delta_{\lambda \mu} z_\lambda(q, t).
 }}$
-Then the $\braket{\cdot, \cdot}_{q, q}$ is the same as the one defined in [[cauchy_littlewood_identity]].
+Then the $\braket{\cdot, \cdot}_{q, q}$ is the same as the one defined in [[cauchy_littlewood_identity|Cauchy-Littlewood identities]].
 Let $\Lambda_F = \Lambda \otimes F$ where $F = \rtnl(q, t)$
 Also define
 {{$

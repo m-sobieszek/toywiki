@@ -1,8 +1,8 @@
 :markov_function_theorem:doob_transform:intertwining_relation:
 %title Markov-Doob integrability on triangular arrays
 
-We use the notation in [[markov_doob_integrability]].
-When $S^\ell$ is a triangular array $(\lambda^k_j)_{1 \le j \le k \le \ell}$ and $T^\ell$ the space of the bottom row of the arrays $(\lambda^\ell_j)_{1 \le j \le \ell}$, equation (0) in [[markov_doob_integrability]] can be further reduced to an equation between neighbouring rows.
+We use the notation in [[markov_doob_integrability|Markov-Doob integrability]].
+When $S^\ell$ is a triangular array $(\lambda^k_j)_{1 \le j \le k \le \ell}$ and $T^\ell$ the space of the bottom row of the arrays $(\lambda^\ell_j)_{1 \le j \le \ell}$, equation (0) in [[markov_doob_integrability|Markov-Doob integrability]] can be further reduced to an equation between neighbouring rows.
 
 In the following we write superscript to indicate the level of the triangular array.
 For example $P^k$ is the transition kernel of $\lambda^{1 : k}$.
@@ -25,7 +25,7 @@ One way to look at RSK dynamics is to look at its effect on two adjacent levels 
 
 To write everything in a more symmetric manner, we write $\lambda^{n, k} := \lambda^k(n)$.
 
-In general in the usual specialisation (with discrete space), we have
+In general (not just the RSK dynamics) in the usual specialisation (with discrete space), we have
 * A matrix $W = (w_{n, k})$, where $w_{n, k} \sim p_{n, k}$ are independent random variables with some law $p_{n, k}$.
 * A dynamics with stochastic kernel $R_{v}((\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}), \lambda^{n, k})$, which is the law of obtaining $\lambda^{n, k}$ after inserting $v$ to $\lambda^{n - 1, k}$ given $\lambda^{n - 1, k - 1}$ and $\lambda^{n, k - 1}$.
 
@@ -46,7 +46,7 @@ Then we have
   A(\lambda^{n - 1, k}, \lambda^{n, k}) B(\lambda^{n, k - 1}, \lambda^{n, k}) = \sum_{\lambda^{n - 1, k - 1}} A(\lambda^{n - 1, k - 1}, \lambda^{n, k - 1}) B(\lambda^{n - 1, k - 1}, \lambda^{n - 1, k}) \notag \\
   \times L( \lambda^{n - 1, k - 1}, \lambda^{n - 1, k}, \lambda^{n, k - 1}, \lambda^{n, k}). \qquad (1)
 }}$
-implies (0) in [[markov_doob_integrability]].
+implies (0) in [[markov_doob_integrability|Markov-Doob integrability]].
 
 *Proof*. Using induction.
 {{$%align%

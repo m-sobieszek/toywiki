@@ -31,7 +31,7 @@ We assume this definition does not depend on the growth sequence.
 
 *Definition*. The local move integrability is
 {{$
-\sum_{w_{n, k}, s'} \prob(w_{n, k}) \mu_\Lambda(s') \prob(\rho_{\Theta \setminus \Lambda} s' = s) = \mu_\Theta(s). \qquad (1)
+\sum_{w_{n, k}, s'} \prob(w_{n, k}) \mu_\Lambda(s') \prob(\rho_{\Theta / \Lambda} s' = s) = \mu_\Theta(s). \qquad (1)
 }}$
 
 *Theorem*. Given $A = (w_{n, k})$, the local move integrability implies
