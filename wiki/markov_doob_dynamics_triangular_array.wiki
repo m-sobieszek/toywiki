@@ -5,12 +5,14 @@
 We give a classification of dynamics on the triangular array that are [[markov_doob_integrability_triangular_array|Markov-Doob integrable]] here.
 
 We consider four parameters with their possible values in braces:
-* Space: The triangular array may be on a discrete space (d) e.g. $\pint$, or continuous space (c) e.g. $\real_+$.
-* Type: The dynamics might be [[rsk_type_dynamics|RSK-type]] (r), which is weight preserving, or Warren-type (w).
-* Function: The special harmonic function $h$ may be the Schur polynomials (s), the $q$-Whittaker functions (q), the Macdonald polynomials (m), or the Whittaker functions (w).
-* Special: And the functions may have specialisations, including the usual specialisation / usual-spec (u), the dual specialisation / dual-spec (d), or the exponential specialisation / exp-spec (e).
+* *Space*: The triangular array may be on a discrete space (d) e.g. $\pint$, or continuous space (c) e.g. $\real_+$.
+* *Type*: The dynamics might be [[rsk_type_dynamics|RSK-type]] (r), which is weight preserving, or Warren-type (w).
+* *Function*: The special harmonic function $h$ may be the Schur polynomials (s), the $q$-Whittaker functions (q), the Macdonald polynomials (m), or the Whittaker functions (w).
+* *Special*: And the functions may have specialisations, including the usual specialisation / usual-spec (u), the dual specialisation / dual-spec (d), or the exponential specialisation / exp-spec (e).
 
-So in total the possibile dynamics are 4-tuples in {d, c} x {r, w} x {s, q, m, w} x {u, d, e}, ranging 48 possibilities!
+So in total the possibile dynamics are quadruples in {d, c} x {r, w} x {s, q, m, w} x {u, d, e}, ranging 48 possibilities!
+We write these quadruples in shorthand. E.g. crwe stands for Continuous-time RSK-type $h$-being-Whittaker-functions with Exponential-specialisations dynamics.
+We also use "." as a wildcard.
 
 *Remark 1*. The RSK-type dynamics can further split into row- and column- insertions. However for now we do not consider them separately, because
 1. They are dual to each other in a rather trivial sense in many cases
@@ -20,9 +22,9 @@ So in total the possibile dynamics are 4-tuples in {d, c} x {r, w} x {s, q, m, w
 1. Macdonald-related dynamics are still open
 2. The Schur cases are less messy than the $q$-case, and have their own merits. This is also the reason we do not neglect Whittaker-related dynamics even though they are limits of the $q$-cases.
 
-Let us list them all (.: wildcard, ?: open, x: likely nonexistent, -: may be out there somewhere):
+Let us list all the combinations (?: open; x: likely nonexistent; -: may be out there somewhere):
 
-| SpaceTypeFunctionSpecial | dynamics                      | Markov-Doob integrability shown in...        |
+| SpaceTypeFunctionSpecial | name of the dynamics          | Markov-Doob integrability shown in...        |
 |--------------------------|-------------------------------|----------------------------------------------|
 | drsu                     | RSK correspondence            | [{oconnell03a}]                              |
 | drsd                     | dual RSK correspondence       | \/                                           |

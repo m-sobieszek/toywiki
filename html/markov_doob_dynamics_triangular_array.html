@@ -35,21 +35,23 @@ We consider four parameters with their possible values in braces:
 </p>
 <ul>
 <li>
-Space: The triangular array may be on a discrete space (d) e.g. \(\pint\), or continuous space (c) e.g. \(\real_+\).
+<span id="-Space"></span><strong id="Space">Space</strong>: The triangular array may be on a discrete space (d) e.g. \(\pint\), or continuous space (c) e.g. \(\real_+\).
 
 <li>
-Type: The dynamics might be <a href="rsk_type_dynamics.html">RSK-type</a> (r), which is weight preserving, or Warren-type (w).
+<span id="-Type"></span><strong id="Type">Type</strong>: The dynamics might be <a href="rsk_type_dynamics.html">RSK-type</a> (r), which is weight preserving, or Warren-type (w).
 
 <li>
-Function: The special harmonic function \(h\) may be the Schur polynomials (s), the \(q\)-Whittaker functions (q), the Macdonald polynomials (m), or the Whittaker functions (w).
+<span id="-Function"></span><strong id="Function">Function</strong>: The special harmonic function \(h\) may be the Schur polynomials (s), the \(q\)-Whittaker functions (q), the Macdonald polynomials (m), or the Whittaker functions (w).
 
 <li>
-Special: And the functions may have specialisations, including the usual specialisation / usual-spec (u), the dual specialisation / dual-spec (d), or the exponential specialisation / exp-spec (e).
+<span id="-Special"></span><strong id="Special">Special</strong>: And the functions may have specialisations, including the usual specialisation / usual-spec (u), the dual specialisation / dual-spec (d), or the exponential specialisation / exp-spec (e).
 
 </ul>
 
 <p>
-So in total the possibile dynamics are 4-tuples in {d, c} x {r, w} x {s, q, m, w} x {u, d, e}, ranging 48 possibilities!
+So in total the possibile dynamics are quadruples in {d, c} x {r, w} x {s, q, m, w} x {u, d, e}, ranging 48 possibilities!
+We write these quadruples in shorthand. E.g. crwe stands for Continuous-time RSK-type \(h\)-being-Whittaker-functions with Exponential-specialisations dynamics.
+We also use "." as a wildcard.
 </p>
 
 <p>
@@ -77,7 +79,7 @@ The Schur cases are less messy than the \(q\)-case, and have their own merits. T
 </ol>
 
 <p>
-Let us list them all (.: wildcard, ?: open, x: likely nonexistent, -: may be out there somewhere):
+Let us list all the combinations (?: open; x: likely nonexistent; -: may be out there somewhere):
 </p>
 
 <table>
@@ -86,7 +88,7 @@ Let us list them all (.: wildcard, ?: open, x: likely nonexistent, -: may be out
 SpaceTypeFunctionSpecial
 </th>
 <th>
-dynamics
+name of the dynamics
 </th>
 <th>
 Markov-Doob integrability shown in...
