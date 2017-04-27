@@ -1,0 +1,58 @@
+%title Markov-Doob integrable dynamics on triangular arrays
+
+:markov_doob_integrability:
+
+We give a classification of dynamics on the triangular array that are [[markov_doob_integrability_triangular_array|Markov-Doob integrable]] here.
+
+We consider four parameters with their possible values in braces:
+* Space: The triangular array may be on a discrete space (d) e.g. $\pint$, or continuous space (c) e.g. $\real_+$.
+* Type: The dynamics might be [[rsk_type_dynamics|RSK-type]] (r), which is weight preserving, or Warren-type (w).
+* Function: The special harmonic function $h$ may be the Schur polynomials (s), the $q$-Whittaker functions (q), the Macdonald polynomials (m), or the Whittaker functions (w).
+* Special: And the functions may have specialisations, including the usual specialisation / usual-spec (u), the dual specialisation / dual-spec (d), or the exponential specialisation / exp-spec (e).
+
+So in total the possibile dynamics are 4-tuples in {d, c} x {r, w} x {s, q, m, w} x {u, d, e}, ranging 48 possibilities!
+
+*Remark 1*. The RSK-type dynamics can further split into row- and column- insertions. However for now we do not consider them separately, because
+1. They are dual to each other in a rather trivial sense in many cases
+2. There are "canonical" choices in many cases. For example, for usual-spec dynamics row insertion is usually more natural than column insertion, and for exp-spec dynamics column insertion more natural than row insertions.
+
+*Remark 1.5*. Both the Schur and $q$-Whittaker functions are special cases of the Macdonald polynomials, but we do not neglect the former two because
+1. Macdonald-related dynamics are still open
+2. The Schur cases are less messy than the $q$-case, and have their own merits. This is also the reason we do not neglect Whittaker-related dynamics even though they are limits of the $q$-cases.
+
+Let us list them all (.: wildcard, ?: open, x: likely nonexistent, -: may be out there somewhere):
+
+| SpaceTypeFunctionSpecial | dynamics                      | Markov-Doob integrability shown in...        |
+|--------------------------|-------------------------------|----------------------------------------------|
+| drsu                     | RSK correspondence            | [{oconnell03a}]                              |
+| drsd                     | dual RSK correspondence       | \/                                           |
+| drse                     | RS correspondence             | \/                                           |
+| drqu                     | $q$RSK algorithm              | [{matveev-petrov15}]                         |
+| drqd                     | dual $q$RSK algorithm         | \/                                           |
+| drqe                     | $q$RS algorithm               | [{oconnell-pei13}] [{borodin-petrov13}]      |
+| ..m.                     | ?                             | ?                                            |
+| d.w.                     | x [1]                         | x                                            |
+| crsu                     | DLPP with exponential weights | [{dieker-warren09}]                          |
+| crsd                     | -                             | -                                            |
+| crse                     | type-A Pitman's transform     | [{oconnell03b}]                              |
+| c.q.                     | x [2]                         | x                                            |
+| crwu                     | gRSK algorithm                | [{corwin-oconnell-seppalainen-zygouras14}]   |
+| crwd                     | -                             | -                                            |
+| crwe                     | semi-discrete polymer         | [{oconnell12a}]                              |
+| dwsu                     | push-block                    | [{warren-windridge09}]                       |
+| dwsd                     | -                             | -                                            |
+| dwse                     | push-block                    | [{warren-windridge09}] [{borodin-ferrari14}] |
+| dwqu                     | usual-spec $q$push-block      | [{matveev-petrov15}]                         |
+| dwqd                     | dual-spec $q$push-block       | \/                                           |
+| dwqe                     | exp-spec $q$push-block        | [{borodin-corwin14}]                         |
+| cwsu                     | - [3]                         | -                                            |
+| cwsd                     | -                             | -                                            |
+| cwse                     | Warren process                | [{warren07}]                                 |
+
+*Remark 2*. The [[markov_doob_integrability_triangular_array|Markov-Doob integrability]] given Space, Function, and Special has the same statement with the same transition kernels of the shape. Therefore for any x, y and z, the combination xryz and xwyz yield the same Corollary [[markov_doob_integrability_triangular_array|there]].
+
+[1]. Not likely to exist because the Whittaker functions are usually defined on continuous space.
+
+[2]. Not likely to exist becasue need to find a continuous version of the $q$-Geometric distribution, which is weird.
+
+[3]. TODO: Is this the Laguerre Warren process in [{sun16}]?
