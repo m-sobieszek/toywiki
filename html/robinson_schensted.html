@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/googlecode.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<script type="text/javascript" src="../config/highlightconfig.js"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<!--<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>-->
+
+<title>Robinson-Schensted algorithm</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_dynamics_triangular_array.html">Markov-Doob integrable dynamics on triangular arrays</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li>Robinson-Schensted algorithm</li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand-Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Robinson-Schensted algorithm</h1><hr/>
+
+
+<p>
+<span id="-robinson_schensted"></span><span class="tag" id="robinson_schensted">robinson_schensted</span>
+</p>
+
+
+<div id="Definitions"><h2 id="Definitions">Definitions</h2></div>
+<p>
+The Robinson-Schensted (RS) algorithm is a combinatorial algorithm on Young tableaux.
+</p>
+
+<p>
+The basic operation is the insertion of a positive integer to a Young tableau to form a new tableau.
+</p>
+
+<div id="Definitions-Row insertion"><h3 id="Row insertion">Row insertion</h3></div>
+<p>
+The definition found in most texts is the row insertion, which we define now.
+</p>
+
+<p>
+Say we want to insert \(k_1 = k\) into \(T\) to form a new tableau \(\tilde T\). 
+Starting from the first row of \(T\), if \(k\) is no less than all entries in the first row, then it is appended at the end of said row and the resulting tableau is the new tableau \(\tilde T\), otherwise \(k\) displaces the leftmost number in that row that is greater than \(k\), and insert the displaced number \(k_2\) into the second row.
+Then \(k_2\) is either appended to the end of the second row and the algorithm halts and the resulting tableau is \(\tilde T\), or it displaces \(k_3\), the leftmost number in the second row that is greater than \(k_2\).
+</p>
+
+<p>
+...
+</p>
+
+<p>
+In general \(k_j\) is either appended to the \(j\)th row and the algorithm halts and produces the resulting tableau, or it displaces \(k_{j + 1}\) the leftmost number in the \(j\)th row that is greater than \(k_j\).
+</p>
+
+<p>
+The process runs until the algorithm halts.
+</p>
+
+<p>
+Using the <a href="young_tableaux_gt_pattern.html">correspondence between the Young tableaux and the Gelfand-Tsetlin patterns</a>, the RS algorithm is a map that takes a Gelfand-Tsetlin pattern and a positive integer as input, and produces a new GT pattern as the output.
+Here is a sample Python code for the algorithm.
+</p>
+
+<pre class="python">
+def RowInsertion(Lambda, k):
+    from copy import deepcopy
+    NewLambda = deepcopy(Lambda)
+    l = len(Lambda)
+    if l &lt; k:
+        for i in range(l, k):
+            if l == 0:
+                NewLambda += [[0] * (i + 1)]
+            else:
+                NewLambda += [Lambda[l - 1] + [0] * (i - l + 1)]
+    l = len(NewLambda)
+    j = 1
+    for i in range(k, l):
+        NewLambda[i - 1][j - 1] += 1
+        if NewLambda[i - 1][j - 1] &lt;= NewLambda[i][j - 1]:
+            j += 1
+    NewLambda[l - 1][j - 1] += 1
+    return NewLambda
+</pre>
+
+<p>
+Recall the functions <code>GT2Tableau</code> and <code>Tableau2GT</code> in <a href="young_tableaux_gt_pattern.html">correspondence between the Young tableaux and the Gelfand-Tsetlin patterns</a>, the Python code for the row insertion applied to a Young tableau is <code>RowInsertionGT</code> "conjugated" with the conversions:
+</p>
+
+<pre class="python">
+def RowInsertion(T, k):
+    return GT2Tableau(RowInsertionGT(Tableau2GT(T), k))
+</pre>
+
+
+
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">about</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. <a href="tw_people.html">people</a>. contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 2 May 2017. <!--views-->
+        Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

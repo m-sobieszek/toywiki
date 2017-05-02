@@ -47,6 +47,9 @@ div.footerright{
     padding-bottom: .5em
 }
 
+pre{
+    font-size: 1.5em
+}
 
 /* from vimwiki style.css */
 body {font-family: Tahoma, Geneva, sans-serif; margin: 1em 2em 1em 2em; font-size: 100%; line-height: 130%;}

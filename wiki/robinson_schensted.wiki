@@ -1,0 +1,52 @@
+:robinson_schensted:
+
+%title Robinson-Schensted algorithm
+
+== Definitions ==
+The Robinson-Schensted (RS) algorithm is a combinatorial algorithm on Young tableaux.
+
+The basic operation is the insertion of a positive integer to a Young tableau to form a new tableau.
+
+=== Row insertion ===
+The definition found in most texts is the row insertion, which we define now.
+
+Say we want to insert $k_1 = k$ into $T$ to form a new tableau $\tilde T$. 
+Starting from the first row of $T$, if $k$ is no less than all entries in the first row, then it is appended at the end of said row and the resulting tableau is the new tableau $\tilde T$, otherwise $k$ displaces the leftmost number in that row that is greater than $k$, and insert the displaced number $k_2$ into the second row.
+Then $k_2$ is either appended to the end of the second row and the algorithm halts and the resulting tableau is $\tilde T$, or it displaces $k_3$, the leftmost number in the second row that is greater than $k_2$.
+
+...
+
+In general $k_j$ is either appended to the $j$th row and the algorithm halts and produces the resulting tableau, or it displaces $k_{j + 1}$ the leftmost number in the $j$th row that is greater than $k_j$.
+
+The process runs until the algorithm halts.
+
+Using the [[young_tableaux_gt_pattern|correspondence between the Young tableaux and the Gelfand-Tsetlin patterns]], the RS algorithm is a map that takes a Gelfand-Tsetlin pattern and a positive integer as input, and produces a new GT pattern as the output.
+Here is a sample Python code for the algorithm.
+
+{{{class="python"
+def RowInsertion(Lambda, k):
+    from copy import deepcopy
+    NewLambda = deepcopy(Lambda)
+    l = len(Lambda)
+    if l < k:
+        for i in range(l, k):
+            if l == 0:
+                NewLambda += [[0] * (i + 1)]
+            else:
+                NewLambda += [Lambda[l - 1] + [0] * (i - l + 1)]
+    l = len(NewLambda)
+    j = 1
+    for i in range(k, l):
+        NewLambda[i - 1][j - 1] += 1
+        if NewLambda[i - 1][j - 1] <= NewLambda[i][j - 1]:
+            j += 1
+    NewLambda[l - 1][j - 1] += 1
+    return NewLambda
+}}}
+
+Recall the functions `GT2Tableau` and `Tableau2GT` in [[young_tableaux_gt_pattern|correspondence between the Young tableaux and the Gelfand-Tsetlin patterns]], the Python code for the row insertion applied to a Young tableau is `RowInsertionGT` "conjugated" with the conversions:
+
+{{{class="python"
+def RowInsertion(T, k):
+    return GT2Tableau(RowInsertionGT(Tableau2GT(T), k))
+}}}

@@ -2,6 +2,8 @@
 
 %title Explicit formula of Macdonald polynomials
 
+Recall [[q_pochhammers|q-Pochhammer]] notation $(a)_n$.
+
 We derive the explicit formula of the [[macdonald_polynomials|Macdonald polynomials]] based on Pieri's rule.
 Let
 {{$
