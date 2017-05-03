@@ -65,11 +65,11 @@ The process runs until the algorithm halts.
 
 <p>
 Using the <a href="young_tableaux_gt_pattern.html">correspondence between the Young tableaux and the Gelfand-Tsetlin patterns</a>, the RS algorithm is a map that takes a Gelfand-Tsetlin pattern and a positive integer as input, and produces a new GT pattern as the output.
-Here is a sample Python code for the algorithm.
+Here is a sample Python code for the algorithm. Note <code>EnlargeGT</code> is a helper function that generate an equivalent GT of bigger size if the inserted number \(k\) is big.
 </p>
 
 <pre class="python">
-def RowInsertion(Lambda, k):
+def EnlargeGT(Lambda, k):
     from copy import deepcopy
     NewLambda = deepcopy(Lambda)
     l = len(Lambda)
@@ -79,6 +79,10 @@ def RowInsertion(Lambda, k):
                 NewLambda += [[0] * (i + 1)]
             else:
                 NewLambda += [Lambda[l - 1] + [0] * (i - l + 1)]
+    return NewLambda
+
+def RowInsertionGT(Lambda, k):
+    NewLambda = EnlargeGT(Lambda, k)
     l = len(NewLambda)
     j = 1
     for i in range(k, l):
@@ -96,6 +100,37 @@ Recall the functions <code>GT2Tableau</code> and <code>Tableau2GT</code> in <a h
 <pre class="python">
 def RowInsertion(T, k):
     return GT2Tableau(RowInsertionGT(Tableau2GT(T), k))
+</pre>
+
+<div id="Definitions-Column insertion"><h3 id="Column insertion">Column insertion</h3></div>
+<p>
+Column insertion has the same definition as the row insertion, except that
+</p>
+<ol>
+<li>
+The words 'row' and 'column' are interchanged
+
+<li>
+The number to be inserted in each column displaces the smallest number that is <em>greater than or equal to</em> itself, rather than 'greater than'.
+
+</ol>
+
+<p>
+Similarly it can be conveniently described in the language of GT patterns, and here are the sample codes, where we reuse <code>EnlargeGT</code> from the row insertion code:
+</p>
+<pre class="python">
+def ColInsertionGT(Lambda, k):
+    NewLambda = EnlargeGT(Lambda, k)
+    l = len(NewLambda)
+    j = k
+    for i in range(k, l + 1):
+        while j &gt; 1 and NewLambda[i - 2][j - 2] == NewLambda[i - 1][j - 1]:
+            j -= 1
+        NewLambda[i - 1][j - 1] += 1
+    return NewLambda
+
+def ColInsertion(T, k):
+    return GT2Tableau(ColInsertionGT(Tableau2GT(T), k))
 </pre>
 
 

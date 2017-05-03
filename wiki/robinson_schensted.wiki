@@ -21,10 +21,10 @@ In general $k_j$ is either appended to the $j$th row and the algorithm halts and
 The process runs until the algorithm halts.
 
 Using the [[young_tableaux_gt_pattern|correspondence between the Young tableaux and the Gelfand-Tsetlin patterns]], the RS algorithm is a map that takes a Gelfand-Tsetlin pattern and a positive integer as input, and produces a new GT pattern as the output.
-Here is a sample Python code for the algorithm.
+Here is a sample Python code for the algorithm. Note `EnlargeGT` is a helper function that generate an equivalent GT of bigger size if the inserted number $k$ is big.
 
 {{{class="python"
-def RowInsertion(Lambda, k):
+def EnlargeGT(Lambda, k):
     from copy import deepcopy
     NewLambda = deepcopy(Lambda)
     l = len(Lambda)
@@ -34,6 +34,10 @@ def RowInsertion(Lambda, k):
                 NewLambda += [[0] * (i + 1)]
             else:
                 NewLambda += [Lambda[l - 1] + [0] * (i - l + 1)]
+    return NewLambda
+
+def RowInsertionGT(Lambda, k):
+    NewLambda = EnlargeGT(Lambda, k)
     l = len(NewLambda)
     j = 1
     for i in range(k, l):
@@ -49,4 +53,25 @@ Recall the functions `GT2Tableau` and `Tableau2GT` in [[young_tableaux_gt_patter
 {{{class="python"
 def RowInsertion(T, k):
     return GT2Tableau(RowInsertionGT(Tableau2GT(T), k))
+}}}
+
+=== Column insertion ===
+Column insertion has the same definition as the row insertion, except that
+# The words 'row' and 'column' are interchanged
+# The number to be inserted in each column displaces the smallest number that is _greater than or equal to_ itself, rather than 'greater than'.
+
+Similarly it can be conveniently described in the language of GT patterns, and here are the sample codes, where we reuse `EnlargeGT` from the row insertion code:
+{{{class="python"
+def ColInsertionGT(Lambda, k):
+    NewLambda = EnlargeGT(Lambda, k)
+    l = len(NewLambda)
+    j = k
+    for i in range(k, l + 1):
+        while j > 1 and NewLambda[i - 2][j - 2] == NewLambda[i - 1][j - 1]:
+            j -= 1
+        NewLambda[i - 1][j - 1] += 1
+    return NewLambda
+
+def ColInsertion(T, k):
+    return GT2Tableau(ColInsertionGT(Tableau2GT(T), k))
 }}}
