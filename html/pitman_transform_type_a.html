@@ -1,0 +1,492 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/googlecode.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<script type="text/javascript" src="../config/highlightconfig.js"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<!--<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>-->
+
+<title>Type-A Pitman's transforms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_dynamics_triangular_array.html">Markov-Doob integrable dynamics on triangular arrays</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li>Type-A Pitman's transforms</li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="robinson_schensted.html">Robinson-Schensted algorithm</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand-Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Type-A Pitman's transforms</h1><hr/>
+
+
+<p>
+<span id="-pitman_transform"></span><span class="tag" id="pitman_transform">pitman_transform</span> <span id="-robinson_schensted"></span><span class="tag" id="robinson_schensted">robinson_schensted</span>
+</p>
+
+
+<p>
+In this article we derive the type-A pitman's transform from the <a href="robinson_schensted.html">Robinson-Schensted algorithms</a>. We start with the column insertion version, which can be found in [{oconnell03b}] and [{biane-bougerol-oconnell05}].
+Then we show the row insertion version, which is symmetric and quite similar to the column insertion version.
+</p>
+
+<div id="Rank-one"><h2 id="Rank-one">Rank-one</h2></div>
+<p>
+We start with the <a href="robinson_schensted.html">RS algorithm with column insertion</a> that takes a stream of ones and twos as input: \(w \in \{1, 2\}^\infty\).
+</p>
+
+<p>
+We write 
+</p>
+\begin{align}
+S_1(n) = \sum_{i = 1 : n} 1_{w_i = 1}\\
+S_2(n) = \sum_{i = 1 : n} 1_{w_i = 2}
+\end{align}
+<p>
+to be number of ones and twos up to time \(n\). Then \((S_1, S_2)\) can be regarded as a two-dimensional walk (or path) going by \((1, 0)\) or \((0, 1)\) each time.
+</p>
+
+<p>
+Recall the <a href="robinson_schensted.html">RS algorithm with column insertion</a> applied to \(w\):
+</p>
+<ol>
+<li>
+If \(w_n = 1\) then
+
+<ol>
+<li>
+\(\lambda^1_1(n) = \lambda^1_1(n - 1) + 1\)
+
+<li>
+\(\lambda^2_1(n) = \lambda^2_1(n - 1) + 1\)
+
+</ol>
+<li>
+Else (i.e. \(w_n = 2\))
+
+<ol>
+<li>
+if \(\lambda^1_1(n - 1) &gt; \lambda^2_2(n - 1)\) then
+
+<ol>
+<li>
+\(\lambda^2_2(n) = \lambda^2_2(n - 1) + 1\)
+
+</ol>
+<li>
+else (i.e. \(\lambda^1_1(n - 1) = \lambda^2_2(n - 1)\))
+
+<ol>
+<li>
+\(\lambda^2_1(n) = \lambda^2_1(n - 1) + 1\)
+
+</ol>
+</ol>
+</ol>
+
+<p>
+<span id="Rank-one-Definition"></span><strong id="Definition">Definition</strong>. We define binary operation \(\otimes\) and \(\odot\) on functions on \(\pint\) as follows:
+</p>
+\begin{align}
+f \otimes g (n) = \min_{0 \le i \le n} \{f(i) + g(n) - g(i)\} \\
+f \odot g (n) = \max_{0 \le i \le n} \{f(i) + g(n) - g(i)\}
+\end{align}
+
+<p>
+<span id="Rank-one-Claim"></span><strong id="Claim">Claim</strong>. Given \((\lambda^k_j(n))_{1 \le j \le k \le 2}\) as the output Young tableau of column-inserting \(w_{1 : n}\), we have
+</p>
+\begin{align}
+(\lambda^2_1, \lambda^2_2) = (S_2 \odot S_1, S_1 \otimes S_2).
+\end{align}
+
+<p>
+<span id="Rank-one-Proof"></span><strong id="Proof">Proof</strong>. We use induction.
+</p>
+
+<p>
+<span id="Rank-one-Basis"></span><strong id="Basis">Basis</strong>. When \(n = 0\), \(\lambda^2_1(n) = \lambda^2_2(n) = S_2 \odot S_1(n) = S_1 \otimes S_2(n) = 0\).
+</p>
+
+<p>
+<span id="Rank-one-Induction"></span><strong id="Induction">Induction</strong>. Suppose \((\lambda^2_1(n - 1), \lambda^2_2(n - 1)) = ((S_2 \odot S_1)(n - 1), (S_1 \otimes S_2)(n - 1))\).
+</p>
+<ul>
+<li>
+When \(w_n = 1\), i.e. \(S_1(n) - S_1(n - 1) = 1\) and \(S_2(n) - S_2(n - 1) = 0\).
+
+</ul>
+<p>
+Write \(M(l) = \max_{1 \le k \le l} \{S_2(k) - S_1(k)\}\).
+Then \(M(n - 1) = M(n)\) since \(S_1\) increases at time \(n\).
+Therefore by induction hypothesis (IH) 
+</p>
+\[
+(S_2 \odot S_1) (n) = \lambda^2_1 (n - 1) + 1 = \lambda^2_1(n); \qquad (S_1 \otimes S_2) (n) = \lambda^2_2(n - 1) = \lambda^2_2(n).
+\]
+<ul>
+<li>
+When \(w_n = 2\), i.e. \(S_1(n) - S_1(n - 1) = 0\) and \(S_2(n) - S_2(n - 1) = 1\).
+
+</ul>
+<p>
+If \(\lambda^1_1(n - 1) &gt; \lambda^2_2 (n - 1)\), by IH, this means
+</p>
+\[
+S_1(n - 1) &gt; S_1(\ell) + S_2(n - 1) - S_2(\ell) \qquad (1)
+\]
+<p>
+where \(\ell\) is where \(S_2 - S_1\) achieves maximum on \(1 : n - 1\):
+</p>
+\[
+M(n - 1) = S_2(\ell) - S_1(\ell).
+\]
+<p>
+(1) gives
+</p>
+\[
+S_2(n - 1) - S_1(n - 1) &lt; S_2(\ell) - S_1(\ell)
+\]
+<p>
+So
+</p>
+\[
+S_2(n) - S_1(n) = S_2(n - 1) - S_1(n - 1) + 1 \le S_2(\ell) - S_1(\ell)
+\]
+<p>
+i.e. \(\ell\) is still the argmax.
+Hence
+</p>
+\begin{align}
+S_2 \odot S_1 (n) &amp;= S_1(n) + M(n) = S_1(n - 1) + M(n - 1) = \lambda^2_1(n - 1) = \lambda^2_1 (n)\\
+S_1 \otimes S_2 (n) &amp;= S_2(n) - M(n) = 1 + S_2(n - 1) - M(n - 1) = \lambda^2_2(n - 1) + 1 = \lambda^2_2(n).
+\end{align}
+<p>
+If \(\lambda^1_1(n - 1) = \lambda^2_2 (n - 1)\), then we have
+</p>
+\[
+S_1(n - 1) = S_1(\ell) + S_2(n - 1) - S_2(\ell)
+\]
+<p>
+i.e.
+</p>
+\[
+S_2(n) - S_1(n) = S_2(n - 1) - S_1(n - 1) + 1 &gt; S_2(\ell) - S_1(\ell).
+\]
+<p>
+So
+</p>
+\begin{align}
+S_2 \odot S_1 (n) &amp;= S_1(n) + M(n) = S_1(n - 1) + M(n - 1) + 1 = \lambda^2_1(n - 1) + 1 = \lambda^2_1(n)\\
+S_1 \otimes S_2 (n) &amp;= S_2(n) - M(n) = S_2(n - 1) + 1 - M(n - 1) - 1 = \lambda^2_2(n - 1) = \lambda^2_2(n).
+\end{align}
+<p>
+\(\square\)
+</p>
+
+<div id="Rank-any"><h2 id="Rank-any">Rank-any</h2></div>
+<p>
+Now let us consider the case where the any positive integer \(k\) may be inserted to the Young tableau, and observe what happens.
+As before we define path \(S_k\) to be the number of \(k\)s so far:
+</p>
+\[
+S_k(n) = \sum_{i \le n} 1_{w_i = k}. \qquad (1.3)
+\]
+
+<p>
+When \(k\) is inserted, first \(S_k\) is increased by 1, and we try to insert \(k\) from \(S_k\) to the \(k\)th row.
+</p>
+<ol>
+<li>
+If \(\lambda^{k - 1}_{k - 1}(n - 1) &gt; \lambda^k_k (n - 1)\) then we may insert \(k\) to \(k\)th row:
+
+<ol>
+<li>
+\(\lambda^k_k (n) = \lambda^k_k (n - 1) + 1\).
+
+<li>
+Now we try to insert \(k + 1\) from \(\lambda^k_k\) to the \(k\)th row:
+
+<ol>
+<li>
+If \(\lambda^k_{k - 1}(n - 1) &gt; \lambda^{k + 1}_k (n - 1)\) then we may insert \(k + 1\) to \(k\)th row
+
+<ol>
+<li>
+\(\lambda^{k + 1}_k (n) = \lambda^{k + 1}_k(n - 1) + 1\)
+
+<li>
+....
+
+</ol>
+</ol>
+</ol>
+<li>
+else (i.e. \(\lambda^{k - 1}_{k - 1}(n - 1) &gt; \lambda^k_k (n - 1)\)) we can not insert \(k\) from \(S_k\) to the \(k\)th row
+
+<ol>
+<li>
+so we consider inserting \(k\) to the \(k - 1\)th row
+
+<li>
+If \(\lambda^{k - 1}_{k - 2}(n - 1) &gt; \lambda^k_{k - 1}(n - 1)\) then we may insert \(k\) to \(k - 1\)th row:
+
+<ol>
+<li>
+\(\lambda^k_{k - 1} (n) = \lambda^k_{k - 1} (n - 1) + 1\)
+
+<li>
+Now we try to insert \(k + 1\) to the \(k - 1\)th row:
+
+<ol>
+<li>
+...
+
+</ol>
+</ol>
+</ol>
+</ol>
+
+<p>
+One can see that the Rank-1 algorithm is iteratively applied here. So by the Claim, we can write
+</p>
+<ul>
+<li>
+\(\lambda^k_k = \lambda^{k - 1}_{k - 1} \otimes S_k\) 
+
+<ul>
+<li>
+\(\lambda^{k + 1}_k = \lambda^k_{k - 1} \otimes (S_{k + 1} \odot \lambda^k_k)\) 
+
+<ul>
+<li>
+...
+
+</ul>
+<li>
+\(\lambda^k_{k - 1} = \lambda^{k - 1}_{k - 2} \otimes (S_k \odot \lambda^{k - 1}_{k - 1})\). 
+
+<ul>
+<li>
+...
+
+</ul>
+</ul>
+</ul>
+
+<p>
+The Claim for general rank case is thus
+</p>
+
+<p>
+<span id="Rank-any-Claim 1"></span><strong id="Claim 1">Claim 1</strong>.
+</p>
+\begin{align}
+\lambda^1_1 &amp;= S_1 \\
+\lambda^k_k &amp;= \lambda^{k - 1}_{k - 1} \otimes S_k, \qquad k \ge 2 \\
+\mu^{k}_{k - 1} &amp;:= S_k \odot \lambda^{k - 1}_{k - 1} = S_k + \lambda^{k - 1}_{k - 1} - \lambda^k_k, \qquad k \ge 2 \\
+\lambda^k_1 &amp;= \mu^{k}_1, \qquad k \ge 2 \\
+\lambda^k_j &amp;= \lambda^{k - 1}_{j - 1} \otimes \mu^{k}_{j}, \qquad 1 &lt; j &lt; k \\
+\mu^{k}_{j - 1} &amp;:= \mu^{k}_{j} \odot \lambda^{k - 1}_{j - 1} = \mu^{k}_{j} + \lambda^{k - 1}_{j - 1} - \lambda^k_j, \qquad 1 &lt; j &lt; k \\
+\end{align}
+
+<p>
+We can define \(\lambda^k_k := S_k\) to obtain a simpler discription:
+</p>
+\begin{align}
+\mu^k_k &amp;:= S_k \\
+\lambda^k_1 &amp;= \mu^k_1 \\
+(\lambda^k_j, \mu^k_{j - 1}) &amp;= (\lambda^{k - 1}_{j - 1} \otimes \mu^k_j, \mu^k_j \odot \lambda^{k - 1}_{j - 1}) \qquad (1.5)
+\end{align}
+
+<p>
+<span id="Rank-any-Corollary"></span><strong id="Corollary">Corollary</strong>.
+</p>
+\begin{align}
+\lambda^k_k &amp;= S_1 \otimes S_2 ... \otimes S_k \qquad (2) \\
+\mu^k_j &amp;= (\sum_{i = 1 : j} \lambda^k_i) - (\sum_{i = 1 : j - 1} \lambda^{k - 1}_i).
+\end{align}
+
+<p>
+This can be represented in nice pictures. If we use the following notation to represent the \(\odot\) and \(\otimes\) operations:
+</p>
+
+<p>
+<img src="../resource/pitmantf.png" alt="Pitman's transform" width=200px /> \(\qquad \qquad \qquad (2.5)\)
+</p>
+
+<p>
+Then the RS algorithm, say of rank 3 can be illustrated as follows:
+</p>
+
+<p>
+<img src="../resource/queuesintandem.png" alt="Schematic picture of RS by Pitman's transform" /> \(\qquad \qquad \qquad (3)\)
+</p>
+
+<p>
+<span id="Rank-any-Claim 2"></span><strong id="Claim 2">Claim 2</strong>. Let \(G_k\) be defined as
+</p>
+\begin{align}
+G_1 (f) &amp;= f \\
+G_k (f_{1 : k}) &amp;= (G_{k - 1} (f_2 \odot f_1, f_3 \odot (f_1 \otimes f_2), ..., f_k \odot (f_1 \otimes ... \otimes f_{k - 1})), f_1 \otimes ... \otimes f_k)
+\end{align}
+<p>
+Then
+</p>
+\[
+\lambda^k_{1 : k} = G_k(S_{1 : k})
+\]
+
+<p>
+<span id="Rank-any-Proof"></span><strong id="Proof">Proof</strong>. Use induction.
+</p>
+
+<p>
+<span id="Rank-any-Basis"></span><strong id="Basis">Basis</strong>: \(G_1(S_1) = \lambda^1_1\) is true because when the input is a string of ones the output is a one-row tableau looking the same as the input string.
+</p>
+
+<p>
+<span id="Rank-any-Induction"></span><strong id="Induction">Induction</strong>: Suppose \(\lambda^{k - 1}_{1 : k - 1} = G_{k - 1}(S_{1 : k - 1})\). By (1.5) and (2) it suffices to show
+</p>
+\[
+\lambda^k_{1 : k} = (G_{k - 1}(\mu^2_1, \mu^3_2, ..., \mu^k_{k - 1}), \lambda^k_k)
+\]
+<p>
+namely
+</p>
+\[
+G_{k - 1} (\mu^2_1, \mu^3_2, ..., \mu^k_{k - 1}) = \lambda^k_{1 : k - 1},
+\]
+<p>
+which is true by looking at picture (3), removing the first row there, and using the IH. \(\square\)
+</p>
+
+<div id="Pitman&#39;s transform"><h2 id="Pitman&#39;s transform">Pitman's transform</h2></div>
+
+<p>
+<span id="Pitman&#39;s transform-Definition"></span><strong id="Definition">Definition</strong>. Given \(\ell\) a positive integer, let \(e^i\) for \(i = 1 : \ell\) be the \(i\)th natural basis such that \(e^i_j = \delta_{ij}\). let \((P_i)_{i = 1 : \ell - 1}\) be transformations of \(\ell\)-dimensional paths, defined as follows:
+</p>
+\[
+(P_i f_{1 : \ell}) (n) = f(n) + \max_{0 \le k \le n} (f_{i + 1}(s) - f_i(s)) (e^i - e^{i + 1}) = (f_{1 : i - 1}, f_{i + 1} \odot f_i, f_i \otimes f_{i + 1}, f_{i + 2 : \ell})
+\]
+<p>
+namely \(P_i\) "performs" \(G_2\) on the \(i\)th and \(i + 1\)th coordinates of its input.
+Let
+</p>
+\[
+H_k = P_1 P_2 P_1 P_3 P_2 P_1 ... P_k P_{k - 1} ... P_1
+\]
+
+<p>
+<span id="Pitman&#39;s transform-Claim 3"></span><strong id="Claim 3">Claim 3</strong>. \(G_k = H_k\).
+</p>
+
+<p>
+<span id="Pitman&#39;s transform-Proof"></span><strong id="Proof">Proof</strong>. Similar to the proof of Claim 2. We show that \(G_k\) and \(H_k\) define the same transformation by both agreeing to the RS algorithm:
+</p>
+\[
+H_k S_{1 : k} = H_{k - 1} P_k P_{k - 1} ... P_1 S_{1 : k} = H_{k - 1} (\mu^2_1, \mu^3_2, \mu^4_3, ... ,\mu^k_{k - 1}, \lambda^k_k) = \lambda^k_{1 : k}
+\]
+<p>
+by IH. \(\square\)
+</p>
+
+<p>
+<span id="Pitman&#39;s transform-Remark"></span><strong id="Remark">Remark</strong>. \(H_k\) is the Pitman's transform of type A. It is claimed (see e.g. [{biane-bougerol-oconnell05}]) that the definition of \(H_k\) does not depend on the order of the \(P\)s as long as their subscripts form a reduced decomposition of the longest element of reflection group \(A_{k - 1}\):
+</p>
+\[
+H_k = P_{i_1} P_{i_2} ... P_{i_m}
+\]
+<p>
+whenever \(\sigma = s_{i_1} s_{i_2} ... s_{i_m}\) where \(\sigma = (123...n)\).
+</p>
+
+<div id="Row insertion"><h2 id="Row insertion">Row insertion</h2></div>
+<p>
+For row insertion, one can follow similar derivations to obtain the corresponding Pitman's transform.
+</p>
+
+<p>
+<span id="Row insertion-Rank-one"></span><strong id="Rank-one">Rank-one</strong>.
+</p>
+\begin{align}
+\lambda^2_1 &amp;= S_1 \odot S_2 \\
+\lambda^2_2 &amp;= S_2 \otimes S_1
+\end{align}
+
+<p>
+<span id="Row insertion-Rank-any"></span><strong id="Rank-any">Rank-any</strong>.
+</p>
+
+\begin{align}
+\mu^k_1 &amp;= S_k, \qquad k \ge 1 \\
+\lambda^k_k &amp;= \mu^k_k, \qquad k \ge 1 \\
+(\lambda^k_j, \mu^k_{j + 1}) &amp;= (\lambda^{k - 1}_j \odot \mu^k_j, \mu^k_j \otimes \lambda^{k - 1}_j)\\
+\end{align}
+
+<p>
+And that
+</p>
+\begin{align}
+\lambda^k_1 &amp;= S_1 \odot S_2 \odot ... \odot S_k \\
+\mu^k_j &amp;= (\sum_{i = 2 : k} \lambda^k_i) - (\sum_{i = 2 : k - 1} \lambda^{k - 1}_j).
+\end{align}
+
+<p>
+Illustrated, we have (note the cross arrows have the same meaning as in (2.5))
+</p>
+
+<p>
+<img src="../resource/queuesintandemrow.png" alt="Illustration of row insertion" />
+</p>
+
+<p>
+We can also define the Pitman's transform. For \(\ell\)-dimensional path \(f\), let
+</p>
+\[
+Q_i f := (f_{1 : i - 1}, f_{i + 1} \otimes f_i, f_i \odot f_{i + 1}, f_{i + 2 : \ell}).
+\]
+<p>
+Then
+</p>
+
+<p>
+<span id="Row insertion-Claim"></span><strong id="Claim">Claim</strong>. Let \(w\) be a word, and \(S\) the corresponding walk / path as defined in (1.3).
+Let \((\lambda^i_j)\) be the output tableau obtained by row-inserting \(w\), then for any \(k\),
+</p>
+\[
+(\lambda^k_k, \lambda^k_{k - 1}, ..., \lambda^k_1) = (Q_1 Q_2 Q_1 Q_3 Q_2 Q_1 ... Q_k Q_{k - 1} ... Q_1 S)_{1 : k}.
+\]
+
+
+<h2>References</h2><ul>
+<li>
+[biane-bougerol-oconnell05] <span class="title">Littelmann paths and Brownian paths</span>, <span class="author">P. Biane, P. Bougerol, N. O'Connell</span>, <i>Duke Mathematical Journal</i>, Vol. 130, No. 1, p.127&ndash;167<span class="year"> 2005</span>.</li>
+
+<li>
+[oconnell03b] <span class="title">A path-transformation for random walks and the Robinson-Schensted correspondence</span>, <span class="author">Neil O'Connell</span>, <i>Transactions of American Mathematical Society</i>, Vol. 355, No. 9, p.3669&ndash;3697<span class="year"> 2003</span>.</li>
+</ul>
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">about</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. <a href="tw_people.html">people</a>. contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 4 May 2017. <!--views-->
+        Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

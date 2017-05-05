@@ -13,6 +13,7 @@ markov_doob_dynamics_triangular_array
 markov_doob_integrability
 markov_doob_integrability_triangular_array
 markov_function_theorem
+pitman_transform_type_a
 q_pochhammers
 robinson_schensted
 rsk_type_dynamics

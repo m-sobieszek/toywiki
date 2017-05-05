@@ -75,3 +75,8 @@ def ColInsertionGT(Lambda, k):
 def ColInsertion(T, k):
     return GT2Tableau(ColInsertionGT(Tableau2GT(T), k))
 }}}
+
+=== RS algorithm ===
+The RS algorithm takes a word $w = w_1w_2...w_n$ and inserts $w_1$ to the empty tableau to obtain $T(1)$, and inserts $w_2$ to $T(1)$ to obtain $T(2)$, and so on and so forth. 
+The output of the algorithm taking $w$ is $T = T(n)$.
+This applies to both row and column insertions.

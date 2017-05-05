@@ -16,7 +16,7 @@ Then
 
 *Proof*.
 {{$
-\prob(X_n / n \ge t) = (1 - \theta / n)^{n t} = e^{- \theta t}.
+\prob(X_n / n \ge t) = (1 - \theta / n)^{n t} \to e^{- \theta t}.
 }}$
 $\square$
 
