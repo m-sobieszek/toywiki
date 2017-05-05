@@ -7,6 +7,7 @@ Collaborations are welcome.
 Filesystem hierarchy:
 * `./wiki/`: main contents, written in [vimwiki](https://github.com/vimwiki/vimwiki) markup language.
 * `./html/`: web pages generated from wiki files using vimwiki and [vwweb](https://github.com/ycpei/vwweb).
+* `./resource/`: webpage assets e.g. images.
 * `./config/`: web page configurations
     * `./config/default.tpl`: web page template
     * `./config/mathjax_local.js`: mathjax local configurations
