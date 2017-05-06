@@ -100,7 +100,7 @@ When $k$ is inserted, first $S_k$ is increased by 1, and we try to insert $k$ fr
         # If $\lambda^k_{k - 1}(n - 1) > \lambda^{k + 1}_k (n - 1)$ then we may insert $k + 1$ to $k$th row
             # $\lambda^{k + 1}_k (n) = \lambda^{k + 1}_k(n - 1) + 1$
             # ....
-# else (i.e. $\lambda^{k - 1}_{k - 1}(n - 1) > \lambda^k_k (n - 1)$) we can not insert $k$ from $S_k$ to the $k$th row
+# else (i.e. $\lambda^{k - 1}_{k - 1}(n - 1) = \lambda^k_k (n - 1)$) we can not insert $k$ from $S_k$ to the $k$th row
     # so we consider inserting $k$ to the $k - 1$th row
     # If $\lambda^{k - 1}_{k - 2}(n - 1) > \lambda^k_{k - 1}(n - 1)$ then we may insert $k$ to $k - 1$th row:
         # $\lambda^k_{k - 1} (n) = \lambda^k_{k - 1} (n - 1) + 1$
