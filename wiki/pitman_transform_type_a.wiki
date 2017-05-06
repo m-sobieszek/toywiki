@@ -126,7 +126,7 @@ The Claim for general rank case is thus
 \mu^{k}_{j - 1} &:= \mu^{k}_{j} \odot \lambda^{k - 1}_{j - 1} = \mu^{k}_{j} + \lambda^{k - 1}_{j - 1} - \lambda^k_j, \qquad 1 < j < k \\
 }}$
 
-We can define $\lambda^k_k := S_k$ to obtain a simpler discription:
+We can write $\mu^k_k := S_k$ to obtain a simpler discription:
 {{$%align%
 \mu^k_k &:= S_k \\
 \lambda^k_1 &= \mu^k_1 \\
