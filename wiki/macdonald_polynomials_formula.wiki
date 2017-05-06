@@ -36,6 +36,7 @@ Therefore for a semistandard Young tableaux $T \leftrightarrow (\lambda^k_j)_{1 
 {{$
 \psi_T = \prod_{1 \le i \le j \le k - 1 \le \ell - 1} {(q^{\lambda^{k - 1}_i - \lambda^{k - 1}_j} t^{j - i + 1})_{\lambda^k_i - \lambda^{k - 1}_i} (q^{\lambda^{k - 1}_i - \lambda^k_{j + 1} + 1} t^{j - i})_{\lambda^k_i - \lambda^{k - 1}_i} \over (q^{\lambda^{k - 1}_i - \lambda^{k - 1}_j + 1} t^{j - i})_{\lambda^k_i - \lambda^{k - 1}_i} (q^{\lambda^{k - 1}_i - \lambda^k_{j + 1}} t^{j - i + 1})_{\lambda^k_i - \lambda^{k - 1}_i}}.
 }}$
+%%TODO: double-check the above formula, looks fishy compared to (1).
 
 And for $\lambda = \lambda_{1 : \ell}$ the Macdonald polynomial
 {{$

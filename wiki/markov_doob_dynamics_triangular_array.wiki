@@ -29,8 +29,8 @@ Let us list all the combinations (?: open; x: likely nonexistent; -: may be out 
 | drsu                     | RSK correspondence            | [{oconnell03a}]                              |
 | drsd                     | dual RSK correspondence       | \/                                           |
 | drse                     | RS correspondence             | \/                                           |
-| drqu                     | $q$RSK algorithm              | [{matveev-petrov15}]                         |
-| drqd                     | dual $q$RSK algorithm         | \/                                           |
+| drqu                     | $q$RSK algorithm              | [{matveev-petrov15}] [{pei16}] [0]           |
+| drqd                     | dual $q$RSK algorithm         | [{matveev-petrov15}]                         |
 | drqe                     | $q$RS algorithm               | [{oconnell-pei13}] [{borodin-petrov13}]      |
 | ..m.                     | ?                             | ?                                            |
 | d.w.                     | x [1]                         | x                                            |
@@ -51,7 +51,11 @@ Let us list all the combinations (?: open; x: likely nonexistent; -: may be out 
 | cwsd                     | -                             | -                                            |
 | cwse                     | Warren process                | [{warren07}]                                 |
 
+%%TODO: looks like only 45 out of the 48 cases are covered here... needs double checking.
+
 *Remark 2*. The [[markov_doob_integrability_triangular_array|Markov-Doob integrability]] given Space, Function, and Special has the same statement with the same transition kernels of the shape. Therefore for any x, y and z, the combination xryz and xwyz yield the same Corollary [[markov_doob_integrability_triangular_array|there]].
+
+[0]. In [{pei16}] [[macdonald_rsk_local_move_integrability|Local move integrability]] of the $q$RSK was shown, which turns out to be [[equivalence_m_rsk_md_lm_integrabilities|equivalent to the Markov-Doob integrability]].
 
 [1]. Not likely to exist because the Whittaker functions are usually defined on continuous space.
 

@@ -96,7 +96,7 @@ S_k(n) = \sum_{i \le n} 1_{w_i = k}. \qquad (1.3)
 When $k$ is inserted, first $S_k$ is increased by 1, and we try to insert $k$ from $S_k$ to the $k$th row.
 # If $\lambda^{k - 1}_{k - 1}(n - 1) > \lambda^k_k (n - 1)$ then we may insert $k$ to $k$th row:
     # $\lambda^k_k (n) = \lambda^k_k (n - 1) + 1$.
-    # Now we try to insert $k + 1$ from $\lambda^k_k$ to the $k$th row:
+    # Now we try to insert $k + 1$ to the $k$th row:
         # If $\lambda^k_{k - 1}(n - 1) > \lambda^{k + 1}_k (n - 1)$ then we may insert $k + 1$ to $k$th row
             # $\lambda^{k + 1}_k (n) = \lambda^{k + 1}_k(n - 1) + 1$
             # ....
@@ -195,10 +195,10 @@ by IH. $\square$
 {{$
 H_k = P_{i_1} P_{i_2} ... P_{i_m}
 }}$
-whenever $\sigma = s_{i_1} s_{i_2} ... s_{i_m}$ where $\sigma = (123...n)$.
+whenever $\sigma = s_{i_1} s_{i_2} ... s_{i_m}$ where $\sigma = (123...k)$.
 
 == Row insertion ==
-For row insertion, one can follow similar derivations to obtain the corresponding Pitman's transform.
+For row insertion, one can follow similar derivations to obtain similar path transformations.
 
 *Rank-one*.
 {{$%align%
