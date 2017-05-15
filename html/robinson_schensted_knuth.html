@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/googlecode.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<script type="text/javascript" src="../config/highlightconfig.js"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<!--<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>-->
+
+<title>Robinson-Schensted-Knuth algorithms.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_dynamics_triangular_array.html">Markov-Doob integrable dynamics on triangular arrays</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="robinson_schensted.html">Robinson-Schensted algorithm</a></li><li>Robinson-Schensted-Knuth algorithms.</li><li><a href="rs_pitman_type_a.html">RS algorithms as type-A Pitman's transforms</a></li><li><a href="rsk_path_transformation.html">RSK algorithms as path transformations</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand-Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Robinson-Schensted-Knuth algorithms.</h1><hr/>
+
+
+<p>
+<span id="-robinson_schensted"></span><span class="tag" id="robinson_schensted">robinson_schensted</span> <span id="-robinson_schensted_knuth"></span><span class="tag" id="robinson_schensted_knuth">robinson_schensted_knuth</span>
+</p>
+
+<p>
+Recall the <a href="robinson_schensted.html">RS</a> algorithm.
+</p>
+
+<p>
+The Robinson-Schensted-Knuth (RSK) algorithm is the Robinson-Schensted algorithm taking matrices as input.
+By default we consider the row insertion algorithm: \(\text{RSK} = \text{RSK}_{\text{Row}}\).
+Given a nonnegative integer matrix \(A\), one can convert it to a word \(w(A)\), and the RSK algorithm is defined as RS (with row insertion) taking \(w(A)\) as the input
+</p>
+\[
+\text{RSK} (A) := \text{RS}_{\text{Row}} (w(A))
+\]
+
+<p>
+The conversion is by multiplicity: suppose \(A = (a_{ij})_{n \times \ell}\), then
+</p>
+\[
+w(A) := (1^{a_{11}} 2^{a_{12}} ... \ell^{a_{1 \ell}} 1^{a_{21}} 2^{a_{22}} ... \ell^{a_{2 \ell}} ... 1^{a_{n1}} 2^{a_{n2}} ... \ell^{a_{n \ell}})
+\]
+<p>
+where \(k^m\) means \(k\) repeated \(m\) times.
+</p>
+
+<p>
+For example
+</p>
+\[
+w(\begin{pmatrix} 1 &amp; 0 &amp; 4 \\ 4 &amp; 2 &amp; 3 \end{pmatrix}) = (13333111122333)
+\]
+
+<p>
+One can also define the RSK column insertion algorithm, which is called the Burge correspondence.
+It is defined in the same way as the RSK row insertion, except we use a different conversion from matrices to words, which reads from right to left rather than from left to right as in \(w\):
+</p>
+\begin{align}
+\text{RSK}_{\text{Col}} (A) &amp;:= \text{RS}_{\text{Col}} (w'(A)) \\
+w'(A) &amp;:= (\ell^{a_{1 \ell}} ... 2^{a_{12}} 1^{a_{11}} \ell^{a_{2 \ell}} ... 2^{a_{22}} 1^{a_{21}} ... \ell^{a_{n \ell}} ... 2^{a_{n2}} 1^{a_{n1}})
+\end{align}
+<p>
+so the previous example becomes
+</p>
+\[
+w'(\begin{pmatrix} 1 &amp; 0 &amp; 4 \\ 4 &amp; 2 &amp; 3 \end{pmatrix}) = (33331333221111)
+\]
+
+<p>
+The reason for having a different conversion is to get the <em>RSK correspondences</em> and the integrability results that can be derived from the correspondences.
+</p>
+
+
+
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">about</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. <a href="tw_people.html">people</a>. contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 15 May 2017. <!--views-->
+        Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

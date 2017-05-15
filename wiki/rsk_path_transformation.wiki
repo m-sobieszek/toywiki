@@ -1,0 +1,31 @@
+:robinson_schensted_knuth:robinson_schensted:pitman_transform:
+
+%title RSK algorithms as path transformations
+
+We write the [[robinson_schensted_knuth|RSK]] algorithms as path transformations analogous to the [[rs_pitman_type_a|Pitman's transform of type A]].
+The derivation is similar to that note.
+%%Note that here we *overload* the operators $\odot$ and $\otimes$ defined in [[rs_pitman_type_a|Pitman's transform of type A]]:
+Define operators $\odot$ and $\otimes$ on pairs of functions on $\pint$ as
+{{$
+(f \odot g) (n) = \max_{k = 1 : n} \{f(k) + g(n) - g(k - 1)\} \\
+(f \otimes g) (n) = \min_{k = 1 : n} \{f(k - 1) + g(n) - g(k)\}
+}}$
+Note that the definitions of these operators are slightly different from those in [[rs_pitman_type_a|Pitman's transform of type A]].
+
+Given an input matrix $A = (a_{ij})$, let 
+{{$
+\mu^k_1(n) := \sum_{i = 1 : n} a_{i k}
+}}$
+As usual, let $(\lambda^k_j)_{1 \le j \le k}$ be the [[young_tableaux_gt_pattern|GT pattern corresponds to the output tableaux]].
+Then we the same (in terms of $\odot$ and $\otimes$) path transformations as in [[rs_pitman_type_a|Pitman's transform of type A]]:
+{{$%align%
+\lambda^k_k &= \mu^k_k, \qquad k \ge 1 \\
+(\lambda^k_j, \mu^k_{j + 1}) &= (\lambda^{k - 1}_j \odot \mu^k_j, \mu^k_j \otimes \lambda^{k - 1}_j).
+}}$
+
+Similarly, the RSK column insertion algorithm has the corresponding path transformation definition:
+{{$%align%
+\mu^k_k(n) &:= \sum_{i = 1 : n} a_{i k}\\
+\lambda^k_1 &= \mu^k_1 \\
+(\lambda^k_j, \mu^k_{j - 1}) &= (\lambda^{k - 1}_{j - 1} \otimes \mu^k_j, \mu^k_j \odot \lambda^{k - 1}_{j - 1}).
+}}$

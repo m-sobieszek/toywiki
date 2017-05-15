@@ -23,7 +23,7 @@ $\square$
 The shape of the Young tableau is thus the bottom row of the Gelfand Tsetlin pattern. In the above example it is $(5, 3, 1)$.
 
 For example here are sample Python codes of the two conversions:
-{{{class="brush: python"
+{{{class="python"
 def Tableau2GT(T):
     if T == []:
         return []

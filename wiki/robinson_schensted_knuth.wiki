@@ -1,0 +1,36 @@
+:robinson_schensted:robinson_schensted_knuth:
+
+%title Robinson-Schensted-Knuth algorithms.
+
+Recall the [[robinson_schensted|RS]] algorithms.
+
+The Robinson-Schensted-Knuth (RSK) algorithm is the Robinson-Schensted algorithm taking matrices as input.
+By default we consider the row insertion algorithm: $\text{RSK} = \text{RSK}_{\text{Row}}$.
+Given a nonnegative integer matrix $A$, one can convert it to a word $w(A)$, and the RSK algorithm is defined as RS (with row insertion) taking $w(A)$ as the input
+{{$
+\text{RSK} (A) := \text{RS}_{\text{Row}} (w(A))
+}}$
+
+The conversion is by multiplicity: suppose $A = (a_{ij})_{n \times \ell}$, then
+{{$
+w(A) := (1^{a_{11}} 2^{a_{12}} ... \ell^{a_{1 \ell}} 1^{a_{21}} 2^{a_{22}} ... \ell^{a_{2 \ell}} ... 1^{a_{n1}} 2^{a_{n2}} ... \ell^{a_{n \ell}})
+}}$
+where $k^m$ means $k$ repeated $m$ times.
+
+For example
+{{$
+w(\begin{pmatrix} 1 & 0 & 4 \\ 4 & 2 & 3 \end{pmatrix}) = (13333111122333)
+}}$
+
+One can also define the RSK column insertion algorithm, which is called the Burge correspondence.
+It is defined in the same way as the RSK row insertion, except we use a different conversion from matrices to words, which reads from right to left rather than from left to right as in $w$:
+{{$%align%
+\text{RSK}_{\text{Col}} (A) &:= \text{RS}_{\text{Col}} (w'(A)) \\
+w'(A) &:= (\ell^{a_{1 \ell}} ... 2^{a_{12}} 1^{a_{11}} \ell^{a_{2 \ell}} ... 2^{a_{22}} 1^{a_{21}} ... \ell^{a_{n \ell}} ... 2^{a_{n2}} 1^{a_{n1}})
+}}$
+so the previous example becomes
+{{$
+w'(\begin{pmatrix} 1 & 0 & 4 \\ 4 & 2 & 3 \end{pmatrix}) = (33331333221111)
+}}$
+
+The reason for having a different conversion is to get the _RSK correspondences_ and the integrability results that can be derived from the correspondences.
