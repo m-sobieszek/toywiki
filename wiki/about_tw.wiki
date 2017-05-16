@@ -1,3 +1,4 @@
+<!-- -*- mode: text; -*- -->
 :toywiki:
 
 %title Welcome to toywiki
