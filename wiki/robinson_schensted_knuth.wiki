@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :robinson_schensted:robinson_schensted_knuth:
 
 %title Robinson-Schensted-Knuth algorithms

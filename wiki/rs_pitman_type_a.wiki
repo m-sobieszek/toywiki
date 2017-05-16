@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :pitman_transform:robinson_schensted:
 
 %title RS algorithms as type-A Pitman's transforms

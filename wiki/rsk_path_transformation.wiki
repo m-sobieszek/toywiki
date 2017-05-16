@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :robinson_schensted_knuth:robinson_schensted:pitman_transform:
 
 %title RSK algorithms as path transformations

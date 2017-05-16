@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :young_tableaux:gelfand_tsetlin_patterns:
 
 %title Young tableaux and Gelfand-Tsetlin patterns

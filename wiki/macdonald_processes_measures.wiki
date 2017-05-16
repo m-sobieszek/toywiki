@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :macdonald_processes:macdonald_measures:macdonald_polynomials:
 
 %title Macdonald processes and measures

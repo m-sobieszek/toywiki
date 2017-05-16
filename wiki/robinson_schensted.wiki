@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :robinson_schensted:
 
 %title Robinson-Schensted algorithm

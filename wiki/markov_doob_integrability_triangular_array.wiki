@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :markov_function_theorem:doob_transform:intertwining_relation:
 %title Markov-Doob integrability on triangular arrays
 

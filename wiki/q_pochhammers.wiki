@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :q_analogs:q_pochhammers:q_binomial_coefficients:q_vandermonde_chu_identity:
 
 %title $q$-Pochhammers

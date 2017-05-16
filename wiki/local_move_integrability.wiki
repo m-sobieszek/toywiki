@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :local_moves:
 
 %title Local move integrability

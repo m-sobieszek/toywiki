@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :macdonald_polynomials:macdonald_processes:
 
 %title Macdonald-RSK local move integrability

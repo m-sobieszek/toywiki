@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :robinson_schensted_knuth:
 
 %title RSK-type dynamics

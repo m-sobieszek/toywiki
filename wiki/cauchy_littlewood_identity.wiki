@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 %title Cauchy-Littlewood identities
 
 * Recall $E(t, x)$ and $H(t, x)$ from [[simple_symmetric_functions|Simple symmetric functions]].

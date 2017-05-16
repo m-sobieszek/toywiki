@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :geometric_distribution:q_deformation:
 
 %title Geometric distributions

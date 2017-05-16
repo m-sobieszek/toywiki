@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 %title Simple symmetric functions
 
 Sym = symmetrisation

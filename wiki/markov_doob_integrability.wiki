@@ -1,3 +1,4 @@
+%%<!-- -*- mode: text; -*- -->
 :markov_function_theorem:doob_transform:
 %title Markov-Doob integrability
 
