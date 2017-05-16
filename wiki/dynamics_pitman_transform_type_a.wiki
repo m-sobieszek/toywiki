@@ -1,0 +1,106 @@
+%%<!-- -*- mode: text; -*- -->
+%title Dynamics of type-A Pitman's transform
+
+:pitman_transform:robinson_schensted:local_time:robinson_schensted_knuth:
+
+In this article we derive the dynamical equations for the [[pitman_transform_type_a|Pitman's transform of type A]].
+This derivation is not very useful due to the "niceness" assumption.
+It is more of a proof of concept.
+Related readings include [{warren07}] and [{oconnell12a}].
+
+For paths $A$, let $L_A$ be the time $A$ spends at $0$:
+{{$
+L_A(t) = \int_0^t 1_{A(s) = 0} ds.
+}}$
+It is similar to local time, except the latter is the time $A$ spends *near* some point ($0$ here).
+Also we only consider deterministic paths in this article, as opposed to local time which is usually considered with respect to stochastic processes.
+For $A$ with good regularities, $L_A$ and the local time should be the same.
+
+*Claim*. Given paths $S_1, S_2, ...$ that are "nice" enough, and let $(\lambda^k_j)_{1 \le j \le k}$ be the output after applying Pitman's transform (column insertion) to the $S$'s.
+Then
+{{$%align%
+d \lambda^1_1 &= d S_1 \\
+d \lambda^k_1 &= d \lambda^{k - 1}_1 + d L_{\lambda^{k - 1}_1 - \lambda^k_2}, \qquad k > 1\\
+d \lambda^k_k &= d S_k - d L_{\lambda^{k - 1}_{k - 1} - \lambda^k_k}, \qquad k > 1 \\
+d \lambda^k_j &= d \lambda^{k - 1}_j + d L_{\lambda^{k - 1}_j - \lambda^k_{j + 1}} - d L_{\lambda^{k - 1}_{j - 1} - \lambda^k_j} \qquad 1 < j < k
+}}$
+
+To prove the Claim, we use a lemma.
+
+*Lemma*. For paths $A, B$ that are "nice" enough we have
+{{$%align%
+d A \otimes B &= d B - d L_{A \otimes B - A} \\
+d A \odot B &= d B + d L_{A - A \odot B}
+}}$
+
+*Proof*. We show the formula for $A \otimes B$, as $A \odot B$ is similar.
+Recall
+{{$
+A \otimes B (t) = B(t) - \sup_{0 \le s \le t} \{B(s) - A(s)\}
+}}$
+and hence
+{{$
+(A \otimes B - A) (t) = (B - A)(t) - \sup_{0 \le s \le t} \{B(s) - A(s)\}
+}}$
+so it suffices to show that
+{{$
+d M(t) = d L_{M - C}(t) \qquad (1)
+}}$
+where $C = B - A$ and $M(t) = \sup_{0 \le s \le t} C(s)$.
+
+*Now we use the assumption of "nice"*. 
+Suppose there does not exist an interval on which $C$ is constant.
+Then we know that $M$ increases if and only if $C$ reaches $M$, which implies (1) and we are done. $\square$
+
+*Proof* of Claim.
+Recall from [[pitman_transform_type_a]] and the Corollary from [[rs_pitman_type_a]] that
+{{$%align%
+\mu^k_k &= S_k\\
+\lambda^k_1 &= \mu^k_1 \\
+(\lambda^k_j, \mu^k_{j - 1}) &= (\lambda^{k - 1}_{j - 1} \otimes \mu^k_j, \mu^k_j \odot \lambda^{k - 1}_{j - 1}), \qquad j > 1. \\
+\mu^k_j &= (\sum_{i = 1 : j} \lambda^k_i) - (\sum_{i = 1 : j - 1} \lambda^{k - 1}_i).
+}}$
+
+To derive equations for $\lambda^k_j$ we consider the four cases where $j = k = 1$, $j = 1 < k$, $j = k > 1$ or $1 < j < k$.
+We use the Lemma repeatedly.
+# $j = k = 1$.
+  {{$
+  d \lambda^1_1 = d \mu^1_1 = d S_1
+  }}$
+# $j = 1 < k$.
+  {{$
+  d \lambda^k_1 = d \mu^k_1 = d \mu^k_2 \odot \lambda^{k - 1}_1 = d \lambda^{k - 1}_1 - d L_{\mu^k_2 - \lambda^k_1} = d \lambda^{k - 1}_1 - d L_{\lambda^k_2 - \lambda^{k - 1}_1}
+  }}$
+# $j = k > 1$.
+  {{$
+  d \lambda^k_k = d \lambda^{k - 1}_{k - 1} \otimes \mu^k_k = d \mu^k_k - d L_{\lambda^k_k - \lambda^{k - 1}_{k - 1}} = d S_k - d L_{\lambda^k_k - \lambda^{k - 1}_{k - 1}}
+  }}$
+# $1 < j < k$.
+  {{$
+  d \lambda^k_j = d \lambda^{k - 1}_{j - 1} \otimes \mu^k_j = d \mu^k_j - d L_{\lambda^k_j - \lambda^{k - 1}_{j - 1}}
+  }}$
+  where we then use
+  {{$
+  d \mu^k_j = d \mu^k_{j + 1} \odot \lambda^{k - 1}_j = d \lambda^{k - 1}_j + d L_{\mu^k_{j + 1} - \mu^k_j}
+  }}$
+  where we then use
+  {{$
+  \mu^k_{j + 1} - \mu^k_j = \lambda^k_{j + 1} - \lambda^{k - 1}_j
+  }}$
+$\square$
+
+The equation for the row insertion transform is similar:
+{{$%align%
+d \lambda^1_1 &= d S_1 \\
+d \lambda^k_1 &= d S_k + d L_{\lambda^{k - 1}_1 - \lambda^k_1}, \qquad k > 1 \\
+d \lambda^k_k &= d \lambda^{k - 1}_{k - 1} - d L_{\lambda^{k - 1}_{k - 1} - \lambda^k_{k - 1}}, \qquad k > 1 \\
+d \lambda^k_j &= d \lambda^{k - 1}_{j - 1} - d L_{\lambda^{k - 1}_{j - 1} - \lambda^k_{j - 1}} + d L_{\lambda^{k - 1}_j - \lambda^k_j}. \qquad 1 < j < k
+}}$
+
+*Remark*. The symmetry between the column and the row insertion has finally become transparent: one may use and involution 
+{{$%align%
+\lambda^k_j &\mapsto \lambda^k_{k - j + 1} \\
+S_k &\mapsto - S_k
+}}$
+To transform the row (resp. column) insertion equation to the column (resp. row) insertion equation.
+Such striking "duality" between the row and column insertion could not be easily observed when one looks at [[robinson_schensted|the conventional definition of the discrete-time-discrete-space version of the RS algorithms]].
