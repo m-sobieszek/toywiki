@@ -14,9 +14,7 @@ So in total the possibile dynamics are quadruples in {d, c} x {r, w} x {s, q, m,
 We write these quadruples in shorthand. E.g. crwe stands for Continuous-time RSK-type $h$-being-Whittaker-functions with Exponential-specialisations dynamics.
 We also use "." as a wildcard.
 
-*Remark 1*. The RSK-type dynamics can further split into row- and column- insertions. However for now we do not consider them separately, because
-1. They are dual to each other in a rather trivial sense in many cases
-2. There are "canonical" choices in many cases. For example, for usual-spec dynamics row insertion is usually more natural than column insertion, and for exp-spec dynamics column insertion more natural than row insertions.
+*Remark 1*. The RSK-type dynamics can further split into row- and column- insertions. However we do not consider them separately, because they are dual to each other in a rather trivial sense in Schur and Whittaker cases.
 
 *Remark 1.5*. Both the Schur and $q$-Whittaker functions are special cases of the Macdonald polynomials, but we do not neglect the former two because
 1. Macdonald-related dynamics are still open

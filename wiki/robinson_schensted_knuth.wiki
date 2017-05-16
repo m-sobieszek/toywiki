@@ -1,6 +1,6 @@
 :robinson_schensted:robinson_schensted_knuth:
 
-%title Robinson-Schensted-Knuth algorithms.
+%title Robinson-Schensted-Knuth algorithms
 
 Recall the [[robinson_schensted|RS]] algorithms.
 
