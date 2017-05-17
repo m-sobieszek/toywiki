@@ -2,9 +2,9 @@
 :robinson_schensted_knuth:robinson_schensted:pitman_transform:
 
 %title RSK algorithms as path transformations
-%date 2017-05-16
+%date 2017-05-17
 
-We write the [[robinson_schensted_knuth|RSK]] algorithms as path transformations analogous to the [[rs_pitman_type_a|Pitman's transform of type A]].
+We write the [[robinson_schensted_knuth|RSK]] algorithms as path transformations analogous to the [[rs_pitman_type_a|RS as Pitman's transform of type A]].
 The derivation is similar to that note.
 %%Note that here we *overload* the operators $\odot$ and $\otimes$ defined in [[rs_pitman_type_a|Pitman's transform of type A]]:
 Define operators $\odot$ and $\otimes$ on pairs of functions on $\pint$ as
@@ -23,13 +23,13 @@ As usual, let $(\lambda^k_j)_{1 \le j \le k}$ be the [[young_tableaux_gt_pattern
 Then we the same (in terms of $\odot$ and $\otimes$) path transformations as in [[rs_pitman_type_a|Pitman's transform of type A]]:
 {{$%align%
 \mu^k_1 &= S_k\\
-\lambda^k_k &= \mu^k_k, \qquad k \ge 1 \\
-(\lambda^k_j, \mu^k_{j + 1}) &= (\lambda^{k - 1}_j \odot \mu^k_j, \mu^k_j \otimes \lambda^{k - 1}_j).
+\lambda^k_k &= \mu^k_k \\
+(\lambda^k_j, \mu^k_{j + 1}) &= (\lambda^{k - 1}_j \odot \mu^k_j, \mu^k_j \otimes \lambda^{k - 1}_j), \qquad j < k.
 }}$
 
 Similarly, the RSK column insertion algorithm has the corresponding path transformation definition:
 {{$%align%
-\mu^k_k(n) &= S_k\\
+\mu^k_k &= S_k\\
 \lambda^k_1 &= \mu^k_1 \\
-(\lambda^k_j, \mu^k_{j - 1}) &= (\lambda^{k - 1}_{j - 1} \otimes \mu^k_j, \mu^k_j \odot \lambda^{k - 1}_{j - 1}).
+(\lambda^k_j, \mu^k_{j - 1}) &= (\lambda^{k - 1}_{j - 1} \otimes \mu^k_j, \mu^k_j \odot \lambda^{k - 1}_{j - 1}), \qquad 1 < j \le k.
 }}$

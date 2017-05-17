@@ -32,7 +32,7 @@
 
 
 <p>
-We write the <a href="robinson_schensted_knuth.html">RSK</a> algorithms as path transformations analogous to the <a href="rs_pitman_type_a.html">Pitman's transform of type A</a>.
+We write the <a href="robinson_schensted_knuth.html">RSK</a> algorithms as path transformations analogous to the <a href="rs_pitman_type_a.html">RS as Pitman's transform of type A</a>.
 The derivation is similar to that note.
 Define operators \(\odot\) and \(\otimes\) on pairs of functions on \(\pint\) as
 </p>
@@ -57,17 +57,17 @@ Then we the same (in terms of \(\odot\) and \(\otimes\)) path transformations as
 </p>
 \begin{align}
 \mu^k_1 &amp;= S_k\\
-\lambda^k_k &amp;= \mu^k_k, \qquad k \ge 1 \\
-(\lambda^k_j, \mu^k_{j + 1}) &amp;= (\lambda^{k - 1}_j \odot \mu^k_j, \mu^k_j \otimes \lambda^{k - 1}_j).
+\lambda^k_k &amp;= \mu^k_k \\
+(\lambda^k_j, \mu^k_{j + 1}) &amp;= (\lambda^{k - 1}_j \odot \mu^k_j, \mu^k_j \otimes \lambda^{k - 1}_j), \qquad j &lt; k.
 \end{align}
 
 <p>
 Similarly, the RSK column insertion algorithm has the corresponding path transformation definition:
 </p>
 \begin{align}
-\mu^k_k(n) &amp;= S_k\\
+\mu^k_k &amp;= S_k\\
 \lambda^k_1 &amp;= \mu^k_1 \\
-(\lambda^k_j, \mu^k_{j - 1}) &amp;= (\lambda^{k - 1}_{j - 1} \otimes \mu^k_j, \mu^k_j \odot \lambda^{k - 1}_{j - 1}).
+(\lambda^k_j, \mu^k_{j - 1}) &amp;= (\lambda^{k - 1}_{j - 1} \otimes \mu^k_j, \mu^k_j \odot \lambda^{k - 1}_{j - 1}), \qquad 1 &lt; j \le k.
 \end{align}
 
 
@@ -82,7 +82,7 @@ Similarly, the RSK column insertion algorithm has the corresponding path transfo
         <a href="about_tw.html">about</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. <a href="tw_people.html">people</a>. contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
     </div>
     <div class="footerright">
-        Last updated on 2017-05-16. <!--views-->
+        Last updated on 2017-05-17. <!--views-->
         Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
     </div>
 </div>
