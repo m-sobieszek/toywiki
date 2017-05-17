@@ -1,5 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title Markov-Doob integrable dynamics on triangular arrays
+%date 2017-05-16
 
 :markov_doob_integrability:
 

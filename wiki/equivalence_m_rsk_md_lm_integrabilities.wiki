@@ -2,6 +2,7 @@
 :local_move:markov_doob_integrability:robinson_schensted_knuth:
 
 %title Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics
+%date 2017-04-26
 
 * recall (1) in [[macdonald_usual_markov_doob_integrability|Usual-spec Markov-Doob integrability for Macdonald processes]], which we refer as (0)
 * recall (1) in [[macdonald_rsk_local_move_integrability|Macdonald-RSK local move integrability]], which we refer as (-1)

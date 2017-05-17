@@ -2,6 +2,7 @@
 :markov_function_theorem:intertwining_relation:
 
 %title Markov function theorem
+%date 2017-04-26
 
 The Markov function theorem can be found in [{rogers-pitman81}].
 

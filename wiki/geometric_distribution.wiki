@@ -2,6 +2,7 @@
 :geometric_distribution:q_deformation:
 
 %title Geometric distributions
+%date 2017-05-04
 
 *Definition*. $X \sim Geom(p)$ if
 {{$

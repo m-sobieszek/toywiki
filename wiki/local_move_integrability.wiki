@@ -2,6 +2,7 @@
 :local_moves:
 
 %title Local move integrability
+%date 2017-04-26
 
 (So far local moves are only seen in RSK, gRSK and $q$RSK, but let us try to generalise it. 
 In generality "local move integrability" may not be a good name because $\rho$ does not have to decompose into mpas that are local, but let us keep it until we find some non-local type.)

@@ -2,6 +2,7 @@
 :robinson_schensted_knuth:robinson_schensted:pitman_transform:
 
 %title RSK algorithms as path transformations
+%date 2017-05-16
 
 We write the [[robinson_schensted_knuth|RSK]] algorithms as path transformations analogous to the [[rs_pitman_type_a|Pitman's transform of type A]].
 The derivation is similar to that note.

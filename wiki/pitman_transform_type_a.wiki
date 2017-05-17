@@ -1,5 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title Pitman's transform of type A
+%date 2017-05-16
 
 :pitman_transform:robinson_schensted:robinson_schensted_knuth:
 

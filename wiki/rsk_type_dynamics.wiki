@@ -2,6 +2,7 @@
 :robinson_schensted_knuth:
 
 %title RSK-type dynamics
+%date 2017-04-25
 
 Recall [[young_tableaux_gt_pattern|One-one correspondence between Young tableaux and Gelfand-Tsetlin patterns]].
 

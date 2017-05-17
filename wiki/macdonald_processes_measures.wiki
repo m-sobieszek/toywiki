@@ -2,6 +2,7 @@
 :macdonald_processes:macdonald_measures:macdonald_polynomials:
 
 %title Macdonald processes and measures
+%date 2017-04-25
 
 Macdonald measures can be found in [{forrester-rains02}].
 

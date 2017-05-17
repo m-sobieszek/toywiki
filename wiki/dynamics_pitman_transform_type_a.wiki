@@ -1,5 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title Dynamics of type-A Pitman's transform
+%date 2017-05-17
 
 :pitman_transform:robinson_schensted:local_time:robinson_schensted_knuth:
 
@@ -99,7 +100,7 @@ d \lambda^k_j &= d \lambda^{k - 1}_{j - 1} - d L_{\lambda^{k - 1}_{j - 1} - \lam
 
 *Remark*. The symmetry between the column and the row insertion has finally become transparent: one may use and involution 
 {{$%align%
-\lambda^k_j &\mapsto \lambda^k_{k - j + 1} \\
+\lambda^k_j &\mapsto - \lambda^k_{k - j + 1} \\
 S_k &\mapsto - S_k
 }}$
 To transform the row (resp. column) insertion equation to the column (resp. row) insertion equation.

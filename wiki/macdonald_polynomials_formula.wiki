@@ -2,6 +2,7 @@
 :macdonald_polynomials:special_functions:
 
 %title Explicit formula of Macdonald polynomials
+%date 2017-05-05
 
 Recall [[q_pochhammers|q-Pochhammer]] notation $(a)_n$.
 

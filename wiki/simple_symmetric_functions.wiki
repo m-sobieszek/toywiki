@@ -1,5 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title Simple symmetric functions
+%date 2017-04-25
 
 Sym = symmetrisation
 == Monomial ==

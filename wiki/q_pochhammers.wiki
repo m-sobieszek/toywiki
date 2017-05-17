@@ -2,6 +2,7 @@
 :q_analogs:q_pochhammers:q_binomial_coefficients:q_vandermonde_chu_identity:
 
 %title $q$-Pochhammers
+%date 2017-04-25
 %%q-binomial coefficients
 %%q-deformed distributions
 %%q-CCR

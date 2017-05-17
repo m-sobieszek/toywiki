@@ -2,6 +2,7 @@
 :robinson_schensted:robinson_schensted_knuth:
 
 %title Robinson-Schensted-Knuth algorithms
+%date 2017-05-16
 
 Recall the [[robinson_schensted|RS]] algorithms.
 

@@ -1,5 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title toywiki people
+%date 2017-04-27
 
 [[http://ypei.me|Yuchen Pei]] is the creator of toywiki.
 He is also the only author and contributor...until you make a contribution. The best way to do so is opening an issue at [[https://github.com/ycpei/toywiki|Github]].
