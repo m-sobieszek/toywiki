@@ -98,10 +98,10 @@ d \lambda^k_k &= d \lambda^{k - 1}_{k - 1} - d L_{\lambda^{k - 1}_{k - 1} - \lam
 d \lambda^k_j &= d \lambda^{k - 1}_{j - 1} - d L_{\lambda^{k - 1}_{j - 1} - \lambda^k_{j - 1}} + d L_{\lambda^{k - 1}_j - \lambda^k_j}. \qquad 1 < j < k
 }}$
 
-*Remark*. The symmetry between the column and the row insertion has finally become transparent: one may use and involution 
+*Remark*. The symmetry between the column and the row insertion has finally become transparent: one may use an involution 
 {{$%align%
 \lambda^k_j &\mapsto - \lambda^k_{k - j + 1} \\
 S_k &\mapsto - S_k
 }}$
-To transform the row (resp. column) insertion equation to the column (resp. row) insertion equation.
+to transform the row (resp. column) insertion equation to the column (resp. row) insertion equation.
 Such striking "duality" between the row and column insertion could not be easily observed when one looks at [[robinson_schensted|the conventional definition of the discrete-time-discrete-space version of the RS algorithms]].
