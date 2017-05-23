@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/googlecode.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<script type="text/javascript" src="../config/highlightconfig.js"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<!--<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>-->
+
+<title>Greene's theorem</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="dynamics_pitman_transform_type_a.html">Dynamics of type-A Pitman's transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li>Greene's theorem</li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_dynamics_triangular_array.html">Markov-Doob integrable dynamics on triangular arrays</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="pitman_transform_type_a.html">Pitman's transform of type A</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="robinson_schensted.html">Robinson-Schensted algorithm</a></li><li><a href="robinson_schensted_knuth.html">Robinson-Schensted-Knuth algorithms</a></li><li><a href="rs_pitman_type_a.html">RS algorithms as type-A Pitman's transforms</a></li><li><a href="rsk_path_transformation.html">RSK algorithms as path transformations</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand-Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Greene's theorem</h1><hr/>
+
+
+
+<p>
+<span id="-greene_theorem"></span><span class="tag" id="greene_theorem">greene_theorem</span> <span id="-robinson_schensted"></span><span class="tag" id="robinson_schensted">robinson_schensted</span> <span id="-pitman_transform"></span><span class="tag" id="pitman_transform">pitman_transform</span> <span id="-robinson_schensted_knuth"></span><span class="tag" id="robinson_schensted_knuth">robinson_schensted_knuth</span> <span id="-directed_last_passage_percolation"></span><span class="tag" id="directed_last_passage_percolation">directed_last_passage_percolation</span>
+</p>
+
+<p>
+The Greene's theorem associates the shape of the output Young tableau via the <a href="robinson_schensted.html">RS algorithm</a> with the length of increasing (nondecreasing, to be more precise) subsequences of the input words.
+</p>
+
+<p>
+An RSK version can be immediately obtained by the <a href="robinson_schensted_knuth.html">matrix-to-word transformation that defines the RSK algorithm</a>.
+It turns out to be the directed last passage percolation.
+</p>
+
+<p>
+As the <a href="pitman_transform_type_a.html">Pitman's transform</a> generalises the RS(K) algorithms, they also have Greene's theorems which call for a direct proof.
+</p>
+
+<p>
+In this entry we describe all four versions (RS, RSK, discrete and continuous Pitman) of the Greene's theorem.
+</p>
+<div id="Version 1: RS algorithm"><h2 id="Version 1: RS algorithm">Version 1: RS algorithm</h2></div>
+<p>
+<span id="Version 1: RS algorithm-Theorem 1"></span><strong id="Theorem 1">Theorem 1</strong>. Let \(w\) be a word with alphabet \(\pint_{&gt;0}\), and \(\lambda\) the shape of the output tableau after RS row-inserting \(w\). Then
+</p>
+\[
+\lambda_1 + \lambda_2 + ... + \lambda_k = \text{length of a longest }k\text{-increasing subsequence of }w.
+\]
+
+<p>
+A proof can be found in e.g. [{sagan00}] using the Knuth equivalence.
+</p>
+
+<div id="Version 2: RSK algorithm"><h2 id="Version 2: RSK algorithm">Version 2: RSK algorithm</h2></div>
+<p>
+<span id="Version 2: RSK algorithm-Definition"></span><strong id="Definition">Definition</strong>. Given \((n, k)\) and \((n', k')\) two different coordinates in the 2-d integer lattice.
+A <em>directed path</em> \(\pi: (n', k') \to (n', k')\) is a collection of coordinates
+\((n_1, k_1) = (n, k), (n_2, k_2), ..., (n_{r - 1}, k_{r - 1}), (n_r, k_r) = (n', k')\) such that
+</p>
+\[
+(n_i - n_{i - 1}, k_i - k_{i - 1}) \in \{(\text{sgn}(n' - n), 0), (0, \text{sgn}(k' - k))\} \setminus \{(0, 0)\}.
+\]
+<p>
+That is, from \((n_{i - 1}, k_{i - 1})\) to \((n_i, k_i)\) the coordinate moves towards \((n, k)\) following the lattice edges.
+</p>
+
+<p>
+By Theorem 1 and the matrix-to-word transformation, we have
+</p>
+
+<p>
+<span id="Version 2: RSK algorithm-Theorem 2"></span><strong id="Theorem 2">Theorem 2</strong>. Let \(A = (a_{ij})\) be an \(n \times \ell\) matrix, and \(\lambda\) the shape of the output tableau after RSK row-inserting \(A\). Then
+</p>
+\[
+\lambda_1 + \lambda_2 + ... + \lambda_k = \max_{(*)} \sum_{(i, j) \in \bigcup_i \pi_i} a_{ij}.
+\]
+<p>
+where the max is over
+</p>
+\begin{align}
+(*): \pi_{1 : k} \text{ are } k &amp;\text{ disjoint directed paths where } \\
+&amp;\pi_1: (1, 1) \to (n, \ell - k + 1),  \\
+&amp;\pi_2: (1, 2) \to (n, \ell - k + 2), \\
+&amp;...  \\
+&amp;\pi_k: (1, k) \to (n, \ell).
+\end{align}
+<p>
+When \(k = 1\), \(\lambda_1\) coincides with the directed last passage percolation.
+</p>
+
+<div id="Version 3 &amp; 4: discrete and continuous Pitman&#39;s transforms"><h2 id="Version 3 &amp; 4: discrete and continuous Pitman&#39;s transforms">Version 3 &amp; 4: discrete and continuous Pitman's transforms</h2></div>
+<p>
+Let \((i_{pq})_{q = 1 : k - j}\) correspond to \(\pi_p\) in \((*)\) in the RSK version, we can write down the Pitman version:
+</p>
+
+<p>
+<span id="Version 3 &amp; 4: discrete and continuous Pitman&#39;s transforms-Theorem 3"></span><strong id="Theorem 3">Theorem 3</strong>. Let \(S_1, S_2, ...\) be paths on \(\pint\) such that \(S_i(0) = 0 \forall i\), and \((\lambda^k_j)\) be the output tableau after applying the discrete Pitman's transform (with row insertion) to the \(S\)'s. Then
+</p>
+\[
+\lambda^k_1(n) + ... + \lambda^k_j(n) = S_{k - j + 1} (n) + ... + S_k (n) + \max_{(i_{pq}): i_{p, q} \le i_{p - 1, q}, i_{p, q} \le n \forall p, q} \sum_{p = 1 : j, q = 1 : k - j} (S_{p + q - 1} (i_{p q}) - S_{p + q} (i_{p q})).
+\]
+
+<p>
+The Proof of Theorem 3 (and similarly Theorem 3', 3c and 3'c below) is either open or folklore.
+</p>
+
+<p>
+<span id="Version 3 &amp; 4: discrete and continuous Pitman&#39;s transforms-Theorem 3&#39;"></span><strong id="Theorem 3&#39;">Theorem 3'</strong>. Let \(S_1, S_2, ...\) be continuous paths on \(\real_{\ge 0}\) such that \(S_i(0) = 0 \forall i\), and \((\lambda^k_j)\) be the output tableau after applying the Pitman's transform (with row insertion) to the \(S\)'s. Then
+</p>
+\[
+\lambda^k_1(t) + ... + \lambda^k_j(t) = S_{k - j + 1} (t) + ... + S_k (t) + \sup_{(t_{pq}): t_{p, q} \le t_{p - 1, q}, t_{pq} \le t \forall p, q} \sum_{p = 1 : j, q = 1 : k - j} (S_{p + q - 1} (t_{p q}) - S_{p + q} (t_{p q})).
+\]
+
+<div id="Difference between Pitman&#39;s transform and RSK"><h2 id="Difference between Pitman&#39;s transform and RSK">Difference between Pitman's transform and RSK</h2></div>
+<p>
+Recall that the \(\odot\) and \(\otimes\) are defined differently in <a href="rs_pitman_type_a.html">rs_pitman_type_a</a> and <a href="rsk_path_transformation.html">rsk_path_transformation</a>.
+This can be seen in the following Greene's theorem example.
+</p>
+
+<p>
+<span id="Difference between Pitman&#39;s transform and RSK-Example"></span><strong id="Example">Example</strong>. Let \(A\) and \(S\) be the following matrix and paths corresponding to each other according to (1) in <a href="rsk_path_transformation.html">rsk_path_transformation</a>:
+</p>
+\begin{align}
+A &amp;=
+\begin{pmatrix}
+1 &amp;0 &amp;3 \\ 2 &amp; 2 &amp; 4 \\ 0 &amp; 2 &amp;1
+\end{pmatrix}\\
+S_1 (1 : 3) &amp;= (1, 3, 3)\\
+S_2 (1 : 3) &amp;= (0, 2, 4)\\
+S_3 (1 : 3) &amp;= (3, 7, 8)
+\end{align}
+<p>
+Then the length of the first row \(\lambda_1\) of the output tableaux are
+</p>
+\begin{align}
+\text{Pitman}: &amp; \lambda_1 = 8 \\
+\text{RSK}: &amp; \lambda_1 = 10
+\end{align}
+<p>
+And they correspond to the following directed paths (entries along the paths are highlighted in boldface) in the Greene's theorems:
+</p>
+\begin{align}
+\text{Pitman}: &amp; 
+\begin{pmatrix}
+1 &amp;0 &amp;\mathbf{3} \\ 2 &amp; 2 &amp; \mathbf{4} \\ 0 &amp; 2 &amp;\mathbf{1}
+\end{pmatrix}\\
+\text{RSK}: &amp; 
+\begin{pmatrix}
+\mathbf 1 &amp;0 &amp;{3} \\ \mathbf 2 &amp; \mathbf 2 &amp; \mathbf{4} \\ 0 &amp; 2 &amp;\mathbf{1}
+\end{pmatrix}
+\end{align}
+
+<div id="Column insertion versions"><h2 id="Column insertion versions">Column insertion versions</h2></div>
+<p>
+The column insertion versions of the Greene's theorem can be derived from the row insertion versions and the duality / symmetry between the row and the column insertions (see e.g. Remark in <a href="dynamics_pitman_transform_type_a.html">dynamics_pitman_transform_type_a</a>).
+</p>
+
+<p>
+<span id="Column insertion versions-Theorem 1c"></span><strong id="Theorem 1c">Theorem 1c</strong>. Let \(w\) be a word with alphabet \(\pint_{&gt;0}\), and \(\lambda\) the shape of the output tableau after RS column-inserting \(w\). Then
+</p>
+\[
+\lambda_1 + \lambda_2 + ... + \lambda_k = \text{length of a longest }k\text{-decreasing subsequence of }w.
+\]
+
+<p>
+<span id="Column insertion versions-Theorem 2c"></span><strong id="Theorem 2c">Theorem 2c</strong>. Let \(A = (a_{ij})\) be an \(n \times \ell\) matrix, and \(\lambda\) the shape of the output tableau after RSK column-inserting \(A\). Then
+</p>
+\[
+\lambda_1 + \lambda_2 + ... + \lambda_k = \max_{(*)} \sum_{(i, j) \in \bigcup_i \pi_i} a_{ij}.
+\]
+<p>
+where the max is over
+</p>
+\begin{align}
+(*): \pi_{1 : k} \text{ are } k &amp;\text{ disjoint directed paths where } \\
+&amp;\pi_1: (1, \ell) \to (n, k),  \\
+&amp;\pi_2: (1, \ell - 1) \to (n, k - 1), \\
+&amp;...  \\
+&amp;\pi_k: (1, \ell - k + 1) \to (n, 1).
+\end{align}
+
+<p>
+<span id="Column insertion versions-Theorem 3c"></span><strong id="Theorem 3c">Theorem 3c</strong>. Let \(S_1, S_2, ...\) be paths on \(\pint\) such that \(S_i(0) = 0 \forall i\), and \((\lambda^k_j)\) be the output tableau after applying the discrete Pitman's transform (with column insertion) to the \(S\)'s. Then
+</p>
+\[
+\lambda^k_1(n) + ... + \lambda^k_j(n) = S_{1} (n) + ... + S_j (n) + \max_{(i_{pq}): i_{p, q} \le i_{p - 1, q}, i_{p, q} \le n \forall p, q} \sum_{p = 1 : j, q = 1 : k - j} (S_{k - p - q + 2} (i_{p q}) - S_{k - p - q + 1} (i_{p q})).
+\]
+
+<p>
+<span id="Column insertion versions-Theorem 3&#39;c"></span><strong id="Theorem 3&#39;c">Theorem 3'c</strong>. Let \(S_1, S_2, ...\) be continuous paths on \(\real_{\ge 0}\) such that \(S_i(0) = 0 \forall i\), and \((\lambda^k_j)\) be the output tableau after applying the Pitman's transform (with column insertion) to the \(S\)'s. Then
+</p>
+\[
+\lambda^k_1(t) + ... + \lambda^k_j(t) = S_{1} (t) + ... + S_j (t) + \sup_{(t_{pq}): t_{p, q} \le t_{p - 1, q}, t_{pq} \le t \forall p, q} \sum_{p = 1 : j, q = 1 : k - j} (S_{k - p - q + 2} (t_{p q}) - S_{k - p - q + 1} (t_{p q})).
+\]
+
+
+<h2>References</h2><ul>
+<li>
+[sagan00] <span class="title">The Symmetric Group</span>, <span class="author">B.E. Sagan</span>, <span class="year"> 2000</span>.</li>
+</ul>
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">about</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. <a href="tw_people.html">people</a>. contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 2017-05-23. <!--views-->
+        Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

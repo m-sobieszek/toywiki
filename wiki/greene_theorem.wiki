@@ -1,0 +1,123 @@
+%%<!-- -*- mode: text; -*- -->
+%title Greene's theorem
+%date 2017-05-23
+
+:greene_theorem:robinson_schensted:pitman_transform:robinson_schensted_knuth:directed_last_passage_percolation:
+
+The Greene's theorem associates the shape of the output Young tableau via the [[robinson_schensted|RS algorithm]] with the length of increasing (nondecreasing, to be more precise) subsequences of the input words.
+
+An RSK version can be immediately obtained by the [[robinson_schensted_knuth|matrix-to-word transformation that defines the RSK algorithm]].
+It turns out to be the directed last passage percolation.
+
+As the [[pitman_transform_type_a|Pitman's transform]] generalises the RS(K) algorithms, they also have Greene's theorems which call for a direct proof.
+
+In this entry we describe all four versions (RS, RSK, discrete and continuous Pitman) of the Greene's theorem.
+== Version 1: RS algorithm ==
+*Theorem 1*. Let $w$ be a word with alphabet $\pint_{>0}$, and $\lambda$ the shape of the output tableau after RS row-inserting $w$. Then
+{{$
+\lambda_1 + \lambda_2 + ... + \lambda_k = \text{length of a longest }k\text{-increasing subsequence of }w.
+}}$
+
+A proof can be found in e.g. [{sagan00}] using the Knuth equivalence.
+
+== Version 2: RSK algorithm ==
+*Definition*. Given $(n, k)$ and $(n', k')$ two different coordinates in the 2-d integer lattice.
+A _directed path_ $\pi: (n', k') \to (n', k')$ is a collection of coordinates
+$(n_1, k_1) = (n, k), (n_2, k_2), ..., (n_{r - 1}, k_{r - 1}), (n_r, k_r) = (n', k')$ such that
+{{$
+(n_i - n_{i - 1}, k_i - k_{i - 1}) \in \{(\text{sgn}(n' - n), 0), (0, \text{sgn}(k' - k))\} \setminus \{(0, 0)\}.
+}}$
+That is, from $(n_{i - 1}, k_{i - 1})$ to $(n_i, k_i)$ the coordinate moves towards $(n, k)$ following the lattice edges.
+
+By Theorem 1 and the matrix-to-word transformation, we have
+
+*Theorem 2*. Let $A = (a_{ij})$ be an $n \times \ell$ matrix, and $\lambda$ the shape of the output tableau after RSK row-inserting $A$. Then
+{{$
+\lambda_1 + \lambda_2 + ... + \lambda_k = \max_{(*)} \sum_{(i, j) \in \bigcup_i \pi_i} a_{ij}.
+}}$
+where the max is over
+{{$%align%
+(*): \pi_{1 : k} \text{ are } k &\text{ disjoint directed paths where } \\
+&\pi_1: (1, 1) \to (n, \ell - k + 1),  \\
+&\pi_2: (1, 2) \to (n, \ell - k + 2), \\
+&...  \\
+&\pi_k: (1, k) \to (n, \ell).
+}}$
+When $k = 1$, $\lambda_1$ coincides with the directed last passage percolation.
+
+== Version 3 & 4: discrete and continuous Pitman's transforms ==
+Let $(i_{pq})_{q = 1 : k - j}$ correspond to $\pi_p$ in $(*)$ in the RSK version, we can write down the Pitman version:
+
+*Theorem 3*. Let $S_1, S_2, ...$ be paths on $\pint$ such that $S_i(0) = 0 \forall i$, and $(\lambda^k_j)$ be the output tableau after applying the discrete Pitman's transform (with row insertion) to the $S$'s. Then
+{{$
+\lambda^k_1(n) + ... + \lambda^k_j(n) = S_{k - j + 1} (n) + ... + S_k (n) + \max_{(i_{pq}): i_{p, q} \le i_{p - 1, q}, i_{p, q} \le n \forall p, q} \sum_{p = 1 : j, q = 1 : k - j} (S_{p + q - 1} (i_{p q}) - S_{p + q} (i_{p q})).
+}}$
+
+The Proof of Theorem 3 (and similarly Theorem 3', 3c and 3'c below) is either open or folklore.
+
+*Theorem 3'*. Let $S_1, S_2, ...$ be continuous paths on $\real_{\ge 0}$ such that $S_i(0) = 0 \forall i$, and $(\lambda^k_j)$ be the output tableau after applying the Pitman's transform (with row insertion) to the $S$'s. Then
+{{$
+\lambda^k_1(t) + ... + \lambda^k_j(t) = S_{k - j + 1} (t) + ... + S_k (t) + \sup_{(t_{pq}): t_{p, q} \le t_{p - 1, q}, t_{pq} \le t \forall p, q} \sum_{p = 1 : j, q = 1 : k - j} (S_{p + q - 1} (t_{p q}) - S_{p + q} (t_{p q})).
+}}$
+
+== Difference between Pitman's transform and RSK ==
+Recall that the $\odot$ and $\otimes$ are defined differently in [[rs_pitman_type_a]] and [[rsk_path_transformation]].
+This can be seen in the following Greene's theorem example.
+
+*Example*. Let $A$ and $S$ be the following matrix and paths corresponding to each other according to (1) in [[rsk_path_transformation]]:
+{{$%align%
+A &=
+\begin{pmatrix}
+1 &0 &3 \\ 2 & 2 & 4 \\ 0 & 2 &1
+\end{pmatrix}\\
+S_1 (1 : 3) &= (1, 3, 3)\\
+S_2 (1 : 3) &= (0, 2, 4)\\
+S_3 (1 : 3) &= (3, 7, 8)
+}}$
+Then the length of the first row $\lambda_1$ of the output tableaux are
+{{$%align%
+\text{Pitman}: & \lambda_1 = 8 \\
+\text{RSK}: & \lambda_1 = 10
+}}$
+And they correspond to the following directed paths (entries along the paths are highlighted in boldface) in the Greene's theorems:
+{{$%align%
+\text{Pitman}: & 
+\begin{pmatrix}
+1 &0 &\mathbf{3} \\ 2 & 2 & \mathbf{4} \\ 0 & 2 &\mathbf{1}
+\end{pmatrix}\\
+\text{RSK}: & 
+\begin{pmatrix}
+\mathbf 1 &0 &{3} \\ \mathbf 2 & \mathbf 2 & \mathbf{4} \\ 0 & 2 &\mathbf{1}
+\end{pmatrix}
+}}$
+
+== Column insertion versions ==
+The column insertion versions of the Greene's theorem can be derived from the row insertion versions and the duality / symmetry between the row and the column insertions (see e.g. Remark in [[dynamics_pitman_transform_type_a]]).
+
+*Theorem 1c*. Let $w$ be a word with alphabet $\pint_{>0}$, and $\lambda$ the shape of the output tableau after RS column-inserting $w$. Then
+{{$
+\lambda_1 + \lambda_2 + ... + \lambda_k = \text{length of a longest }k\text{-decreasing subsequence of }w.
+}}$
+
+*Theorem 2c*. Let $A = (a_{ij})$ be an $n \times \ell$ matrix, and $\lambda$ the shape of the output tableau after RSK column-inserting $A$. Then
+{{$
+\lambda_1 + \lambda_2 + ... + \lambda_k = \max_{(*)} \sum_{(i, j) \in \bigcup_i \pi_i} a_{ij}.
+}}$
+where the max is over
+{{$%align%
+(*): \pi_{1 : k} \text{ are } k &\text{ disjoint directed paths where } \\
+&\pi_1: (1, \ell) \to (n, k),  \\
+&\pi_2: (1, \ell - 1) \to (n, k - 1), \\
+&...  \\
+&\pi_k: (1, \ell - k + 1) \to (n, 1).
+}}$
+
+*Theorem 3c*. Let $S_1, S_2, ...$ be paths on $\pint$ such that $S_i(0) = 0 \forall i$, and $(\lambda^k_j)$ be the output tableau after applying the discrete Pitman's transform (with column insertion) to the $S$'s. Then
+{{$
+\lambda^k_1(n) + ... + \lambda^k_j(n) = S_{1} (n) + ... + S_j (n) + \max_{(i_{pq}): i_{p, q} \le i_{p - 1, q}, i_{p, q} \le n \forall p, q} \sum_{p = 1 : j, q = 1 : k - j} (S_{k - p - q + 2} (i_{p q}) - S_{k - p - q + 1} (i_{p q})).
+}}$
+
+*Theorem 3'c*. Let $S_1, S_2, ...$ be continuous paths on $\real_{\ge 0}$ such that $S_i(0) = 0 \forall i$, and $(\lambda^k_j)$ be the output tableau after applying the Pitman's transform (with column insertion) to the $S$'s. Then
+{{$
+\lambda^k_1(t) + ... + \lambda^k_j(t) = S_{1} (t) + ... + S_j (t) + \sup_{(t_{pq}): t_{p, q} \le t_{p - 1, q}, t_{pq} \le t \forall p, q} \sum_{p = 1 : j, q = 1 : k - j} (S_{k - p - q + 2} (t_{p q}) - S_{k - p - q + 1} (t_{p q})).
+}}$

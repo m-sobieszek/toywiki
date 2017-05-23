@@ -2,7 +2,7 @@
 :pitman_transform:robinson_schensted:
 
 %title RS algorithms as type-A Pitman's transforms
-%date 2017-05-17
+%date 2017-05-23
 
 In this article we derive the type-A pitman's transform from the [[robinson_schensted|Robinson-Schensted algorithms]]. We start with the column insertion version, which can be found in [{oconnell03b}] and [{biane-bougerol-oconnell05}].
 Then we show the row insertion version, which is symmetric and quite similar to the column insertion version.
@@ -237,3 +237,9 @@ Let $(\lambda^i_j)$ be the output tableau obtained by row-inserting $w$, then fo
 {{$
 (\lambda^k_k, \lambda^k_{k - 1}, ..., \lambda^k_1) = (Q_1 Q_2 Q_1 Q_3 Q_2 Q_1 ... Q_k Q_{k - 1} ... Q_1 S)_{1 : k}.
 }}$
+
+== Pitman's transform taking non-word input ==
+The definition of the Pitman's transform works for any paths, even those not corresponding to any words.
+Therefore it is more general than the RS algorithm.
+For example, it can take a matrix input like the RSK, by the matrix-to-path transform (1) in [[rsk_path_transformation]].
+It can also naturally be defined on continuous-time paths by just subtituting $\max$ with $\sup$, see [[pitman_transform_type_a]].
