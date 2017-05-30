@@ -1,0 +1,85 @@
+%%<!-- -*- mode: text; -*- -->
+%title Discrete directed last passage percolations and directed polymers
+%date 2017-05-29
+
+:directed_last_passage_percolation:directed_polymer:
+
+*Definition*. The _directed last passage percolation_ (DLPP) $Z_0(n, m)$ on integer lattice $\pint_{>0} \times \pint_{>0}$, where each vertex $(i, j)$ has weight $a_{ij}$, is defined as the maximum over directed paths from $(1, 1)$ to $(n, m)$:
+{{$
+Z_0(n, m) = \max_{\pi: (1, 1) \to (n, m)} \sum_{(i, j) \in \pi_i} a_{ij}, \qquad (1)
+}}$
+where recall from [[greene_theorem|Greene's theorem]] that a directed path $\pi: (1, 1) \to (n, m)$ is a collection of coordinates 
+$(n_1, k_1) = (1, 1), (n_2, k_2), ..., (n_{r - 1}, k_{r - 1}), (n_r, k_r) = (n, m)$ such that
+{{$
+(n_i - n_{i - 1}, k_i - k_{i - 1}) \in \{(0, 1), (1, 0)\}.
+}}$
+
+*Definition*. The _directed polymer_ (DP) $Z_1(n, m)$ is defined as a geometric lifting of the $Z_0(n, m)$:
+{{$
+Z_1(n, m) = \log \left(\sum_{\pi: (1, 1) \to (n, m)} \prod_{(i, j) \in \pi} e^{a_{ij}}\right). \qquad (2)
+}}$
+
+The DLPP (or the Manhattan Tourist problem) is a typical example of dynamic programming, where one can rely on the recursive formula:
+{{$
+Z_0(n, m) = (Z_0(n - 1, m) \vee Z_0(n, m - 1)) + a_{nm}
+}}$
+Similarly for DP:
+{{$
+Z_1(n, m) = \log(\exp(Z_1(n - 1, m)) + \exp(Z_1(n, m - 1))) + a_{nm}
+}}$
+And these formulas in turn are alternative definitions of the DLPP and DP.
+
+Let us focus on a square enclosed by vertices $(n - 1, m - 1), (n - 1, m), (n, m - 1), (n, m)$.
+By defining for $b = 0, 1$
+{{$%align%
+  U_b &= Z_b(n, m - 1) - Z_b(n - 1, m - 1) \\
+  V_b &= Z_b(n - 1, m) - Z_b(n - 1, m - 1) \\
+  X_b &= a_{n, m} \\
+  U_b' &= Z_b(n, m) - Z_b(n - 1, m) \\
+  V_b' &= Z_b(n, m) - Z_b(n, m - 1)
+}}$
+By writing $X_b' = U_b - U_b' + X_b$ one can derive that $U_b, V_b, X_b, U_b', V_b', X_b'$ satisfy the [[burke_property|Case 1 and 3 of the Burke property]] respectively when $b = 0, 1$.
+
+Due to this link, we define the $q$- and $qt$-analog of the DLPP according to [[burke_property|Case 4 and 5 of the Burke property]]:
+
+*Definition*. We define the $q$- and $qt$-analog of the DLPP as follows:
+ {{$%align%
+ Z (1, 1) &= a_{1, 1} \\
+ Z (n, 1) &= a_{n, 1} + Z (n - 1, 1), \qquad n > 1 \\
+ Z (1, m) &= a_{1, m} + Z (1, n - 1), \qquad m > 1 \\
+ Z (n, m) &= a_{n, m} + Z (n - 1, m) + Z (n, m - 1) - Z (n - 1, m - 1) - X'(n, m), \qquad m, n > 1.
+ }}$
+ where
+# for $q$-analog:
+ {{$
+   X'(n, m) \sim q\text{Hyp}(Z(n, m - 1) - Z(n - 1, m - 1), \infty, Z(n - 1, m) - Z(n - 1, m - 1))
+ }}$
+ where $q$Hyp is the [[hypergeometric_distribution|q-hypergeometric distribution]].
+# for $qt$-analog:
+ {{$
+   X'(n, m) \sim qt\text{IHyp}(Z(n, m - 1) - Z(n - 1, m - 1), Z(n - 1, m) - Z(n - 1, m - 1))
+ }}$
+ where $qt$IHyp is the $qt$-infhypergeometric distribution defined in [[burke_property]].
+
+*Remark*. As per [[burke_property]], the $qt$DLPP reduces to the $q$DLPP when $t = 0$, and to the usual DLPP when $t = q$.
+
+*Open*. Find a global definition for the $q$- and $qt$-DLPP (like (1)(2) in the language of directed paths), i.e. analogues of [[greene_theorem]] restricted to the first row of the output tableaux.
+
+The Burke property results in strong law of large numbers in the DLPP and DP models with equilibrium boundary conditions. 
+Here we give the $qt$-version. The other cases are similar.
+
+*Definition*. Let $0 < \alpha, \beta < 1$. The $qt$-deformed DLPP with equilibrium boundary condition is the one on integer lattice $\pint \times \pint$ with the following weights:
+{{$%align%
+  a_{0, 0} &\equiv 0 \\
+  a_{n, 0} &\sim qt\text{Geom}(\alpha), \qquad n > 0 \\
+  a_{0, m} &\sim qt\text{Geom}(\beta), \qquad m > 0 \\
+  a_{n, m} &\sim qt\text{Geom}(\alpha\beta), \qquad m, n > 0.
+}}$
+
+*Claim*. Consider the $qt$-deformed DLPP with equilibrium boundary condition, we have almost surely
+  {{$
+    \lim_{N \to \infty} {Z(\lfloor N x \rfloor, \lfloor N y \rfloor) \over N} = x \gamma(\alpha) + y \gamma(\beta),
+  }}$
+  where $\gamma(\alpha)$ is the first moment of $qt\text{Gemo}(\alpha)$.
+
+*Proof*. Similar to that of the version of DLPP with geometric weights ($q = t$) in e.g. Theorem 4.12 of [{romik14}]. $\square$

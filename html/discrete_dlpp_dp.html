@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../config/notes.css">
+
+<script type="text/javascript" src="../config/mathjax_local.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/googlecode.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+<script type="text/javascript" src="../config/highlightconfig.js"></script>
+<!-- MathJax: Fall back to local if CDN offline -->
+<!--<script>window.MathJax || document.write('<script type="text/javascript" src="/usr/share/mathjax/MathJax.js?config=TeX-AMS_HTML-full"><\/script>')</script>-->
+
+<title>Discrete directed last passage percolations and directed polymers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=%encoding%">
+</head>
+<body>
+<div class="container">
+
+<div class="left">
+<ul><li><a href="about_tw.html">Welcome to toywiki</a></li><li><a href="burke_property.html">Burke property</a></li><li><a href="cauchy_littlewood_identity.html">Cauchy-Littlewood identities</a></li><li>Discrete directed last passage percolations and directed polymers</li><li><a href="doob_transform.html">Doob's \(h\)-transform</a></li><li><a href="dynamics_pitman_transform_type_a.html">Dynamics of type-A Pitman's transform</a></li><li><a href="equivalence_m_rsk_md_lm_integrabilities.html">Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics</a></li><li><a href="geometric_distribution.html">Geometric distributions</a></li><li><a href="greene_theorem.html">Greene's theorem</a></li><li><a href="hypergeometric_distribution.html">Hypergeometric distributions</a></li><li><a href="local_move_integrability.html">Local move integrability</a></li><li><a href="macdonald_polynomials.html">Macdonald polynomials</a></li><li><a href="macdonald_polynomials_formula.html">Explicit formula of Macdonald polynomials</a></li><li><a href="macdonald_processes_measures.html">Macdonald processes and measures</a></li><li><a href="macdonald_rsk_local_move_integrability.html">Macdonald-RSK local move integrability</a></li><li><a href="macdonald_usual_markov_doob_integrability.html">Usual-spec Markov-Doob integrability for Macdonald processes</a></li><li><a href="markov_doob_dynamics_triangular_array.html">Markov-Doob integrable dynamics on triangular arrays</a></li><li><a href="markov_doob_integrability.html">Markov-Doob integrability</a></li><li><a href="markov_doob_integrability_triangular_array.html">Markov-Doob integrability on triangular arrays</a></li><li><a href="markov_function_theorem.html">Markov function theorem</a></li><li><a href="pitman_transform_type_a.html">Pitman's transform of type A</a></li><li><a href="q_pochhammers.html">\(q\)-Pochhammers</a></li><li><a href="robinson_schensted.html">Robinson-Schensted algorithm</a></li><li><a href="robinson_schensted_knuth.html">Robinson-Schensted-Knuth algorithms</a></li><li><a href="rs_pitman_type_a.html">RS algorithms as type-A Pitman's transforms</a></li><li><a href="rsk_path_transformation.html">RSK algorithms as path transformations</a></li><li><a href="rsk_type_dynamics.html">RSK-type dynamics</a></li><li><a href="simple_symmetric_functions.html">Simple symmetric functions</a></li><li><a href="tw_people.html">toywiki people</a></li><li><a href="young_tableaux_gt_pattern.html">Young tableaux and Gelfand-Tsetlin patterns</a></li></ul>
+</div>
+
+<div class="main">
+<h1>Discrete directed last passage percolations and directed polymers</h1><hr/>
+
+
+
+<p>
+<span id="-directed_last_passage_percolation"></span><span class="tag" id="directed_last_passage_percolation">directed_last_passage_percolation</span> <span id="-directed_polymer"></span><span class="tag" id="directed_polymer">directed_polymer</span>
+</p>
+
+<p>
+<span id="-Definition"></span><strong id="Definition">Definition</strong>. The <em>directed last passage percolation</em> (DLPP) \(Z_0(n, m)\) on integer lattice \(\pint_{&gt;0} \times \pint_{&gt;0}\), where each vertex \((i, j)\) has weight \(a_{ij}\), is defined as the maximum over directed paths from \((1, 1)\) to \((n, m)\):
+</p>
+\[
+Z_0(n, m) = \max_{\pi: (1, 1) \to (n, m)} \sum_{(i, j) \in \pi_i} a_{ij}, \qquad (1)
+\]
+<p>
+where recall from <a href="greene_theorem.html">Greene's theorem</a> that a directed path \(\pi: (1, 1) \to (n, m)\) is a collection of coordinates 
+\((n_1, k_1) = (1, 1), (n_2, k_2), ..., (n_{r - 1}, k_{r - 1}), (n_r, k_r) = (n, m)\) such that
+</p>
+\[
+(n_i - n_{i - 1}, k_i - k_{i - 1}) \in \{(0, 1), (1, 0)\}.
+\]
+
+<p>
+<span id="-Definition"></span><strong id="Definition">Definition</strong>. The <em>directed polymer</em> (DP) \(Z_1(n, m)\) is defined as a geometric lifting of the \(Z_0(n, m)\):
+</p>
+\[
+Z_1(n, m) = \log \left(\sum_{\pi: (1, 1) \to (n, m)} \prod_{(i, j) \in \pi} e^{a_{ij}}\right). \qquad (2)
+\]
+
+<p>
+The DLPP (or the Manhattan Tourist problem) is a typical example of dynamic programming, where one can rely on the recursive formula:
+</p>
+\[
+Z_0(n, m) = (Z_0(n - 1, m) \vee Z_0(n, m - 1)) + a_{nm}
+\]
+<p>
+Similarly for DP:
+</p>
+\[
+Z_1(n, m) = \log(\exp(Z_1(n - 1, m)) + \exp(Z_1(n, m - 1))) + a_{nm}
+\]
+<p>
+And these formulas in turn are alternative definitions of the DLPP and DP.
+</p>
+
+<p>
+Let us focus on a square enclosed by vertices \((n - 1, m - 1), (n - 1, m), (n, m - 1), (n, m)\).
+By defining for \(b = 0, 1\)
+</p>
+\begin{align}
+  U_b &amp;= Z_b(n, m - 1) - Z_b(n - 1, m - 1) \\
+  V_b &amp;= Z_b(n - 1, m) - Z_b(n - 1, m - 1) \\
+  X_b &amp;= a_{n, m} \\
+  U_b' &amp;= Z_b(n, m) - Z_b(n - 1, m) \\
+  V_b' &amp;= Z_b(n, m) - Z_b(n, m - 1)
+\end{align}
+<p>
+By writing \(X_b' = U_b - U_b' + X_b\) one can derive that \(U_b, V_b, X_b, U_b', V_b', X_b'\) satisfy the <a href="burke_property.html">Case 1 and 3 of the Burke property</a> respectively when \(b = 0, 1\).
+</p>
+
+<p>
+Due to this link, we define the \(q\)- and \(qt\)-analog of the DLPP according to <a href="burke_property.html">Case 4 and 5 of the Burke property</a>:
+</p>
+
+<p>
+<span id="-Definition"></span><strong id="Definition">Definition</strong>. We define the \(q\)- and \(qt\)-analog of the DLPP as follows:
+</p>
+\begin{align}
+Z (1, 1) &amp;= a_{1, 1} \\
+Z (n, 1) &amp;= a_{n, 1} + Z (n - 1, 1), \qquad n &gt; 1 \\
+Z (1, m) &amp;= a_{1, m} + Z (1, n - 1), \qquad m &gt; 1 \\
+Z (n, m) &amp;= a_{n, m} + Z (n - 1, m) + Z (n, m - 1) - Z (n - 1, m - 1) - X'(n, m), \qquad m, n &gt; 1.
+\end{align}
+<p>
+ where
+</p>
+<ol>
+<li>
+for \(q\)-analog:
+\[
+  X'(n, m) \sim q\text{Hyp}(Z(n, m - 1) - Z(n - 1, m - 1), \infty, Z(n - 1, m) - Z(n - 1, m - 1))
+\]
+ where \(q\)Hyp is the <a href="hypergeometric_distribution.html">q-hypergeometric distribution</a>.
+
+<li>
+for \(qt\)-analog:
+\[
+  X'(n, m) \sim qt\text{IHyp}(Z(n, m - 1) - Z(n - 1, m - 1), Z(n - 1, m) - Z(n - 1, m - 1))
+\]
+ where \(qt\)IHyp is the \(qt\)-infhypergeometric distribution defined in <a href="burke_property.html">burke_property</a>.
+
+</ol>
+
+<p>
+<span id="-Remark"></span><strong id="Remark">Remark</strong>. As per <a href="burke_property.html">burke_property</a>, the \(qt\)DLPP reduces to the \(q\)DLPP when \(t = 0\), and to the usual DLPP when \(t = q\).
+</p>
+
+<p>
+<span id="-Open"></span><strong id="Open">Open</strong>. Find a global definition for the \(q\)- and \(qt\)-DLPP (like (1)(2) in the language of directed paths), i.e. analogues of <a href="greene_theorem.html">greene_theorem</a> restricted to the first row of the output tableaux.
+</p>
+
+<p>
+The Burke property results in strong law of large numbers in the DLPP and DP models with equilibrium boundary conditions. 
+Here we give the \(qt\)-version. The other cases are similar.
+</p>
+
+<p>
+<span id="-Definition"></span><strong id="Definition">Definition</strong>. Let \(0 &lt; \alpha, \beta &lt; 1\). The \(qt\)-deformed DLPP with equilibrium boundary condition is the one on integer lattice \(\pint \times \pint\) with the following weights:
+</p>
+\begin{align}
+  a_{0, 0} &amp;\equiv 0 \\
+  a_{n, 0} &amp;\sim qt\text{Geom}(\alpha), \qquad n &gt; 0 \\
+  a_{0, m} &amp;\sim qt\text{Geom}(\beta), \qquad m &gt; 0 \\
+  a_{n, m} &amp;\sim qt\text{Geom}(\alpha\beta), \qquad m, n &gt; 0.
+\end{align}
+
+<p>
+<span id="-Claim"></span><strong id="Claim">Claim</strong>. Consider the \(qt\)-deformed DLPP with equilibrium boundary condition, we have almost surely
+</p>
+\[
+  \lim_{N \to \infty} {Z(\lfloor N x \rfloor, \lfloor N y \rfloor) \over N} = x \gamma(\alpha) + y \gamma(\beta),
+\]
+<p>
+  where \(\gamma(\alpha)\) is the first moment of \(qt\text{Gemo}(\alpha)\).
+</p>
+
+<p>
+<span id="-Proof"></span><strong id="Proof">Proof</strong>. Similar to that of the version of DLPP with geometric weights (\(q = t\)) in e.g. Theorem 4.12 of [{romik14}]. \(\square\)
+</p>
+
+
+<h2>References</h2><ul>
+<li>
+[romik14] <span class="title">The surprising mathematics of longest increasing subsequences</span>, <span class="author">Dan Romik</span>, <span class="year"> 2014</span>.</li>
+</ul>
+</div>
+
+<div class="clear"></div>
+
+<div class="footer">
+    <hr/>
+    <div class="footerleft">
+        <a href="about_tw.html">about</a>. <a href="https://github.com/ycpei/toywiki">toywiki on Github</a>. <a href="tw_people.html">people</a>. contact: &#109;&#101;&#64;&#121;&#112;&#101;&#105;&#46;&#109;&#101;
+    </div>
+    <div class="footerright">
+        Last updated on 2017-05-29. <!--views-->
+        Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

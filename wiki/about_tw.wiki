@@ -2,17 +2,17 @@
 :toywiki:
 
 %title Welcome to toywiki
-%date 2017-04-25
+%date 2017-05-30
 
 by Yuchen Pei
 
 (1) toywiki hosts a collection of research notes on mathematics.
 
-(2) I wrote these notes to help myself solidify my mathematical knowledge and share my research.
+(2) I wrote these notes to help myself solidify my mathematical understanding, as well as to share research and knowledge.
 
 (3) toywiki is also an experimental open-source project. 
 It is synchronised with [[https://github.com/ycpei/toywiki|a Github repository]].
-You are welcome to do open-sourcy things with it too: fork, submit an issue, submit a pull request etc.
+You are welcome to do open-sourcy things with it too: clone, fork, submit an issue, submit a pull request etc.
 Collaborations, whether original research or not, should be preferably [[https://opensource.guide/how-to-contribute/|open-source contributions]].
 For example, all communication should be as public as possible, unless it involves sensitive information or that you are unfamiliar with Github.
 

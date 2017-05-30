@@ -1,0 +1,33 @@
+%%<!-- -*- mode: text; -*- -->
+%title Hypergeometric distributions
+%date 2017-05-30
+
+:hypergeometric_distribution:
+
+== Definition ==
+$X \sim Hyp(m_1, m_2, k)$ if
+{{$
+f_X(\ell) = {{m_1 \choose \ell} {m_2 \choose k - \ell} \over {m_1 + m_2 \choose k}}
+}}$
+The support is
+{{$
+0 \vee (k - m_2) \le \ell \le m_1 \wedge k
+}}$
+
+The corresponding [[orthogonal_polynomials|orthogonal polynomial]] is the Hahn polynomial (see e.g. (2.4.9) of [{nikiforov-suslov-uvarov91}]).
+
+== q-analog ==
+A $q$-deformation is: $X \sim qHyp(m_1, m_2, k)$ if
+{{$
+f_X(\ell) = q^{(m_1 - \ell)(k - \ell)}{{m_1 \choose \ell}_q {m_2 \choose k - \ell}_q \over {m_1 + m_2 \choose k}_q}
+}}$
+See (6) of [[q_pochhammers]] for a proof that it is a probability distribution.
+
+properties:
+* When $q \to 0$, $f_X (\ell) = \ind_{\ell = m_1 \wedge k}$.
+* When $q \to 1$, $qHyp \to Hyp$ with the same parameters.
+* When $k = 0$, $f_X (\ell) = \ind_{\ell = 0}$.
+* When $k = \infty$
+{{$
+f_X (\ell) = q^{(m_1 - \ell) (k - \ell)} {(m_1)_q (k)_q \over (\ell)_q (m_1 - \ell)_q (k - \ell)_q}
+}}$

@@ -43,7 +43,7 @@ where the max is over
 &...  \\
 &\pi_k: (1, k) \to (n, \ell).
 }}$
-When $k = 1$, $\lambda_1$ coincides with the directed last passage percolation.
+When $k = 1$, $\lambda_1$ coincides with the [[discrete_dlpp_dp|directed last passage percolation]].
 
 == Version 3 & 4: discrete and continuous Pitman's transforms ==
 Let $(i_{pq})_{q = 1 : k - j}$ correspond to $\pi_p$ in $(*)$ in the RSK version, we can write down the Pitman version:
