@@ -69,7 +69,7 @@ H(\eta, x) &= \prod_i \tau^{N_{x_i} (\eta)} \qquad (1) \\
 G(\eta, x) &= \prod_i \tau^{N_{x_i - 1} (\eta)} \eta_{x_i}
 }}$
 
-*Claim*. $X$ and $\eta$ are dual w.r.t. both $H$ and $G$.
+*Claim 1*. $X$ and $\eta$ are dual w.r.t. both $H$ and $G$.
 
 *Proof*. Let us consider $G$ first.
 We consider one $x$-cluster $x_{l : r}$.
@@ -216,7 +216,7 @@ More specifically, duality does not hold for the following $L^\eta$, $L^X$, and 
 L^\eta f(\eta) &= \sum_i a_i p \eta_i (1 - \eta_{i + 1}) (f(\eta - e_i + e_{i + 1}) - f(\eta)) + a_i q (1 - \eta_i) \eta_{i + 1} (f(\eta - e_{i + 1} + e_i) - f(\eta))\\
 L^X f(x) &= \sum_{i \in l(x)} a_{x_i - 1} p (f(x - e_i) - f(x)) + \sum_{i \in r(x)} a_{x_i} q (f(x + e_i) - f(x))
 }}$
-That is, for the $x_i$ particle in the $X$-process, the rate of jumping to the left is $a_{x_i - 1} p$ and to the right is $a_{x_i} q$; and for the $\eta$-process at site $x$, the rate of an unobstructed particle jumping to the left is $a_{x - 1} q$ and to the right $a_x p$. To see that $G$ is not a duality function, for example consider case 2.
+That is, for the $x_i$ particle in the $X$-process, the rate of jumping to the left is $a_{x_i - 1} p$ and to the right is $a_{x_i} q$; and for the $\eta$-process at site $x$, the rate of an unobstructed particle jumping to the left is $a_{x - 1} q$ and to the right $a_x p$. To see that $G$ is not a duality function, for example consider Case 2 in the proof of $G$ being the duality function in Claim 1.
 {{$%align%
 L^\eta G(\eta, x) = - q a_{x_{l} - 1} G(\eta, x)\\
 L^X G(\eta, x) = (- p a_{x_l - 1} + (p - q) a_{x_r}) G(\eta, x).
