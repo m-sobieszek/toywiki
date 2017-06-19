@@ -15,7 +15,7 @@ Please follow these guidelines:
 1.  Before you invest time on a nontrivial pull request making substantial changes, it is preferable to open an issue stating what changes you want to see.
 2.  Any new article in a pull request should be related to at least one of the existing articles. The relation should be manifested by hyperlinks.
 3.  Commit messages should be written as clearly as possible.
-4.  In any article, non-original results should be accompanied with due credits.
+4.  In any article, attributions should be given if there are relatively new results that are not original.
 5.  There is no specific style guideline at this stage. But notes should be written in a simple and clear way.
 6.  The file(s) changed in a pull request should be Vimwiki (`.wiki`) file(s) in `wiki/` directory. Vimwiki is a lightweight markup language and a Vim plugin. See <https://github.com/vimwiki/vimwiki> for usage. The beginning of a `.wiki` file should look like:
         
