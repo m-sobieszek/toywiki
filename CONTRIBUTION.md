@@ -18,6 +18,7 @@ Please follow these guidelines:
 4.  In any article, non-original results should be accompanied with due credits.
 5.  There is no specific style guideline at this stage. But notes should be written in a simple and clear way.
 6.  The file(s) changed in a pull request should be Vimwiki (`.wiki`) file(s) in `wiki/` directory. And the beginning of a `.wiki` file should look like:
+        
         %title Title of article
         %date Date of last change to this file
 
