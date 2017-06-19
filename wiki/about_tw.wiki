@@ -1,10 +1,8 @@
 %%<!-- -*- mode: text; -*- -->
 %title Welcome to toywiki
-%date 2017-05-30
+%date 2017-06-19
 
 :toywiki:
-
-by Yuchen Pei
 
 (1) toywiki hosts a collection of research notes on mathematics.
 
@@ -47,8 +45,6 @@ You can also reach me by email (see the footer of this page) if you have any com
 
 (8) I hope you find something useful here. 
 
-(9) Contents of toywiki are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]] (check out [[tw_people|the people involved in this project]]).
-However, the attribution rule does *not* apply if you want to use any content in a formal academic setting: e.g. in a research paper. 
-In this case please send me an email if you are thinking of attributing me, so that I can check the accuracy and attributions.
+(9) Contents of toywiki are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]].
 
 (10) Oh, and why is it called toywiki? Because I think toy examples are the best tool to study mathematics :)

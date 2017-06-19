@@ -1,6 +1,7 @@
 %%<!-- -*- mode: text; -*- -->
 %title toywiki people
 %date 2017-04-27
+
 :toywiki:
 
 [[http://ypei.me|Yuchen Pei]] is the creator of toywiki.
