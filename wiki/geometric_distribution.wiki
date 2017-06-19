@@ -1,8 +1,7 @@
 %%<!-- -*- mode: text; -*- -->
-:geometric_distribution:q_deformation:
-
 %title Geometric distributions
 %date 2017-05-04
+:geometric_distribution:q_deformation:
 
 *Definition*. $X \sim Geom(p)$ if
 {{$

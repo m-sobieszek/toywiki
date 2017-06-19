@@ -2,6 +2,8 @@
 %title Cauchy-Littlewood identities
 %date 2017-04-25
 
+:symmetric_polynomials:
+
 * Recall $E(t, x)$ and $H(t, x)$ from [[simple_symmetric_functions|Simple symmetric functions]].
 
 We follow Chapter 1 of [{macdonald98}].

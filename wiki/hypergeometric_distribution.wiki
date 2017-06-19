@@ -1,7 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title Hypergeometric distributions
 %date 2017-05-30
-
 :hypergeometric_distribution:
 
 == Definition ==

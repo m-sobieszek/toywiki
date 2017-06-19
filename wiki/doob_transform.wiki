@@ -4,11 +4,10 @@
 %% for brownian bridge: work out the harmonic function, and the space-time transform, also use this example to find out how to obtain the generator of a process from the generator of its space-time generator (c.f. example 3)
 %% further reading: martin boundary, see hints inside this wiki, question: are all rs cases covered by martin boundary?
 %% Sat 12 Dec 14:38:22 EST 2015
-:doob_transform:
-
 %title Doob's $h$-transform
 %date 2017-04-25
 
+:doob_transform:
 == Loosely speaking ==
 Let $A$ be a non-negative kernel on $S$ and $h$ that is $A$-harmonic positive function, then we call the transition kernel
 {{$

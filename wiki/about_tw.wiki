@@ -1,8 +1,8 @@
 %%<!-- -*- mode: text; -*- -->
-:toywiki:
-
 %title Welcome to toywiki
 %date 2017-05-30
+
+:toywiki:
 
 by Yuchen Pei
 
