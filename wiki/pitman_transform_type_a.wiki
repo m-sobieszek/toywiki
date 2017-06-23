@@ -1,6 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title Pitman's transform of type A
-%date 2017-05-16
+%date 2017-06-23
 
 :pitman_transform:robinson_schensted:robinson_schensted_knuth:
 
@@ -21,9 +21,9 @@ This leaves only one unresolved case: the continuous-time-continuous-space case,
 It can be found in [{oconnell03b}] and [{biane-bougerol-oconnell05}].
 
 Here is a table summarising the known cases:
-|                  | discrete-time                           | continuous-time              |
-| discrete-space   | RS, RSK                                 | RS (e.g. with Poisson input) |
-| continuous-space | RSK (e.g. DLPP with exponential weight) | Pitman's transform of type A |
+|                  | discrete-time                                                | continuous-time              |
+| discrete-space   | RS, RSK                                                      | RS (e.g. with Poisson input) |
+| continuous-space | RSK (e.g. [[discrete_dlpp_dp|DLPP]] with exponential weight) | Pitman's transform of type A |
 
 Even though the RS and RSK algorithms have different dynamics, as one can see in the difference of definitions of $\odot$ and $\otimes$ in [[rs_pitman_type_a]] vs [[rsk_path_transformation]], in the continuous-time continuous-space case, they are unified by the Pitman's transform of type A.
 This is because the consideration at one time-point is negligible when time is continuous.
@@ -63,3 +63,14 @@ Then we may define the Pitman's transform of type A, which is the same as the di
   \lambda^k_j &= \lambda^{k - 1}_j \odot (S_k \otimes \lambda^{k - 1}_1 \otimes \lambda^{k - 1}_2 \otimes ... \otimes \lambda^{k - 1}_{j - 1}), \qquad j < k
   }}$
 
+*Remark*. The symmetry between the column and the row insertion has finally become transparent: one may use an involution 
+{{$%align%
+\lambda^k_j &\mapsto - \lambda^k_{k - j + 1} \\
+S_k &\mapsto - S_k
+}}$
+and the fact
+{{$%align%
+(-f) \otimes (-g) = - (f \odot g), \qquad (-f) \odot (-g) = - (f \otimes g)
+}}$
+to transform the row (resp. column) insertion equation to the column (resp. row) insertion equation.
+Such striking "duality" between the row and column insertion could not be easily observed when one looks at [[robinson_schensted|the conventional definition of the discrete-time-discrete-space version of the RS algorithms]].

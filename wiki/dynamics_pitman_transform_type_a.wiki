@@ -1,6 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title Dynamics of type-A Pitman's transform
-%date 2017-05-17
+%date 2017-06-23
 
 :pitman_transform:robinson_schensted:local_time:robinson_schensted_knuth:
 
@@ -98,10 +98,4 @@ d \lambda^k_k &= d \lambda^{k - 1}_{k - 1} - d L_{\lambda^{k - 1}_{k - 1} - \lam
 d \lambda^k_j &= d \lambda^{k - 1}_{j - 1} - d L_{\lambda^{k - 1}_{j - 1} - \lambda^k_{j - 1}} + d L_{\lambda^{k - 1}_j - \lambda^k_j}. \qquad 1 < j < k
 }}$
 
-*Remark*. The symmetry between the column and the row insertion has finally become transparent: one may use an involution 
-{{$%align%
-\lambda^k_j &\mapsto - \lambda^k_{k - j + 1} \\
-S_k &\mapsto - S_k
-}}$
-to transform the row (resp. column) insertion equation to the column (resp. row) insertion equation.
-Such striking "duality" between the row and column insertion could not be easily observed when one looks at [[robinson_schensted|the conventional definition of the discrete-time-discrete-space version of the RS algorithms]].
+*Remark*. Again, by using the same involution as in [[pitman_transform_type_a#Remark|Pitman's transform of type A]], the symmetry between row and column insertion is crystal clear.
