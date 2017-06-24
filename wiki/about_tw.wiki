@@ -1,25 +1,18 @@
 %%<!-- -*- mode: text; -*- -->
 %title Welcome to toywiki
-%date 2017-06-19
-
+%date 2017-06-24
 :toywiki:
 
-(1) toywiki hosts a collection of research notes on mathematics.
+toywiki is a collection of maths notes and an experiment on open research.
 
-(2) I wrote these notes to help myself solidify my mathematical understanding, as well as to share research and knowledge.
+=== A collection of maths notes ===
+toywiki is a collection of notes, mostly on mathematics.
+I wrote these notes to help myself solidify my mathematical understanding, to explore mathematics, as well as to share research and knowledge.
 
-(3) toywiki is also an experimental open-source project. 
-It is synchronised with [[https://github.com/ycpei/toywiki|a Github repository]].
-You are welcome to do open-sourcy things with it too: clone, fork, submit an issue, submit a pull request etc.
-Collaborations, whether original research or not, should be preferably [[https://opensource.guide/how-to-contribute/|open-source contributions]].
-For example, all communication should be as public as possible, unless it involves sensitive information or that you are unfamiliar with Github.
-
-(4) Style-wise, toywiki notes are meant to give a modular and intuitive presentation.
-
-(5) I believe mathematical knowledge is highly modular and incremental,
-and that mathematical writing is not much dissimilar to computer programming.
-For example here is a table of some analogues between mathematical writing and programming.
-
+Style-wise, toywiki notes are meant to give a modular and intuitive presentation.
+I believe mathematical knowledge is highly modular and incremental,
+ and that mathematical writing is not much dissimilar to computer programming.
+ For example here is a table of some analogues between mathematical writing and programming.
 | Mathematical writing                         | Computer programming                         |
 |----------------------------------------------|----------------------------------------------|
 | Theorems, lemmas, propositions, corollaries  | Functions and procedures                     |
@@ -30,21 +23,51 @@ For example here is a table of some analogues between mathematical writing and p
 | Citing a paper, book etc.                    | Importing a library                          |
 | Declaring a variable                         | Declaring a variable                         |
 | Variables have scopes (e.g. dummy variables) | Variables have scopes (e.g. local variables) |
+ On toywiki, I try to abide by the modularity to write as few repeated statements as possible and improve the clarity and simplicity of the demonstration.
+ It is really like a programming project, except the computer can not help debug and find errors (see below).
+ 
+Despite the inspiration from computer programming, the notes are written for human rather than computers, so formality is secondary to clarity and simplicity.
+For example, I do not attempt to formalise mathematics completely.
 
-On toywiki, I try to abide by the modularity to write as few repeated statements as possible and improve the clarity and simplicity of the demonstration.
+I hope you find something useful here. 
 
-It is really like a programming project, except the computer can not help debug and find errors (see (7)).
+Contents of toywiki are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]].
 
-(6) Despite the inspiration from computer programming, on toywiki formality is secondary to clarity, simplicity or efficiency.
-For example, I do not attempt to formalise mathematics completely or automate theorem proving.
+Oh, why is it called toywiki? Because I think toy examples are the best tool to study mathematics :)
 
-(7) Since the notes are informal and haven't been peer-reviewed yet, I expect there to be mistakes and typos on accuracy or attributions. 
-If you find something fishy or outright wrong, open an issue or submit a pull request on Github. 
-You are also welcome to open an issue if you have a question about any of the notes. 
+=== An experiment on open research ===
+As an experiment on open mathematical research, toywiki is also an open-source project.
+It is synchronised with [[https://github.com/ycpei/toywiki|a Github repository]],
+and you are welcome to clone and make your own version, or contribute to it by submitting issues or pull requests.
+
+*You can help improve the existing notes*. 
+Since the notes are informal and haven't been peer-reviewed yet, I expect there to be mistakes and typos on accuracy or attributions.
+If you find something fishy or outright wrong, please open an issue or submit a pull request on Github.
+
+*You can also help solve open problems*.
+Many problems that appear in the notes or issues are marked as "Open", and they are potential research problems to work on in this project.
+
+In general a problem may be in one of three status in a universal sense:
+# Open. No one on Earth has a complete solution to it.
+# Folklore. It is believed to have been solved by some, but not complete solution has been published.
+# Solved. A complete solution has been published.
+
+But these universal statuses are not useful, because in everyday life, a problem can only be either open or solved from a person's perspective, and unless one is omniscient, a problem open to them may fall into any one of the three categories above. 
+They may not be aware of the solution, or that they have read the solution but there are gaps between their mathematical background and that assumed by the solution.
+For example, a usual problem posted on stack exchange is open to the poster until they understand a solution.
+
+It is open problems in this sense we work on in toywiki.
+They can be posted on the issue page for discussion.
+If it is open due to ignorance about the literature, then a pointer to the solution should resolve the issue.
+Otherwise once they are solved, it is high time to record the solution in the wiki.
+
+*Feel free to ask questions*.
+You are also welcome to open an issue if you have a question about any of the notes.
 You can also reach me by email (see the footer of this page) if you have any comments about the project itself.
 
-(8) I hope you find something useful here. 
+*About credits*.
+Just like every other open source projects on Github, credits can be completely traced in commits and issues.
 
-(9) Contents of toywiki are under [[https://creativecommons.org/licenses/by-sa/4.0/|CC BY-SA 4.0 License]].
+See [[https://github.com/ycpei/toywiki/blob/master/CONTRIBUTION.md|CONTRIBUTION.md]] on github for detailed contribution guidelines.
 
-(10) Oh, and why is it called toywiki? Because I think toy examples are the best tool to study mathematics :)
+Let's do some cool maths!
