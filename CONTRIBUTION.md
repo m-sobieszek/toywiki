@@ -1,4 +1,4 @@
-Overview {#Overview}
+Overview
 --------
 
 NOTE: Without any precedence to borrow from, this project (including
@@ -15,10 +15,10 @@ Contributions can be:
     1.  The edited version of an existing article after your review
     2.  A new article
 
-Issues {#Issues}
+Issues
 ------
 
-### open problems {#open problems}
+### open problems
 
 In general a problem may be in one of three status in a universal sense:
 
@@ -42,7 +42,7 @@ it is open due to ignorance about the literature, then a pointer to the
 solution should resolve the issue. Otherwise once they are solved, it is
 high time to record the solution in the wiki.
 
-### math equation rendering {#math equation rendering}
+### math equation rendering
 
 Unfortunately Github does not support maths natively in their Markdown
 system. See <https://github.com/github/markup/issues/897> . It is
@@ -51,7 +51,7 @@ in latex inline code or code blocks. You can test your post on
 [stackedit](https://stackedit.io/editor) before wrapping the latex in
 code.
 
-Pull requests {#Pull requests}
+Pull requests
 -------------
 
 Please follow these guidelines on pull requests:
