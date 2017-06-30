@@ -1,6 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
 %title Representation theory of sl(n; C)
-%date 2017-06-28
+%date 2017-06-30
 
 :representation_theory:toy_model:
 
@@ -16,13 +16,13 @@ Let $\Ad_H$ be an operator defined by $\Ad_H X := [H, X]$.
 Here are the elements of representation theory of complex semisimple Lie algebra $\fg$:
 
 * An inner product on $\fg$. We use Hilbert-Schmidt inner products $\braket{X, Y} = \Tr (X^* Y)$ for matrix Lie algebras.
-* Cartan subalgebra $\fh$: A maximal commutative algebra $\fh$ where $\Ad_H$ is diagonalisable for each $H \in \fh$.
-* Root $\alpha \in \fh$ and corresponding root vector $X \in \fg$, defined by the relation
+* Cartan subalgebra $\fh$: A maximal commutative algebra $\fh \subset \fg$ where $\Ad_H$ is diagonalisable for each $H \in \fh$.
+* Root $\alpha \in \fh$ and corresponding root vector $0 \neq X \in \fg$, defined by the relation
   {{$
   [H, X] = \braket{\alpha, H} X, \qquad \forall H \in \fh
   }}$
   The set of roots is denoted by $R$.
-* Given a representation $(\pi, V)$, define weight $\mu \in \fh$ and corresponding weight vector $v \in V$ by the relation
+* Given a representation $(\pi, V)$, define weight $\mu \in \fh$ and corresponding weight vector $0 \neq v \in V$ by the relation
   {{$
   \pi(H) v = \braket{\mu, H} v, \qquad \forall H \in \fh
   }}$
@@ -40,7 +40,7 @@ Here are the elements of representation theory of complex semisimple Lie algebra
   {{$
   s_\alpha \beta = \beta - 2 {\braket{\alpha, \beta} \over \braket{\alpha, \alpha}} \alpha.
   }}$
-* Given a representation $(\pi, V)$ of $\fg$, the character
+* Given a representation $(\pi, V)$ of $\fg$, the character is
   {{$
   \chi_\pi (X) := \Tr e^{\pi (X)}
   }}$
@@ -52,13 +52,13 @@ Here are the elements of representation theory of complex semisimple Lie algebra
 
 *Theorem* (The Weyl character and dimensional formulas). Let $(\pi, V_\mu)$ be the IFDR of $\fg$ with highest weight $\mu$, and let $\chi_\mu$ be the corresponding character. Then
 {{$%align%
-\chi_\mu (H) &= {\sigma_{w \in W} \det(w) e^{\braket{w \cdot (\mu + \delta), H}} \over \sigma_{w \in W} \det(w) e^{\braket{w \cdot \delta, H}}}. \\
+\chi_\mu (H) &= {\sum_{w \in W} \det(w) e^{\braket{w \cdot (\mu + \delta), H}} \over \sum_{w \in W} \det(w) e^{\braket{w \cdot \delta, H}}}. \\
 \dim V_\mu &= {\prod_{\alpha \in R^+} \braket{\alpha, \mu + \delta} \over \prod_{\alpha \in R^+} \braket{\alpha, \delta}}.
 }}$
 
 == IFDR of $\fsl_n$ ==
 * $\fh = \{\diag(\lambda_{1 : n}) : \lambda_i \in \cplx, \lambda_1 + ... + \lambda_n = 0 \}$ are diagonal matrices with trace $0$.
-* The roots are $E_{ii} - E_{jj}$ with root vectors $E_{ij}$:
+* The roots are $E_{ii} - E_{jj}$ for $i \neq j$ with root vectors $E_{ij}$:
   {{$
   [H, E_{ij}] = (\lambda_i - \lambda_j) E_{ij} = \braket{E_{ii} - E_{jj}, H} E_{ij}
   }}$
@@ -66,7 +66,7 @@ Here are the elements of representation theory of complex semisimple Lie algebra
 * The positive simple roots are $\Delta = \{e_i - e_{i + 1}: i = 1 : n - 1\}$.
 * The positive roots are of the form $e_i - e_j$ for $1 \le i < j \le n$.
 * $\delta = {1 \over 2} \sum_{1 \le i < j \le n} (e_i - e_j) = ((n - 1) / 2, (n - 1) / 2 - 1, ..., 1 - (n - 1) / 2, - (n - 1) / 2)$.
-* The Weyl group $S_n$ is the $n$th symmetric group, thus $\det w = \sgn w$.
+* The Weyl group $W = S_n$ is the $n$th symmetric group, thus $\det \sigma = \sgn \sigma$ for $\sigma \in S_n$.
 * The highest weights / dominant integral elements are of the form $\mu = (\mu_1, \mu_2, ..., \mu_n) \in \intg^n$ such that $\mu_i \ge \mu_{i + 1}$ for all $i = 1 : n - 1$.
 * By the Weyl dimensional formula
   {{$
