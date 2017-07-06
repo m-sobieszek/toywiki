@@ -1,0 +1,69 @@
+%%<!-- -*- mode: text; -*- -->
+%title Crystal graphs of type A and the Robinson-Schensted algorithm
+%date 2017-07-05
+
+:robinson_schensted:
+
+We give a quick discussion of crystals from a Robinson-Schensted point of view. 
+The authoratative reference is [{kashiwara95}]. 
+And more accessible expositions are [{shimozono05}] and the [[http://doc.sagemath.org/html/en/thematic_tutorials/lie/crystals.html|sage tutorial]], which are the primary source of this note. 
+Like in [{shimozono05}] we only look at type A for now, which corresponds to the usual Robinson-Schensted algorithm.
+
+Fix positive integer $\ell$, the crystal graph $B(1)^n$ is a directed graph where
+* each vertex is labelled with a word in $[\ell]^n$,
+* each edge is labelled with a positive integer $i < \ell$,
+* and there is a rule on how vertices can be connected, see below.
+
+There is an edge $i$ going from word $w$ to word $w'$ (denoted as $w \overset{i}{\to} w'$) if $w' = f_i (w)$, where $f_i$ is defined as follows
+* First write down a word $c$ of the same length as $w$ such that $c_j = t(w_j)$ where $t$ substitute $i$ with `)`, $i + 1$ with `(` and any other number with ` ` (whitespace).
+* Then change all matching parentheses in $c$ to ` ` (whitespace) as well. If we ignore all the whitespaces, $c$ is a string of right parentheses followed by left parentheses, like `))))(((`.
+* Mark the index $k$ of the rightmost right parenthesis `)`, and $f_i(w)$ is obtained from $w$ by changing $w_k$ (from $i$) to $i + 1$. If $c$ has no `)` then $f_i (w)$ is undefined and there is no edge $i$ pointing from $w$.
+
+Here is an example where $i = 2$ (in the third line the matching parentheses cancel out):
+{{{
+w = 1221324231141343224413
+c =  )) () )(    ( ())   (
+c:=  ))    )(            (
+w'= 1221324331141343224413
+}}}
+
+One can also define $e_i$, which is the inverse of $f_i$: $e_i(f_i(w)) = w$ if $f_i(w)$ is not undefined, and $e_i (w)$ is undefined if $c$ has no `(`.
+Compared to $f_i$, $e_i$ marks the index $l$ of the leftmost `(` in $c$ and changes $w_l$ (from $i + 1$) to $i$.
+
+*Definition*. An isomorphism between two crystal graphs $G$ and $H$ is a bijection $h: V_G \to V_H$ between the vertices
+# preserving edges: $w \overset{i}{\to} w'$ iff $h(w) \overset{i}{\to} h(w')$.
+# preserving weights: $\ty h(w) = \ty w$.
+
+For any partition $\lambda$ of $n$, let $\mcs_\lambda$ be the set of standard Young tableaux of shape $\lambda$, and $d_\lambda = \#\mcs_\lambda$ be the number of these tableaux.
+The vertices that are column words of tableaux of shape $\lambda$ form a component of $B(1)^n$, which we call $B(\lambda)$.
+
+It turns out $B(1)^n$ can be decomposed in the following way:
+{{$
+B(1)^k \cong \bigoplus_{\lambda \vdash n} B(\lambda) \times \mcs_\lambda
+}}$
+This means 
+# Any connected component $G$ of $B(1)^n$ is isomorphic to $B(\lambda)$ for some $\lambda\vdash n$.
+# For any $\lambda$, there are $d_\lambda$ components of $B(1)^n$ isomorphic to $B(\lambda)$, so they are parameterised by standard Tableaux.
+# Given any vertex $w$ of $B(1)^n$, $w$ is identified with a pair $(P(w), Q(w))$, where 
+    * $P(w)$ is a vertex of $B(\lambda)$, and it is the image of the $w$ under the isomorphism between the component having $w$ (which we call the $w$-component) and $B(\lambda)$.
+    * $Q(w)$ is the standard tableau parameterising the $w$-component mentioned in Item 2.
+
+And $(P(w), Q(w))$ is the pair of tableaux obtained by applying Robinson-Schensted algorithm with column insertion to $w^r = (w_n, w_{n - 1}, ... w_1)$!
+In other words, each component defines the $Q$-equivalence, and the set of images of isomorphisms of each vertex defines the $P$-equivalence.
+
+== How does one obtain $P(w)$ and $Q(w)$? == 
+*Definition*. A Yamanouchi word is a word $v = v_1 v_2 ... v_n$ such that $\forall i, \ty (v_i, v_{i + 1}, ..., v_n)$ is a partition.
+There is a one-one correspondence between Yamanouchi words in $[\ell]^n$ and standard Young tableaux of size $n$ and no more than $\ell$ rows.
+Given a Yamanouchi word $v_1 ... v_n$, one starts with an empty tableau, then append $1$ to the $v_n$th row, then append $2$ to the $v_{n - 1}$th row, and so on and so forth.
+For example, $v = 23321211$ corresponds to the tableau $\begin{array}{ccc}1&2&4\\3&5&8\\6&7&\end{array}$.
+
+*Definition*. Given a partition $\lambda$, a Yamanouchi tableau $y_\lambda$ is a semistandard Young tableau obtained by filling $\lambda$ with only $i$'s on the $i$th row for each $i$.
+
+*Definition*. Given a connected crystal graph, a vertex $w$ is a highest weight vector if $e_i (w)$ is undefined for all $i$.
+
+It turns out each component $G$ of $B(1)^n$ has a unique highest weight vector, which is a Yamanouchi word.
+Given $w \in [\ell]^n$, one can find $P(w)$ and $Q(w)$ in the following way:
+# Find the sequence $e_1, e_2, ..., e_k$ such that $v = e_k e_{k - 1} ... e_1 w$ is the highest weight. 
+# $Q(w)$ is standard tableau corresponding to the Yamanouchi word $v$. 
+# Let $\lambda = \sh Q(w)$ and $y_\lambda$ be the column word of the Yamanouchi tableau of shape $\lambda$.
+# $P(w)$ is the tableau whose column word is $f_1 f_2 ... f_k y_\lambda$.
