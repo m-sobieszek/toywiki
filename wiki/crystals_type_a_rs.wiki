@@ -48,7 +48,7 @@ This means
     * $P(w)$ is a vertex of $B(\lambda)$, and it is the image of the $w$ under the isomorphism between the component having $w$ (which we call the $w$-component) and $B(\lambda)$.
     * $Q(w)$ is the standard tableau parameterising the $w$-component mentioned in Item 2.
 
-And $(P(w), Q(w))$ is the pair of tableaux obtained by applying Robinson-Schensted algorithm with column insertion to $w^r = (w_n, w_{n - 1}, ... w_1)$!
+And $(P(w), Q(w))$ is the pair of tableaux obtained by applying [[robinson_schensted|Robinson-Schensted algorithm with column insertion]] to $w^r = (w_n, w_{n - 1}, ... w_1)$!
 In other words, each component defines the $Q$-equivalence, and the set of images of isomorphisms of each vertex defines the $P$-equivalence.
 
 == How does one obtain $P(w)$ and $Q(w)$? == 

@@ -1,0 +1,136 @@
+%%<!-- -*- mode: text; -*- -->
+%title Burke's theorem
+%date 2017-07-09
+
+:mm1queue:robinson_schensted:pitman_transform:
+
+In this note we derive a version of the Burke's theorem for M/M/1 queues.
+Consider a stationary M/M/1 queue with arrival process $A$ and departure process $S$.
+The well accepted Burke's theorem states the departure process $D$ has the same law as the arrival process.
+A stronger version proved in [{oconnell-yor02}] is as follows: let $T = A + S - D$, then $(D, T)$ has the same law as $(A, S)$.
+
+The proof to Burke's theorem in the literature normally uses a clever implicit reversibility argument, which becomes obvious given a visual aid.
+
+In this note we dePoissonise everything, and prove the stronger Burke's theorem using explicit and elementary calculations.
+We also show the connection to the RS algorithm, and use the Burke's theorem to show the RS algorithm acting on certain pair of paths amounts to condition them to being noncolliding.
+We mostly follow [{oconnell-yor02}] as our source.
+
+== M/M/1 queue ==
+Consider discrete time space $n \ge 0$.
+
+*Definition*. The M/M/1 queue has the following elements:
+* The queue process $Q(n)$ which the length of the queue at time $n$.
+* The arrival process $A(n)$ with initial condition $A(0) = 0$: when there is an arrival at time $n$, $A(n) = A(n - 1) + 1$; and accordingly $Q(n) = Q(n - 1) + 1$.
+* The service process $S(n)$ with initial condition $S(0) = 0$: when there is a service at time $n$, $S(n) = S(n - 1) + 1$; and accordingly $Q(n) = (Q(n - 1) - 1)^+$.
+* The departure process $D(n)$: when a service happens at time $n$, $D(n) = D(n - 1) + 1$ is $Q(n - 1) > 0$, otherwise $D(n) = D(n - 1)$.
+* The unused service process $U(n) = S(n) - D(n)$.
+* The process without a name $T(n) = A(n) + U(n) = A(n) + S(n) - D(n)$.
+
+Let $0 < p < q < 1$ such that $p + q = 1$ and suppose $(A, S)$ is a Markov chain with transition probability
+{{$
+P((a, s), (a', s')) = \begin{cases} p & a' = a + 1, s' = s \\ q & a' = a, s' = s + 1 \\ 0 & \text{otherwise} \end{cases} \qquad (1)
+}}$
+So the increment of $(A, S)$ is either $(0, 1)$ (with probability $q$) or $(1, 0)$ (with probability $p$) at a time.
+
+== Equilibrium state and reversibility ==
+*Claim*. $Q$ has a stationary measure $\pi$ which is the [[geometric_distribution|geometric distribution]] Geom$(1 - p / q)$.
+
+*Proof*. Suppose $Q(n - 1)$ has distribution $\pi$. For $m > 0$, 
+{{$%align%
+\prob(Q(n) = m) &= \prob(Q(n - 1) = m - 1) \prob(A(n) = A(n - 1) + 1) \\
+&\;\;+ \prob(Q(n - 1) = m + 1) \prob(S(n) = S(n - 1) + 1) \\
+&= (1 - p / q) (p / q)^{m - 1} p + (1 - p / q) (p / q)^{m + 1} q = (1 - p / q) (p / q)^m.
+}}$
+For $m = 0$,
+{{$%align%
+\prob&(Q(n) = 0) \\
+&= \prob(Q(n - 1) = 0) \prob(S(n) = S(n - 1) + 1) + \prob(Q(n - 1) = 1) \prob(S(n) = S(n - 1) + 1) \\
+&= (1 - p / q) q + (1 - p / q) (p / q) q = (1 - p / q).
+}}$
+$\square$.
+
+*Claim*. $Q$ is reversible.
+
+*Proof*. It suffices to verify the detailed balance equation $\pi(m) P_Q(m, m') = \pi(m') P_Q(m', m)$ where $P_Q$ is the transition kernel of $Q$.
+Since both sides are zero if $m - m' > 1$ or $m = m' > 0$, we only need to verify the cases where $m = m' + 1$ and $m = m' = 0$ ($m = m' - 1$ has the same equation as $m = m' + 1$).
+
+Case $m = m' + 1$:
+{{$%align%
+LHS &= (1 - p / q) (p / q)^m q \\
+RHS &= (1 - p / q) (p / q)^{m - 1} p
+}}$
+which are equal.
+
+Case $m = m'$ is trivial. 
+$\square$
+
+== Burke's theorem ==
+*Burke's Theorem*. Given an equilibrium M/M/1 queue, $(D, T) \overset{d}{=} (A, S)$.
+
+*Proof*. It suffices to show that $(D, T)$ has the same transitional kernel as $(A, S)$ as shown in (1).
+Since $D + T = A + S$, it suffices to show $D$ behaves the same way as $A$: either increase by $1$ with probability $p$ or remain the same.
+When does $D$ increase by $1$ at time $n$? Well, this happens iff $Q(n - 1) > 0$ and $S(n) - S(n - 1) = 1$.
+And since $Q(n - 1)$ is a function of $Q(0), A(0 : n - 1)$ and $S(0 : n - 1)$, $S(n) - S(n - 1)$ is independent of $Q(n - 1)$.
+Therefore
+{{$
+\prob(D(n) = D(n - 1) + 1) = \prob(Q(n - 1) > 0) \prob(S(n) - S(n - 1) = 1) = (p / q) q = p.
+}}$
+$\square$.
+
+== M/M/1 queue and Robinson-Schensted ==
+It is not hard to see that
+{{$
+U(n) = (\max \{S(m) - A(m): m \le n\} - Q(0))^+
+}}$
+With this one can write down explicitly
+{{$%align%
+D(n) &= S(n) - U(n) = S(n) - (\max_{m \le n} (S(m) - A(m)) - Q(0))^+ \\
+T(n) &= A(n) + S(n) - D(n) = A(n) + (\max_{m \le n} (S(m) - A(m)) - Q(0))^+\\
+Q(n) &= Q(0) + A(n) - D(n) = A(n) - S(n) + (\max_{m \le n} (S(m) - A(m)) \vee Q(0))
+}}$
+So that 
+
+*Claim'*. when $Q(0) = 0$,
+{{$
+(D, T) = (A \otimes S, S \odot A)
+}}$
+where $\odot$ and $\otimes$ are the operators in [[rs_pitman_type_a|RS algorithm as Pitman transform of type A]]. 
+So when $Q(0) = 0$ the M/M/1 queue is the [[robinson_schensted|Robinson-Schensted algorithm (with column insertion)]] taking a word in $\{1, 2\}^*$ in disguise.
+
+More specifically, the arrival and service processes count the number of $1$'s and $2$'s, respectively, whereas $(T, D)$ is the shape $(\lambda^2_1, \lambda^2_2)$ of the output tableau.
+$U = \lambda^2_1 - \lambda^1_1$ is the number of $2$'s in the first row of the output tableau, and
+$Q = \lambda^1_1 - \lambda^2_2$ is the difference between the number of $1$'s in the first row of the tableau and the number of $2$'s in the second row.
+
+== Conditioned walk ==
+With the Burke's theorem, one can show the following:
+
+*Claim*. $(A \otimes S, S \odot A) \overset{d}{=} (A, S|A(n) \le S(n) \forall n \ge 0)$. That is, $(A \otimes S, S \odot A)$ has the same distribution as $(A, S)$ conditioned on $A(n) \le S(n) \forall n \ge 0$.
+
+Note that as a statement on $A$ and $S$, this Claim is independent of $Q$. 
+To prove this claim we first show a lemma.
+
+*Lemma*. Almost surely $Q(0) = \max_{n \ge 0} (D(n) - T(n))$.
+
+*Proof*. First we look at the sequence $D(n) - T(n)$ and show that it can never exceed $Q(0)$:
+{{$
+D(n) - T(n) = (A(n) - Q(n) + Q(0)) - (A(n) + U(n)) = Q(0) - Q(n) - U(n) \le Q(0)
+}}$
+
+Let $N = \min\{n \ge 0: Q(n) = 0\}$ be the first time when the queue is emptied.
+Since the arrivals have a lower probability than the services to occur, $N < \infty$ almost surely.
+Since the queue has been nonempty prior to time $N$, we have $U(N) = 0$.
+Therefore
+{{$
+D(N) - T(N) = Q(0) - Q(N) - U(N) = Q(0).
+}}$
+So $Q(0)$ is also achievable in the sequence $(D(n) - T(n))_n$. $\square$
+
+*Proof of the Claim*. Consider a stationary queue, then
+{{$%align%
+(A, S | A(n) \le S(n) \forall n \ge 0) 
+ &\overset{d}{=} (D, T | D(n) \le T(n) \forall n \ge 0) \\
+ &\overset{d}{=} (D, T | Q(0) = 0) \\
+ &\overset{d}{=} (A \otimes S, S \odot A | Q(0) = 0) \\
+ &\overset{d}{=} (A \otimes S, S \odot A)
+}}$
+where the first equality is due to Burke's Theorem, the second due to the Lemma, the third due to Claim', and the fourth due to the fact that the process $(A, S)$ is independent of $Q(0)$. $\square$

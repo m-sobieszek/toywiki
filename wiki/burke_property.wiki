@@ -4,7 +4,7 @@
 
 :burke_property:robinson_schensted_knuth:q-pochhammers:
 
-The Burke property is the simplest version of integrability of RSK-type dynamics of usual specialisation, whereas the more accepted Burke's theorem corresponds to the integrability of RSK-type dynamics of _exponential specialisation_ (see [{oconnell-yor01}][{oconnell-yor02}]).
+The Burke property is the simplest version of integrability of RSK-type dynamics of usual specialisation, whereas the [[burke_theorem|more accepted Burke's theorem]] corresponds to the integrability of RSK-type dynamics of _exponential specialisation_ (see [{oconnell-yor01}][{oconnell-yor02}]).
 The connection between the Burke properties and RSK algorithms is made possible via the [[discrete_dlpp_dp|DLPP and DP]].
 In this entry we describe them without invoking RSK or DLPP or DP.
 
