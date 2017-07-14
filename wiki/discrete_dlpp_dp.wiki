@@ -21,7 +21,7 @@ Z_1(n, m) = \log \left(\sum_{\pi: (1, 1) \to (n, m)} \prod_{(i, j) \in \pi} e^{a
 
 The DLPP (or the Manhattan Tourist problem) is a typical example of dynamic programming, where one can rely on the recursive formula:
 {{$
-Z_0(n, m) = (Z_0(n - 1, m) \vee Z_0(n, m - 1)) + a_{nm}
+Z_0(n, m) = (Z_0(n - 1, m) \vee Z_0(n, m - 1)) + a_{nm}. \qquad (3)
 }}$
 Similarly for DP:
 {{$

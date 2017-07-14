@@ -35,7 +35,7 @@ When $n > k$, denote $a, b, c, d$ by
 Due to (1)(2) in [[macdonald_polynomials_formula|Explicit formula of Macdonald polynomials]], both sides of (1) are equal to
 {{$%align%
     &{\prod_{1 \le i < j \le k - 1} g(d_i - d_j, j - i - 1) g(d_i - d_j, j - i) \over \prod_{1 \le i < j \le k} g(a_i - a_j, j - i - 1) g(a_i - a_j, j - i)}\\
-    &\times{\prod_{1 \le i \le j \le k - 1}g(b_i - a_{j + 1}, j - i - 1) g(a_i - c_j, j - i) g(c_j - a_{i + 1}, j - i) \prod_{1 \le i \le j \le k} g(a_i - b_j, j - i) \over \prod_{1 \le i \le j \le k - 2} g(d_i - c_{j + 1}, j - i) \prod_{1 \le i \le j \le k - 1} g(c_i - d_j, j - i) g(b_i - d_j, j - i) g(d_i - b_{j + 1}, j - i)}.
+    &\times{\prod_{1 \le i \le j \le k - 1}g(b_i - a_{j + 1}, j - i) g(a_i - c_j, j - i) g(c_j - a_{i + 1}, j - i) \prod_{1 \le i \le j \le k} g(a_i - b_j, j - i) \over \prod_{1 \le i \le j \le k - 2} g(d_i - c_{j + 1}, j - i) \prod_{1 \le i \le j \le k - 1} g(c_i - d_j, j - i) g(b_i - d_j, j - i) g(d_i - b_{j + 1}, j - i)}.
 }}$
 
 When $n = k$, denote $a, b, c, d$ by
@@ -49,7 +49,7 @@ When $n = k$, denote $a, b, c, d$ by
 Both sides of (1) are equal to
 {{$%align%
     &{\prod_{1 \le i < j \le k - 1} g(d_i - d_j, j - i - 1) g(d_i - d_j, j - i) \over \prod_{1 \le i < j \le k} g(a_i - a_j, j - i - 1) g(a_i - a_j, j - i)} {\prod_{1 \le i \le k} g(a_i, k - i) \over \prod_{1 \le i \le k - 1} g(d_i, k - 1 - i)}\\
-    &\times{\prod_{1 \le i \le j \le k - 1}g(b_i - a_{j + 1}, j - i - 1) g(a_i - c_j, j - i) g(c_j - a_{i + 1}, j - i) g(a_i - b_j, j - i) \over \prod_{1 \le i \le j \le k - 2} g(d_i - c_{j + 1}, j - i) g(d_i - b_{j + 1}, j - i) \prod_{1 \le i \le j \le k - 1} g(c_i - d_j, j - i) g(b_i - d_j, j - i) }.
+    &\times{\prod_{1 \le i \le j \le k - 1}g(b_i - a_{j + 1}, j - i) g(a_i - c_j, j - i) g(c_j - a_{i + 1}, j - i) g(a_i - b_j, j - i) \over \prod_{1 \le i \le j \le k - 2} g(d_i - c_{j + 1}, j - i) g(d_i - b_{j + 1}, j - i) \prod_{1 \le i \le j \le k - 1} g(c_i - d_j, j - i) g(b_i - d_j, j - i) }. \qquad (2)
 }}$
 
 The case when $n < k$ is similar to $n > k$ case but symmetric. $\square$

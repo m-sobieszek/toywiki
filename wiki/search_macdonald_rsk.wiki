@@ -1,0 +1,70 @@
+%%<!-- -*- mode: text; -*- -->
+%title The search for Macdonald RSK
+%date 2017-07-10
+
+:robinson_schensted_knuth:macdonald_polynomials:local_move_integrability:directed_last_passage_percolation:
+
+* Recall the local move integrability equation (1) in [[macdonald_rsk_local_move_integrability]], which we refer as (0).
+* Recall the formula for ${M_\Theta (s') \over M_\Lambda(s)}$ in formula (2) of [[equivalence_m_rsk_md_lm_integrabilities]], which we refer as (-1).
+* Recall the $qt$-infhypergeometric distribution and its pmf $f_{u, v}$ in (3.2) of [[burke_property]].
+* Recall $g(n, k)$ in [[macdonald_polynomials_formula]].
+* Recall $h_t(n)$ in [[burke_property]].
+
+We have established in [[equivalence_m_rsk_md_lm_integrabilities]] that the Markov-Doob integrability and the local move integrability equations for the usual-spec Macdonald-RSK dynamics are the same.
+
+However, it is not known if there exists a Macdonald-RSK dynamics that satisfy these equations.
+
+In [[dlpp_dp_rsk]], we associated the various RS(K) algorithms with various directed last passage percolation or polymer models, whereas in [[burke_property]], we showed a less complicated integrability result (than the Markov-Doob integrability) called the Burke property.
+
+A $qt$-deformation of the DLPP exhibiting a $qt$-deformation of the Burke property was also written down in that entry.
+That specific $qt$DLPP dynamics is natural and unique in a certain sense (see [[burke_property#Claim 1|Claim 1]] there).
+
+A natural question thus arises: is there a dynamics satisfying the following conditions?
+# the first edge of the output GT pattern evolves as the [[discrete_dlpp_dp|qtDLPP]],
+# it is an [[rsk_type_dynamics|RSK-type dynamics]], namely it is weight-preserving
+# and the Macdonald-RSK dynamics satisfies the usual-spec integrability equation for Macdonald processes,
+
+*Claim*. The answer is no.
+
+*Proof*. Consider the integrability equation when $n = k = 2$ (so the two paritions in (0) are $\Theta = (2, 2)$ and $\Lambda = (2, 1)$), namely in [[local_move_integrability|the language of local move integrability]], when the local move $\rho_{22}$ transforms 
+$\begin{pmatrix} \lambda^1_1(1) & \lambda^1_1(2) \\ \lambda^2_1(1) & w_{22} \end{pmatrix}$ 
+to 
+$\begin{pmatrix} \lambda^2_2(2) & \lambda^1_1(2) \\ \lambda^2_1(1) & \lambda^2_2(1) \end{pmatrix}$,
+where $w_{22}$ is the 22-entry of the input matrix.
+
+We translate the three conditions.
+The first condition says (recall the $qt$DLPP dynamics in [[discrete_dlpp_dp]] and note our $w_{ij}$ is their $a_{ij}$ and c.f. [[dlpp_dp_rsk]])
+{{$
+\lambda^2_1(2) = w_{22} + \lambda^2_1(1) + \lambda^1_1(2) - \lambda^1_1(1) - X' \qquad (1)
+}}$
+where $X' \sim qt$IHyp$(\lambda^1_1(2) - \lambda^1_1(1), \lambda^2_1(1) - \lambda^1_1(1))$ and this random variable determines $\prob (\rho_{22} s' = s)$ in (0).
+
+The second condition says
+{{$
+\lambda^2_1(2) + \lambda^2_2(2) - \lambda^1_1(2) = \lambda^2_1(1) - \lambda^1_1 (1) + w_{22}.  \qquad (2)
+}}$
+Combining this with (1) we have
+{{$
+X' = \lambda^2_2(2), \qquad (3)
+}}$
+thus
+{{$
+\prob(\rho_{22} s' = s) = f_{\lambda^1_1(2) - \lambda^1_1(1), \lambda^2_1(1) - \lambda^1_1(1)} (\lambda^2_2(2)), \qquad (4)
+}}$
+
+
+The third condition states that (0) is true.
+Denote $a_1 = \lambda^2_1(2), a_2 = \lambda^2_2(2), b = \lambda^2_1(1), c = \lambda^1_1(2), d = \lambda^1_1(1)$, $g_k(n) = g(n, k)$.
+By plugging (-1), (4), and note that $s_{22}' = w_{22} = a_1 + a_2 - b - c + d$, (0) becomes
+{{$%align%
+&{g_1(a_1) g_0(b - a_2) g_0(a_1 - b) g_0(c - a_2) g_0(a_1 - c) \over g_0(a_1 - a_2) g_1(a_1 - a_2)}\\ 
+&\qquad\times\sum_d g_0(d)^{-1} g_0(a_1 + a_2 - b - c + d)^{-1} \sum_k h_{1 / t} (c - a_2 - d - k) t^{c - a_2 - d - k} g_0(k + b - c)^{-1} g_0(k)^{-1} = 1. \qquad (5)
+}}$
+
+Observe that $g_0(j) = h_{1 / t} (j) = 0$ whenever $j < 0$ due to the $(q)_j$ in the denominators, so any summand in the $d$- and $k$-sums vanishes when the instantiation of $k$ or $d$ results in negative values in the brakets in the sums.
+
+Let $a_1 = b = c = a_2 = 1$. The only nonvanishing summand is when $k = d = 0$, which we plug in formula (5) to obtain the left hand side equals
+{{$
+g_1(1) = {(qt)_1 \over (t^2)_1} = {1 - qt \over 1 - t^2} \neq 1.
+}}$
+$\square$

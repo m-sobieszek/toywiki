@@ -4,6 +4,7 @@ burke_theorem
 cauchy_littlewood_identity
 crystals_type_a_rs
 discrete_dlpp_dp
+dlpp_dp_rsk
 doob_transform
 dynamics_pitman_transform_type_a
 equivalence_m_rsk_md_lm_integrabilities
@@ -29,6 +30,7 @@ robinson_schensted_knuth
 rs_pitman_type_a
 rsk_path_transformation
 rsk_type_dynamics
+search_macdonald_rsk
 simple_symmetric_functions
 tw_people
 young_tableaux_gt_pattern

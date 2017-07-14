@@ -1,0 +1,18 @@
+%%<!-- -*- mode: text; -*- -->
+%title Connection between various RS(K) algorithms and directed last passage percolation / directed polymer models
+%date 2017-07-14
+
+:greene_theorem:robinson_schensted:robinson_schensted_knuth:
+
+The various RS(K) algorithms are connected to various DLPP / DP models, through Greene's theorems or local dynamics.
+Basically, the first row of the output tableau (or [[young_tableaux_gt_pattern|equivalently]] the first edge of the Gelfand-Tsetlin pattern) evolves in the same way as DLPP / DP model.
+One may equivalently say that the DLPP / DP are the RS(K) algorithms restricted to the first row of tableau / edge of GT pattern.
+
+*Example*. the $(\lambda^m_j(n))_{jmn}$ be the output GT patterns of the [[robinson_schensted_knuth|usual RSK algorithm]] taking matrix $A = (a_{ij})$. And recall the notation $Z_0(n, m)$ in [[discrete_dlpp_dp]].
+One can show that $(\lambda^m_1(n))_{mn}$ satisfies the same global ((1) in [[discrete_dlpp_dp]]) and local ((3) in [[discrete_dlpp_dp]]) formulas that define $(Z_0(m, n))_{mn}$.
+
+Using the same arguments, we establish the following correspondence:
+* The $(\lambda^m_1(n))$ of the output GT patterns of the $q$RSK algorithm are the same as the $q$DLPP. (Note this can be only shown by identification of the local formula as there is no global formula for $q$DLPP, see [[discrete_dlpp_dp#Open|the open problem in discrete_dlpp_dp]].
+* The $(\lambda^m_1(n))$ of the output GT patterns of the gRSK algorithm are the same as the directed polymer.
+* The $(\lambda^m_1(n))$ of the output GT patterns of the [[pitman_transform_type_a|Pitman's transform of type A]] are the same as the semi-discrete percolation.
+* The $(\lambda^m_1(n))$ of the output GT patterns of geometric lifting of the Pitman's transform are the same as the semi-discrete / O'Connell-Yor polymer.
