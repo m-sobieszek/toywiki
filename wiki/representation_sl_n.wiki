@@ -1,4 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 %title Representation theory of sl(n; C)
 %date 2017-06-30
 

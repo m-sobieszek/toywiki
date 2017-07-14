@@ -1,7 +1,9 @@
 %%<!-- -*- mode: text; -*- -->
-:markov_function_theorem:doob_transform:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 %title Markov-Doob integrability
 %date 2017-04-26
+:markov_function_theorem:doob_transform:
 
 The [[markov_function_theorem|Markov function theorem]] and [[doob_transform|Doob's transform]] can be combined to show certain "intergrability".
 

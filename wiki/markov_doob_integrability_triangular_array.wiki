@@ -1,7 +1,9 @@
 %%<!-- -*- mode: text; -*- -->
-:markov_function_theorem:doob_transform:intertwining_relation:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 %title Markov-Doob integrability on triangular arrays
 %date 2017-05-30
+:markov_function_theorem:doob_transform:intertwining_relation:
 
 We use the notation in [[markov_doob_integrability|Markov-Doob integrability]].
 When $S^\ell$ is a triangular array $(\lambda^k_j)_{1 \le j \le k \le \ell}$ and $T^\ell$ the space of the bottom row of the arrays $(\lambda^\ell_j)_{1 \le j \le \ell}$, equation (0) in [[markov_doob_integrability|Markov-Doob integrability]] can be further reduced to an equation between neighbouring rows.

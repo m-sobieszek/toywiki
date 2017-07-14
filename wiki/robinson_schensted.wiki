@@ -1,8 +1,10 @@
 %%<!-- -*- mode: text; -*- -->
-:robinson_schensted:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 
 %title Robinson-Schensted algorithm
 %date 2017-05-02
+:robinson_schensted:
 
 == Definitions ==
 The Robinson-Schensted (RS) algorithm is a combinatorial algorithm on Young tableaux.

@@ -1,8 +1,10 @@
 %%<!-- -*- mode: text; -*- -->
-:robinson_schensted:robinson_schensted_knuth:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 
 %title Robinson-Schensted-Knuth algorithms
 %date 2017-05-16
+:robinson_schensted:robinson_schensted_knuth:
 
 Recall the [[robinson_schensted|RS]] algorithms.
 

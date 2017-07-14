@@ -1,8 +1,10 @@
 %%<!-- -*- mode: text; -*- -->
-:macdonald_polynomials:macdonald_processes:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 
 %title Macdonald-RSK local move integrability
 %date 2017-04-26
+:macdonald_polynomials:macdonald_processes:
 
 Given an usual-RSK-type algorithm, let us write down the [[local_move_integrability|Local move integrability]] equation for the [[macdonald_processes_measures|Macdonald processes]].
 

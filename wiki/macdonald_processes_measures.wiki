@@ -1,8 +1,10 @@
 %%<!-- -*- mode: text; -*- -->
-:macdonald_processes:macdonald_measures:macdonald_polynomials:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 
 %title Macdonald processes and measures
 %date 2017-04-25
+:macdonald_processes:macdonald_measures:macdonald_polynomials:
 
 Macdonald measures can be found in [{forrester-rains02}].
 

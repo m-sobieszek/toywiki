@@ -1,8 +1,10 @@
 %%<!-- -*- mode: text; -*- -->
-:q_analogs:q_pochhammers:q_binomial_coefficients:q_vandermonde_chu_identity:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 
 %title $q$-Pochhammers
 %date 2017-04-25
+:q_analogs:q_pochhammers:q_binomial_coefficients:q_vandermonde_chu_identity:
 %%q-binomial coefficients
 %%q-deformed distributions
 %%q-CCR

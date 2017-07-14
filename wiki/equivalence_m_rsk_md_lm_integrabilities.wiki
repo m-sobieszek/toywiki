@@ -1,4 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 %title Equivalence between the Markov-Doob integrability and the local move integrability for usual-spec Macdonald RSK-type dynamics
 %date 2017-04-26
 :local_move:markov_doob_integrability:robinson_schensted_knuth:

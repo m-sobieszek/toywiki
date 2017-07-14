@@ -1,4 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 %title Geometric distributions
 %date 2017-05-04
 :geometric_distribution:q_deformation:

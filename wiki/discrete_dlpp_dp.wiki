@@ -1,4 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 %title Discrete directed last passage percolations and directed polymers
 %date 2017-05-29
 

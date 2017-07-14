@@ -1,8 +1,10 @@
 %%<!-- -*- mode: text; -*- -->
-:macdonald_polynomials:markov_function_theorem:doob_transform:macdonald_processes:macdonald_measures:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 
 %title Usual-spec Markov-Doob integrability for Macdonald processes
 %date 2017-04-25
+:macdonald_polynomials:markov_function_theorem:doob_transform:macdonald_processes:macdonald_measures:
 
 We write down [[markov_doob_integrability_triangular_array|usual-spec Markov-Doob integrability equation]] for [[macdonald_processes_measures|Macdonald processes]].
 

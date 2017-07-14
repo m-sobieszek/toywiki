@@ -1,8 +1,10 @@
 %%<!-- -*- mode: text; -*- -->
-:pitman_transform:robinson_schensted:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 
 %title RS algorithms as type-A Pitman's transforms
 %date 2017-05-23
+:pitman_transform:robinson_schensted:
 
 In this article we derive the type-A pitman's transform from the [[robinson_schensted|Robinson-Schensted algorithms]]. We start with the column insertion version, which can be found in [{oconnell03b}] and [{biane-bougerol-oconnell05}].
 Then we show the row insertion version, which is symmetric and quite similar to the column insertion version.

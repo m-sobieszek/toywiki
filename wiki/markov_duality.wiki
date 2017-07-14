@@ -1,4 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 %% find out if the duality in Warren's paper is the same as the duality in Swartz
 %% the implication of duality in the cases of q-TASEP and ASEP
 %% Relation to intertwining relation

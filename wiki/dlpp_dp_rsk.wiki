@@ -1,4 +1,6 @@
 %%<!-- -*- mode: text; -*- -->
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 %title Connection between various RS(K) algorithms and directed last passage percolation / directed polymer models
 %date 2017-07-14
 

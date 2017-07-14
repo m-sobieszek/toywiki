@@ -1,8 +1,10 @@
 %%<!-- -*- mode: text; -*- -->
-:robinson_schensted_knuth:robinson_schensted:pitman_transform:
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
 
 %title RSK algorithms as path transformations
 %date 2017-05-17
+:robinson_schensted_knuth:robinson_schensted:pitman_transform:
 
 We write the [[robinson_schensted_knuth|RSK]] algorithms as path transformations analogous to the [[rs_pitman_type_a|RS as Pitman's transform of type A]].
 The derivation is similar to that note.
