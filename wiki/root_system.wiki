@@ -31,6 +31,15 @@ Furthermore, if $\Delta$ and $R$ satisfy the following conditions we call $R$ a 
 
 We write $\Delta = \{\alpha_1, ..., \alpha_n\}$. $n$ is called the rank of $R$.
 
+Here is a table of the root systems of classical Lie algebras, a standard choice of their simple roots, the dimension of the host space $E$ and the number of all roots
+| Type  | $\Delta$                                                      | $q$     | $\#R$         |
+|-------|---------------------------------------------------------------|---------|---------------|
+| $A_n$ | $\{e_i - e_{i + 1}, i = 1 : n\}$                              | $n + 1$ | $n(n + 1)$    |
+| $B_n$ | $\{e_i - e_{i + 1}, i = 1 : n - 1\} \cup \{e_n\}$             | $n$     | $2 n^2$       |
+| $C_n$ | $\{e_i - e_{i + 1}, i = 1 : n - 1\} \cup \{2 e_n\}$           | $n$     | $2 n^2$       |
+| $D_n$ | $\{e_i - e_{i + 1}, i = 1 : n - 1\} \cup \{e_{n - 1} + e_n\}$ | $n$     | $2 n (n - 1)$ |
+Some discussion of $A_n$ can be found in the last section of [[representation_sl_n]].
+
 == The positive roots ==
 Denote the set of positive roots by $\Pi$ and the set of negative roots by $- \Pi = \{- \alpha: \alpha \in \Pi\}$.
 There are equal number of positive and negative roots: $|\Pi| = |- \Pi| =: N$.

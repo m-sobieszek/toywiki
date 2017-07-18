@@ -1,0 +1,111 @@
+%%<!-- -*- mode: text; -*- -->
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
+%title Pitman's transform
+%date 2017-07-17
+
+:pitman_transform:root_system:robinson_schensted:haskell:
+
+Recall that [[rs_pitman_type_a|the Robinson-Schensted algorithm (with column or row insertion) can be rewritten as the Pitman's transform of type A]].
+In this note we study the general version of the Pitman's transform as in [{biane-bougerol-oconnell05}], which is the primary source of this note.
+We describe what it is and show a Haskell implementation using [[root_system#The longest element|the longest elements of root systems calculated before]].
+
+We fix a [[root_system|root system]] $R$ with simple roots $\Delta$ and longest element $\sigma_0$.
+Recall from [[root_system|Root systems]] the Dynkin index $a_{\alpha\beta}$ and the vector space $E = \real^q$ where the roots live.
+
+Let $A$ be the space of $q$-dimensional functions on nonnegative integers with zero initial conditions: $A = \{f:\pint \to E, f(0) = 0\}$. 
+We call any $f$ in $A$ a path.
+
+Like the derivation of root systems which starts from simple reflections $s_\alpha$ for $\alpha \in \Delta$, the Pitman's transform is also built from operators $S_\alpha: A \to A$ for $\alpha \in \Delta$, which are defined in a similar way to the reflections as follows:
+{{$
+S_\alpha f (n) = f (n) - \min_{k = 0 : n} a_{\alpha, f(k)} \alpha.
+}}$
+
+Let $\sigma_0 = s_{\alpha_{i_N}} s_{\alpha_{i_{N - 1}}} ... s_{\alpha_{i_2}} s_{\alpha_{i_1}}$ be a reduced decomposition of the longest element.
+Then the Pitman's transform $P: A \to A$ is defined as
+{{$
+P = S_{\alpha_{i_N}} S_{\alpha_{i_{N - 1}}} ... S_{\alpha_{i_2}} S_{\alpha_{i_1}}
+}}$
+
+Here is the Haskell implementation (the complete source code can be found [[https://github.com/ycpei/mathkell/blob/master/Math/Combinatorics/PitmanTransform.hs|here]], also recall the `longestElement` function discussed in [[root_system]]):
+{{{class="haskell"
+-- |pitman t n xs is the Pitman's transform of type t_n acting on path xs. 
+-- |It pre-processes xs by prepending a row of zeros to the input 
+-- |and post-processes by removing the first row of the output
+pitman :: Type -> Int -> [[Q]] -> [[Q]]
+pitman t n xs = tail $ foldr s (prependWithZero xs) (longestElement $ simpleSystem t n)
+
+prependWithZero :: [[Q]] -> [[Q]]
+prependWithZero [] = []
+prependWithZero xs = (replicate (length $ head xs) 0) : xs
+
+-- |s alpha f: the cumulative infimum of twice the projection of path f on root alpha
+s :: [Q] -> [[Q]] -> [[Q]]
+s alpha f = f <<->> fmap (*> alpha) (cumMin $ dynkinIndex alpha <$> f) 
+
+cumMin :: [Q] -> [Q]
+cumMin = scanl1 min
+}}}
+
+We can test its agreement with the Robinson-Schensted algorithm (with column insertion) when $R$ is of type $A_n$ and the input path is converted from a word (namely the $S_{1 : q}$ defined in (1.3) of [[rs_pitman_type_a#Rank-any|RS algorithms as Pitman's Transform of type A]]).
+
+{{{class="haskell"
+-- |QuickCheck property that the Pitman's transform of type A coincides with RS algorithm
+-- |robinsonSchensted' is implemented here:
+-- |https://github.com/ycpei/mathkell/blob/master/Math/Combinatorics/RobinsonSchensted.hs
+prop_Pitman_RobinsonSchensted :: [Int] -> Bool
+prop_Pitman_RobinsonSchensted xs = 
+    let w = prop_Pitman_RobinsonSchensted_sanitise xs in
+        (pitmanAGTP $ word2Path w) == (gTPFromInt $ sSYT2GTP $ robinsonSchensted' w)
+
+prop_Pitman_RobinsonSchensted_sanitise :: [Int] -> Word Int
+prop_Pitman_RobinsonSchensted_sanitise = W . (fmap (\t -> abs t + 1))
+
+-- |Pitman's transform of type A
+pitmanA :: [[Q]] -> [[Q]]
+pitmanA [] = []
+pitmanA xs = 
+    let n = length $ head xs in
+        if n == 1 then xs else pitman A (n - 1) xs
+
+pitmanAShape :: [[Q]] -> [Q]
+pitmanAShape = last . pitmanA
+
+-- |RS via Pitman's transform of type A
+pitmanAGTP :: [[Q]] -> GTP Q
+pitmanAGTP = GTP . (pitmanAGTP' []) where 
+    pitmanAGTP' :: [[Q]] -> [[Q]] -> [[Q]]
+    pitmanAGTP' xs [] = xs
+    pitmanAGTP' xs ys = pitmanAGTP' ((pitmanAShape ys):xs) (L.transpose $ init $ L.transpose ys)
+
+*Main Test.QuickCheck> quickCheck prop_Pitman_RobinsonSchensted
++++ OK, passed 100 tests.
+}}}
+
+
+The definition of $P$ does not depend on the choice of the reduced decomposition.
+Let $C = \{x \in E: \braket{x, \alpha} \ge 0 \forall \alpha \in \Delta\}$ be the (closed) Weyl chamber of $R$ (with respect to $\Delta$, to be more pedantic).
+Another nice property of $P$ is that $P f(n) \in C$ for any $f \in A$ and $n \ge 0$.
+We can check this property, too.
+{{{class="haskell"
+-- |QuickCheck property that the output of the Pitman's transform is in the Weyl Chamber, for any type.
+prop_Pitman_WeylChamber :: Int -> Property
+prop_Pitman_WeylChamber m = let (t, n) = int2TypeInt m in
+    forAll (randomQMatrix $ dimensionOfHostSpace t n) (\xs -> isInWeylChamber (simpleSystem t n) (last $ pitman t n xs))
+    
+-- |QuickCheck generator that generates rational numbers with small numerators and denominators
+smallRational :: Gen Q
+smallRational = do
+    x <- smallInt
+    y <- smallInt
+    return $ (toInteger x) % (toInteger (abs y + 1))
+    
+smallInt :: Gen Int
+smallInt = getSmall <$> (arbitrary :: Gen (Small Int))
+
+randomQMatrix :: Int -> Gen [[Q]]
+randomQMatrix n = vectorOf 20 $ vectorOf n smallRational
+
+*Main Test.QuickCheck> quickCheck prop_Pitman_WeylChamber
++++ OK, passed 100 tests.
+}}}
