@@ -70,3 +70,6 @@ Let $a_1 = b = c = a_2 = 1$. The only nonvanishing summand is when $k = d = 0$, 
 g_1(1) = {(qt)_1 \over (t^2)_1} = {1 - qt \over 1 - t^2} \neq 1.
 }}$
 $\square$
+
+== Acknowledgement ==
+Thanks to Christian Krattenthaler who provided a counterexample $(a_1, b, c, a_2) = (12, 5, 5, 2)$ to show the falsehood of (5).

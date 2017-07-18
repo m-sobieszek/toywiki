@@ -7,7 +7,7 @@
 :burke_property:robinson_schensted_knuth:q-pochhammers:
 
 The Burke property is the simplest version of integrability of RSK-type dynamics of usual specialisation, whereas the [[burke_theorem|more accepted Burke's theorem]] corresponds to the integrability of RSK-type dynamics of _exponential specialisation_ (see [{oconnell-yor01}][{oconnell-yor02}]).
-The connection between the Burke properties and RSK algorithms is made possible via the [[discrete_dlpp_dp|DLPP and DP]].
+The connection between the Burke properties and [[robinson_schensted_knuth|RSK algorithms]] is made possible [[dlpp_dp_rsk|via]] the [[discrete_dlpp_dp|DLPP and DP]].
 In this entry we describe them without invoking RSK or DLPP or DP.
 
 The Burke property is: Given two triplets $U, V, X$ and $U', V', X'$, where $U, V, X$ are independent with certain distributions, and $U', V', X'$ are derived from the first triplets by some relations, then $(U', V', X')$ have the same distribution as $(U, V, X)$.
@@ -55,7 +55,7 @@ We focus on Case 5 for now. We first show a general result:
 {{$
 f_{m, n} (\ell) = {h_t(\ell) \over h_t(m) h_t(n)} F(m - \ell, n - \ell) \qquad (3.5)
 }}$ 
-for some $F$, and let $g_\alpha = qt$Geom$(e^{-\alpha})$. Then $f_{m, n}$ is a probability mass function if and only if the Burke property holds for $f_{m, n}$ and $g$
+for some $F$, and let $g_\alpha = qt$Geom$(e^{-\alpha})$. Then $f_{m, n}$ is a probability mass function if and only if the Burke property holds for $f_{m, n}$ and $g$.
 
 *Proof*. $f_{m, n}$ is a pmf iff
 {{$
