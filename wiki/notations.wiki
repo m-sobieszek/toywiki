@@ -13,4 +13,4 @@ Here I list meanings of notations that may have not been explained elsewhere.
 * $x_{i : j}$: Stands for the set $\{x_k: k = i : j\}$ or the sequence $(x_i, x_{i + 1}, ..., x_j)$, depending on the context. So are notations like $f(i : j)$, $y^{i : j}$ etc.
 * $\pint$: The set of natural numbers / nonnegative integer numbers $\{0, 1, 2,...\}$, whereas
 * $\pint_{>0}$ or $\pint^+$: Are the set of positive integer numbers.
-* $x^w$: When both $x$ and $w$ are tuples of objects, this means $\prod_i x_i^{w_i}$. For example say $w = (1, 2, 2, 1, 4, 2)$, and $x = x_{1 : 7}$, then $x^w = x_1^2 x_2^3 x_4$.
+* $x^w$: When both $x$ and $w$ are tuples of objects, this means $\prod_i x_{w_i}$. For example say $w = (1, 2, 2, 1, 4, 2)$, and $x = x_{1 : 7}$, then $x^w = x_1^2 x_2^3 x_4$.
