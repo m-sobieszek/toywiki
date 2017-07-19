@@ -14,3 +14,5 @@ Here I list meanings of notations that may have not been explained elsewhere.
 * $\pint$: The set of natural numbers / nonnegative integer numbers $\{0, 1, 2,...\}$, whereas
 * $\pint_{>0}$ or $\pint^+$: Are the set of positive integer numbers.
 * $x^w$: When both $x$ and $w$ are tuples of objects, this means $\prod_i x_{w_i}$. For example say $w = (1, 2, 2, 1, 4, 2)$, and $x = x_{1 : 7}$, then $x^w = x_1^2 x_2^3 x_4$.
+* $LHS$, LHS, $RHS$, RHS: left hand side and right hand side
+* $e_i$: the $i$th standard basis in a vector space: $e_i = (0, 0, ..., 0, 1, 0, 0, ...)$ where the sequence is finite or infinite depending on the dimension of the vector space and the $1$ is the $i$th entry and all other entries are $0$.

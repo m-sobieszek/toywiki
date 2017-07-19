@@ -26,6 +26,7 @@ notations
 pitman_transform
 pitman_transform_type_a
 q_pochhammers
+random_variable_monads
 representation_sl_n
 robinson_schensted
 robinson_schensted_knuth

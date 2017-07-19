@@ -1,0 +1,42 @@
+%%<!-- -*- mode: text; -*- -->
+%%Copyright (c) 2017 Yuchen Pei (me at ypei dot me)
+%%Licensed under CC-BY-SA 4.0
+%title Random variable monads
+%date 2017-07-19
+
+:haskell:monad:probability:
+
+In this note we give a mathematical translation of the monadic treatment to random variables in [[https://softwareengineering.stackexchange.com/a/202915|this amazing stackexchange answer]], which is my (figuratively) sixth attempt to understanding monads.
+We show the meanings of `return`, `bind` / `(>>=)`, `join`, `fmap` / `(<$>)` and `ap` / `(<*>)` and the monad laws in this concrete example.
+See [[https://hackage.haskell.org/package/base-4.9.1.0/docs/Control-Monad.html#t:Monad|Hackage]] for a clear and concise definition of monads.
+
+For notational consistency, we use capital letters for random variables in Haskell code, as is the convention in probability theory.
+We also use `==` to stand for derivation in Haskell code.
+
+For any state space $S$, let $R(S)$ be the space of random variables on $S$.
+In the following $S, T, P$ are notations of state spaces, and $X, Y, Z$ random variables.
+
+In the [[https://softwareengineering.stackexchange.com/a/202915|stackexchange answer]] (we ignore the psuedorandomness and pretend everything is truly random),
+* `return x` is defined as the atomic random variable $\delta_x$ 
+* For $f: S \to R(T)$, `X >>= f` is the random variable $\expe_X f(X)$.
+  It can be thought of in terms of conditional random variables.
+  Say $X \in R(S)$ and $Y \in R(T)$ are two random variables, and that $Y$ given $X = x$ is $f(x)$.
+  Then `X >>= f` is the (unconditional) random variable $Y$.
+* `join` can be derived from `(>>=)`: Let $X \in R(R(S))$ be a random random variable, then `join X = X >>= id` $= X >>= id_{R(S)} = \expe X$ is a random variable on $S$, obtained by averaging over the random variables $X$ can take values in.
+* `X >> Y` is simply $Y$.
+
+Deriving `fmap` / `(<$>)`:
+* And for $g: S \to T$, let $\mu_X$ be the distribution of $X$, then `fmap g X = X >>= (return . g)` $= \expe_X (\delta_{g(\cdot)})(X) = \int \delta_{g(x)} \mu_X(d x) = g(X)$ which agrees with the definition of the `randomMap` function in that answer.
+
+As for `ap` / `(<*>)`:
+* Let $F \in R(T^S)$ and $X \in R(S)$, then `F <*> X` is defined as `F <*> X = do {f <- F; x <- X; return (f x)} == do{f <- F; fmap f X} == F >>= (\f -> fmap f X)` which is equal to $\expe_F F(X)$, a random variable on $T$ by averaging over $F$.
+
+Now we translate the monad laws:
+* For $x \in S$ and $f: S \to R(T)$, `return x >>= f == f x`: $LHS = \delta_x >>= f = \expe_{X \sim \delta_x} f(X) = f(x) = RHS$.
+* For $X \in R(S)$, `X >>= return == X`: $LHS = \expe_X \delta_X = X = RHS$.
+* For $X \in R(S), f: S \to R(T), g: T \to R(P)$, `X >>= (\x -> f x >>= g) == (X >>= f) >>= g`: Suppose $Y \in R(T)$ and $Z \in R(P)$ such that $(Y|X = x) = f(x)$ and $(Z|Y = y) = g(y)$, then 
+  {{$%align%
+  LHS &= \expe_X (\expe_{f(\cdot)} g \circ f (\cdot)) (X) = \expe_X \expe_{Y|X = \cdot} g (Y|X = \cdot) = \expe_X (Z|X = \cdot) (X) = Z\\
+  RHS &= \expe_{\expe_X f(X)} g(\expe_X f(X)) = \expe_Y g(Y) = Z.
+  }}$
+  In the LHS we average first over $Y$ then over $X$ whereas in the RHS we average over $X$ then $Y$.
